@@ -1,0 +1,175 @@
+<!-- Quick View -->
+    <div id="quickViewBox" class="modal">   
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span data-close target-modal="quickViewBox" class="close">&times;</span>
+        <div class="quickViewBox-holder"></div>
+      </div>
+    </div>
+    <script>
+    // Get the modal
+    var modals = document.querySelectorAll('#quickViewBox.modal')
+      
+    var modalClose = document.querySelectorAll('#quickViewBox.modal .close')
+    
+    // Get the button that opens the modal
+    var modalBtn = document.querySelectorAll('[data-modal]');
+
+    var currentURL = window.location.href;
+    
+    // When the user clicks the button, open the modal 
+    /*for (let i = 0; i < modalBtn.length; i++) {
+      modalBtn[i].onclick = function() {
+      var targetModal = modalBtn[i].getAttribute('target-modal');
+      var modal = document.getElementById(targetModal);
+      modal.style.display = "block";
+      document.body.classList.add('modal-open');
+    }
+    }*/  
+    
+    // When the user clicks on <span> (x), close the modal  
+    for (let i = 0; i < modalClose.length; i++) {
+    modalClose[i].onclick = function() {
+      $('section#shopify-section-template--23310190707005__main').append(detached);
+      var closeTargetModal = modalClose[i].getAttribute('target-modal');
+      var closeModal = document.getElementById(closeTargetModal);
+      closeModal.style.display = "none";
+      document.body.classList.remove('modal-open');
+      $('.quickViewBox-holder .product__description_box, #quickViewBox.modal .product.product--medium.product--left.product--thumbnail_slider').remove();
+      $('span.variation-options-wrapper:first-of-type input[name="Size"]+label').click();
+      history.pushState({}, null, currentURL);
+    }
+    } 
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      for (let i = 0; i < modals.length; i++) {
+        if (event.target == modals[i]) {
+          $('section#shopify-section-template--23310190707005__main').append(detached);
+          modals[i].style.display = "none";
+          document.body.classList.remove('modal-open');
+          $('.quickViewBox-holder .product__description_box, #quickViewBox.modal .product.product--medium.product--left.product--thumbnail_slider').remove();
+          $('span.variation-options-wrapper:first-of-type input[name="Size"]+label').click();
+          history.pushState({}, null, currentURL);
+        }
+      }
+    }
+    var detached;
+    $(function () {
+        quickView = function (elm) {
+            // Now the object is $(elm)
+            $(elm).addClass('loading');
+            var quickViewUrl = $(elm).attr("data-source");
+        	$.ajax({
+        		type: "GET",
+        		url: quickViewUrl,
+        		data: { },
+        		success: function(data){
+        			//var newData = $(data).find('section#MainProduct-template--20209106813245__main').html();
+                    var newData = $(data).find('section.prod-page.page-width').html();
+        			$('.quickViewBox-holder').html(newData);
+                    //Hide other variations
+                    $('.quickViewBox-holder .variant-item').each(function() {
+                        var checkSelectedColor = '';
+                        if ($('.product-form__input input[name="Color"]:checked').val() !== undefined) {
+                          checkSelectedColor = $('.product-form__input input[name="Color"]:checked').val();
+                        } else if ($('.product-form__input input[name="Colour"]:checked').val() !== undefined) {
+                          checkSelectedColor = $('.product-form__input input[name="Colour"]:checked').val();
+                        }
+                        if ($(this).attr('color-value') === checkSelectedColor) {
+                            $(this).addClass('show');
+                        }
+                    })
+                    if ($('.quickViewBox-holder .select-order-type span.multiple-order').length > 0) {
+                      selectOrderType($('.quickViewBox-holder .select-order-type span.multiple-order'))
+                    }
+                    if ($('.product-form__input input[type=radio]:checked+label.with_color').length > 0) {
+                      $('.product-form__input input[type=radio]:checked+label.with_color')[0].click()
+                      $('button.prod-gallery-btn-prev').addClass('preventClick')
+                    }
+                    $(elm).removeClass('loading');
+        			$('#quickViewBox').show();
+                    detached = $('.prod-page').detach();
+                    
+        			$('body').addClass('modal-open');
+        		}	
+        	});
+        };
+    });
+    </script>
+    <style>
+      /* The Modal (background) */
+      #quickViewBox.modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 4%; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4);
+        z-index: 9;/* Black w/ opacity */
+      }
+      
+      /* Modal Content */
+      #quickViewBox .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 10px;
+            border: 1px solid #888;
+            width: 80%;
+            height: 80vh;
+            overflow: auto;
+      }
+      
+      /* The Close Button */
+      #quickViewBox.modal .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        z-index: 999;
+        position: relative;
+      }
+      
+      #quickViewBox.modal .close:hover,
+      #quickViewBox.modal .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      
+      @media (max-width: 767px) {
+      #quickViewBox .modal-content {
+          width: 100%;
+      }
+      }
+        
+      @media (max-width: 575px) {
+      #quickViewBox.modal {
+        padding-top: 0;
+        height: 100%;
+      }
+      #quickViewBox .modal-content {
+          padding: 10px;
+      }  
+      #quickViewBox.modal .close {
+          padding-right: 15px;
+      }  
+      #quickViewBox .modal-open {
+        overflow: hidden;
+      } 
+      #quickViewBox .modal-content {
+          width: 100%;
+          height: 100%;
+      }
+      }
+
+      .quickViewBox-holder product-recommendations,
+      .quickViewBox-holder .page-width.breadcrumbs-section {
+          display: none;
+      }
+    </style>

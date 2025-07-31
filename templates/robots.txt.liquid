@@ -1,0 +1,22 @@
+# we use Shopify as our ecommerce platform
+{%- comment -%}
+# Caution! Please read https://help.shopify.com/en/manual/promoting-marketing/seo/editing-robots-txt before proceeding to make changes to this file.
+{% endcomment %}
+{% for group in robots.default_groups %}
+  {{- group.user_agent -}}
+
+  {% for rule in group.rules %}
+    {{- rule -}}
+  {% endfor %}
+
+  {%- comment -%}Add Disallow rules for collections that should be hidden from robots{%- endcomment -%}
+  {%- for collection in collections -%}
+    {%- if collection.metafields.custom.hide_from_robots_file == true -%}
+      Disallow: {{ collection.url }}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if group.sitemap != blank -%}
+    {{ group.sitemap }}
+  {%- endif -%}
+{% endfor %}

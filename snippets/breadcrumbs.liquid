@@ -1,0 +1,127 @@
+{% unless template == 'index' or template == 'cart' or template == 'list-collections' or template == '404' %}
+
+{% assign t = template | split: '.' | first %}
+
+<nav test="{{ t }}" class="breadcrumbs" role="navigation" aria-label="breadcrumbs">
+  <ol>
+    <li>
+      <a href="/" title="Home">
+        <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <title>37BDDA2C-80AD-4D5C-9C83-1C295595639D</title>
+            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="Entity-Brands---Category-Page---Filter-Open-V3" transform="translate(-108.000000, -653.000000)" fill="#000000" fill-rule="nonzero">
+                    <g id="Home-Icon---Breadcrumbs" transform="translate(108.000000, 653.000000)">
+                        <path d="M13.3777699,4.36292185 C13.4325989,4.39809857 13.5028997,4.39809857 13.5577288,4.36292185 C13.6238896,4.34186846 13.6676402,4.27897843 13.664371,4.209627 L13.664371,0.997100272 C13.6607414,0.815659595 13.5125949,0.670515598 13.3311139,0.670515598 L10.998314,0.670515598 C10.8142612,0.670515598 10.6650569,0.81971656 10.6650569,1.00376527 L10.6650569,1.39699987 C10.6658889,1.48369182 10.6991825,1.56692389 10.7583689,1.63027463 L13.3777699,4.36292185 Z" id="Path"></path>
+                        <path d="M15.810547,7.86870828 L8.47889009,0.203966079 C8.35326333,0.0736308893 8.18002498,0 7.99899982,0 C7.81797467,0 7.64473632,0.0736308893 7.51910956,0.203966079 L0.187452692,7.86870828 C0.000627931509,8.06185629 -0.0519319834,8.3483014 0.0541498396,8.59519254 C0.160494275,8.83885719 0.401479452,8.99601791 0.667342959,8.99509213 L1.66711435,8.99509213 C1.75666666,8.99507422 1.84245786,9.03109778 1.90515087,9.09504322 C1.96784389,9.15898866 2.00216253,9.24547439 2.00037148,9.33500678 L2.00037148,15.000251 C2.00037148,15.5523971 2.44798438,16 3.00014287,16 L5.99945704,16 C6.3675627,16 6.6659713,15.7015981 6.6659713,15.3335007 L6.6659713,12.6675034 C6.6659713,11.9313086 7.2627885,11.3345047 7.99899982,11.3345047 C8.73521115,11.3345047 9.33202835,11.9313086 9.33202835,12.6675034 L9.33202835,15.3335007 C9.33202835,15.7015981 9.63043694,16 9.99854261,16 L12.9978568,16 C13.5500153,16 13.9976282,15.5523971 13.9976282,15.000251 L13.9976282,9.33500678 C13.9976282,9.15095808 14.1468325,9.00175712 14.3308853,9.00175712 L15.3306567,9.00175712 C15.5965202,9.0026829 15.8375054,8.84552218 15.9438498,8.60185753 C16.0529432,8.35314098 16.0002085,8.06310697 15.810547,7.86870828 Z" id="Path"></path>
+                    </g>
+                </g>
+            </g>
+        </svg>
+        Home
+      </a>
+    </li>
+
+  {% case t %}
+  {% when 'page' %}
+
+    <li>
+      <a href="{{ page.url }}" aria-current="page">{{ page.title }}</a>
+    </li>
+
+  {% when 'product' %}
+
+    {% if collection.url %}
+      <li>
+        {{ collection.title | link_to: collection.url }}
+      </li>
+    {% endif %}
+
+    <li>
+      <a href="{{ product.url }}" aria-current="page">{{ product.title }}</a>
+    </li>
+
+  {% when 'collection' and collection.handle %}
+
+    {% if current_tags %}
+      <li>{{ collection.title | link_to: collection.url }}</li>
+      <li>
+        {% capture tag_url %}{{ collection.url }}/{{ current_tags | join: "+"}}{% endcapture %}
+        <a href="{{ tag_url }}" aria-current="page">{{ current_tags | join: " + "}}</a>
+      </li>
+    {% else %}
+      <li>
+        <a href="{{ collection.url }}" aria-current="page">{{ collection.title }}</a>
+      </li>
+    {% endif %}
+
+  {% when 'blog' %}
+
+    {% if current_tags %}
+      <li>{{ blog.title | link_to: blog.url }}</li>
+      <li>
+        {% capture tag_url %}{{blog.url}}/tagged/{{ current_tags | join: "+" }}{% endcapture %}
+        <a href="{{ tag_url }}" aria-current="page">{{ current_tags | join: " + " }}</a>
+      </li>
+    {% else %}
+      <li>
+        <a href="{{ blog.url }}" aria-current="page">{{ blog.title }}</a>
+      </li>
+    {% endif %}
+
+  {% when 'article' %}
+
+    <li>{{ blog.title | link_to: blog.url }}</li>
+    <li>
+      <a href="{{ article.url }}" aria-current="page">{{ article.title }}</a>
+    </li>
+
+  {% else %}
+
+    <li aria-current="page">
+      <a href="{{ request.path }}" aria-current="page">{{ page_title }}</a>
+    </li>
+
+  {% endcase %}
+
+  </ol>
+</nav>
+{% endunless %}
+
+<style>
+  .breadcrumbs {
+  font-size: .85em;
+  margin: 0 0 2em;
+}
+
+.breadcrumbs ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumbs li {
+  display: inline-block;
+}
+
+.breadcrumbs a {
+  text-decoration: underline;
+}
+
+.breadcrumbs li:not(:last-child):after {
+  content: "›\00a0";
+  display: inline-block;
+  padding-left: .75ch;
+  speak: none;
+}
+
+.breadcrumbs [aria-current="page"] {
+  color: inherit;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.breadcrumbs [aria-current="page"]:hover,
+.breadcrumbs [aria-current="page"]:focus {
+  text-decoration: underline;
+}
+</style>

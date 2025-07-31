@@ -1,0 +1,248 @@
+{% comment %}
+  Renders product variant options
+
+  Accepts:
+  - product: {Object} product object.
+  - option: {Object} current product_option object.
+  - block: {Object} block object.
+
+
+  Usage:
+  {% render 'product-variant-options',
+    product: product,
+    option: option,
+    block: block
+  %}
+{% endcomment %}
+
+{%- liquid
+  assign variants_available_arr = product.variants | map: 'available'
+  assign variants_option1_arr = product.variants | map: 'option1'
+  assign variants_option2_arr = product.variants | map: 'option2'
+  assign variants_option3_arr = product.variants | map: 'option3'
+
+  assign product_form_id = 'product-form-' | append: section.id
+-%}
+<!-- debuging option with values -->
+{% assign option_counter = 0 %}
+{% for option in product.options_with_values %}
+  {% assign option_counter = option_counter | plus: 1 %}
+  <!-- Option {{ option_counter }}: {{ option.name }} -->
+  {% for value in option.values %}
+    <!-- &nbsp;&nbsp;Value: {{ value }} -->
+  {% endfor %}
+{% endfor %}
+
+{%- for value in option.values -%}
+  <span class="variation-options-wrapper">
+    {%- liquid
+      assign option_disabled = true
+
+      for option1_name in variants_option1_arr
+        case option.position
+          when 1
+            if variants_option1_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+              assign option_disabled = false
+            endif
+          when 2
+            if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+              assign option_disabled = false
+            endif
+          when 3
+            if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == product.selected_or_first_available_variant.option2 and variants_option3_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+              assign option_disabled = false
+            endif
+        endcase
+      endfor
+    -%}
+
+    {%- if option.name contains 'Size' -%}
+      <span
+        class="hide badge-helper"
+        {% assign data_bagde = '' %}
+        {%- for variant in product.variants -%}
+          {%- for option in variant.options -%}
+            {%- if option == value -%}
+              {% assign currentDateThumbSize2 = 'now' | date: '%s' | plus: 0 %}
+              {% assign productDateThumbSize2 = product.created_at | date: '%s' | plus: 0 %}
+              {% assign threeMonthsAgoThumbSize2 = currentDateThumbSize2 | minus: 7776000 %}
+
+              {% assign productStatusThumbSize2 = variant.metafields.custom.product_status_.value %}
+
+              {% if productStatusThumbSize2 %}
+                {% assign data_bagde2 = productStatusThumbSize2 %}
+              {% elsif variant.compare_at_price > variant.price %}
+                {% assign data_bagde2 = 'Sale' %}
+              {% elsif productDateThumbSize2 >= threeMonthsAgoThumbSize2 %}
+                {% assign data_bagde2NOT = 'New' %}
+              {% endif %}
+
+              {% assign option2_pure_1 = variant.option2 | replace: '/', '' | remove_last: '-' %}
+
+              {% assign option2_pureF_1 = option2_pure_1 | prepend: '-' %}
+
+              {% assign product_sku_pure_1 = variant.sku | replace: option2_pureF_1, '' %}
+
+              testsku="{{ variant.sku }}"
+
+              product_sku_pure="{{ product_sku_pure_1 }}"
+
+              {{ variant.option1 | handle }}-{{ value | handle }}="{{ data_bagde2 }}"
+
+              {%- if variant.option1 == product.selected_or_first_available_variant.option1 -%}
+                {% assign currentDateThumbSize = 'now' | date: '%s' | plus: 0 %}
+                {% assign productDateThumbSize = product.created_at | date: '%s' | plus: 0 %}
+                {% assign threeMonthsAgoThumbSize = currentDateThumbSize | minus: 7776000 %}
+
+                {% assign productStatusThumbSize = variant.metafields.custom.product_status_.value %}
+
+                {% if productStatusThumbSize %}
+                  {% assign data_bagde = productStatusThumbSize %}
+                {% elsif variant.compare_at_price > variant.price %}
+                  {% assign data_bagde = 'Sale' %}
+                {% elsif productDateThumbSize >= threeMonthsAgoThumbSize %}
+                  {% assign data_bagdeNOT = 'New' %}
+                {% endif %}
+              {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endfor -%}
+      ></span>
+    {%- endif -%}
+
+    {%- if option.name contains 'Color' or option.name contains 'Colour' -%}
+      <span
+        class="hide badge-helper t"
+        {%- assign product_metaobjects = '' -%}
+        {%- assign product_sku_pure = '' -%}
+        {% assign data_bagde = '' %}
+        {%- for variant in product.variants -%}
+          {%- for option in variant.options -%}
+            {%- if option == value -%}
+              {% assign currentDate1 = 'now' | date: '%s' | plus: 0 %}
+              {% assign productDate1 = product.created_at | date: '%s' | plus: 0 %}
+              {% assign threeMonthsAgo1 = currentDate1 | minus: 7776000 %}
+
+              {% assign productStatus1 = variant.metafields.custom.product_status_.value %}
+
+              {% assign option2_pure = variant.option2 | replace: '/', '' | remove_last: '-' %}
+
+              {% assign option2_pureF = option2_pure | prepend: '-' %}
+
+              {% assign product_sku_pure = variant.sku | replace: option2_pureF, '' %}
+
+              {% if productStatus1 %}
+                {% assign data_bagde1 = productStatus1 %}
+              {% elsif variant.compare_at_price > variant.price %}
+                {% assign data_bagde1 = 'Sale' %}
+              {% elsif productDate1 >= threeMonthsAgo1 %}
+                {% assign data_bagde1NOT = 'New' %}
+              {% endif %}
+
+              test="{{ variant.option2 }}"
+
+              testsku="{{ variant.sku }}"
+
+              product_sku_pure="{{ product_sku_pure }}"
+
+              {{ value | handle }}-{{ variant.option2 | handle }}="{{ data_bagde1 }}"
+
+              {%- if variant.option2 == product.selected_or_first_available_variant.option2 -%}
+                {% assign currentDate = 'now' | date: '%s' | plus: 0 %}
+                {% assign productDate = product.created_at | date: '%s' | plus: 0 %}
+                {% assign threeMonthsAgo = currentDate | minus: 7776000 %}
+
+                {% assign productStatus = variant.metafields.custom.product_status_.value %}
+
+                {% if productStatus %}
+                  {% assign data_bagde = productStatus %}
+                {% elsif variant.compare_at_price > variant.price %}
+                  {% assign data_bagde = 'Sale' %}
+                {% elsif productDate >= threeMonthsAgo %}
+                  {% assign data_bagdeNOT = 'New' %}
+                {% endif %}
+              {%- endif -%}
+
+              {% if variant.metafields.custom.variation_colorNOT.value.color_value != blank %}
+                {%- assign product_metaobjects = variant.metafields.custom.variation_color.value.color_value -%}
+              {%- endif -%}
+
+              {% if variant.metafields.custom.colour_swatch_url.value != blank %}
+                {%- assign product_metaobjects = variant.metafields.custom.colour_swatch_url.value -%}
+              {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endfor -%}
+      ></span>
+    {%- endif -%}
+    {%- if block.settings.picker_type == 'button' -%}
+      {%- if option.name contains 'Color' or option.name contains 'Colour' -%}
+        {% if product.tags contains 'bundle' %}
+          {% assign option_name_pure = option.name | split: '(' | first | handleize %}
+          {% assign option_value_pure = value %}
+          {% if product.metafields.custom.bundle_products %}
+            {% assign bundle_product_handles = product.metafields.custom.bundle_products.value %}
+            {% for bundle in bundle_product_handles %}
+              {% assign bundle_title_clean = bundle.title | strip | handleize %}
+              {% if option_name_pure == bundle_title_clean %}
+                {% for variant in bundle.variants %}
+                  {% if option_value_pure == variant.option1 %}
+                    {% if variant.metafields.custom.colour_swatch_url.value != blank %}
+                      {%- assign product_metaobjects = variant.metafields.custom.colour_swatch_url.value -%}
+                    {%- endif -%}
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+
+      <input
+        type="radio"
+        id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+        name="{{ option.name }}"
+        value="{{ value | escape }}"
+        test="{{ variant.option1 }}"
+        form="{{ product_form_id }}"
+        {% if option.selected_value == value %}
+          checked
+        {% endif %}
+        {% if option_disabled %}
+          class="disabled"
+        {% endif %}
+      >
+
+      <label
+        onClick="selectVariation(this)"
+        data-badge="{{ data_bagde }}"
+        data-value="{{ value | escape }}"
+        for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+        {% if option.name contains 'Color' or option.name contains 'Colour' %}
+          {% if product_metaobjects != blank %}
+            style="/*background: {{ product_metaobjects }} !important;outline: 3px solid {{ product_metaobjects }};*/ background-image: url('{{ product_metaobjects }}') !important;"
+          {% endif %}
+        {% endif %}
+        {%- if option.name contains 'Color' or option.name contains 'Colour' -%}
+          class="with_color"
+        {% endif %}
+      >
+        {{ value -}}
+        <span class="visually-hidden">{{ 'products.product.variant_sold_out_or_unavailable' | t }}</span>
+      </label>
+    {%- elsif block.settings.picker_type == 'dropdown' -%}
+      <option
+        value="{{ value | escape }}"
+        {% if option.selected_value == value %}
+          selected="selected"
+        {% endif %}
+      >
+        {% if option_disabled -%}
+          {{- 'products.product.value_unavailable' | t: option_value: value -}}
+        {%- else -%}
+          {{- value -}}
+        {%- endif %}
+      </option>
+    {%- endif -%}
+  </span>
+{%- endfor -%}
