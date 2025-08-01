@@ -11,14 +11,11 @@
       </div>
     </div>
     {% for variant in product.variants %}
-
-
      <script>console.log("variant log", {{variant | json}})</script> 
-
-
-      <div color-value="{{ variant.option1 }}" size-value="{{ variant.option1 }}" class="variant-item">
+     <script>console.log("product", {{product| json}})</script> 
+      <div color-value="{{ variant.option1 }}" size-value="{{ variant.option2}}" class="variant-item">
         <label for="variant-{{ variant.id }}">
-          {{ variant.option1 }}
+          {{ variant.option2 }}
         </label>
         <span class="variation_price_">{{ variant.price | money }}</span>
         <div class="variant_input_wrap">
