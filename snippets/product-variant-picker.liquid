@@ -25,7 +25,10 @@
           {% if option.name contains 'Size' %}
             <div class="select-order-type">
               <span onClick="selectOrderType(this)" class="active single-order">Single Order</span>
-              {% unless product.metafield.custom.hide_order_multiple_table == true %}
+              {% unless product.metafield.custom.hide_order_multiple_table | hideOrderMultiple == true %}
+                <script>
+                    console.log("Metafield value:", "{{ product.metafield.custom.hide_order_multiple_table }}");
+                </script>
                 <span onClick="selectOrderType(this)" class="multiple-order">Multiple Order</span>
               {% endunless %}
             </div>
