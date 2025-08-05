@@ -27,6 +27,7 @@
               <span onClick="selectOrderType(this)" class="active single-order">Single Order</span>
               <script>
                 console.log("prod object",{{product | json}})
+                console.log({{ product.metafields | json }});
               </script>
               {% unless product.metafield.custom.hide_order_multiple_table == true %}
                 <script>
