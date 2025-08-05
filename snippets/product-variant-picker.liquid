@@ -38,7 +38,8 @@
 
               {% unless product.metafields.custom.hide_order_multiple_table.value == true %}
                 <script>
-                  console.log("Metafield value:", "{{ product.metafields.custom.hide_order_multiple_table }}");
+                  console.log("Metafield value:", "{{ product.metafields.custom.hide_order_multiple_table.value }}");
+                  console.log("Metafield type:", "{{ product.metafields.custom.hide_order_multiple_table.type }}");
                 </script>
                 <span onClick="selectOrderType(this)" class="multiple-order">Multiple Order</span>
               {% endunless %}
