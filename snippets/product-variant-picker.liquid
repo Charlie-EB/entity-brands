@@ -30,12 +30,6 @@
                 console.log("prod metafields",{{ product.metafields }});
 
               </script>
-              <ul>
-                {% for mf in product.metafields.custom %}
-                  <li>{{ mf.namespace }}.{{ mf.key }} = {{ mf.value }}</li>
-                {% endfor %}
-              </ul>
-
               {% unless product.metafields.custom.hide_order_multiple_table.value == true %}
                 <script>
                   console.log("Metafield value:", "{{ product.metafields.custom.hide_order_multiple_table.value }}");
