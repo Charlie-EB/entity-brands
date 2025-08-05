@@ -25,14 +25,15 @@
           {% if option.name contains 'Size' %}
             <div class="select-order-type">
               <span onClick="selectOrderType(this)" class="active single-order">Single Order</span>
-            {% comment %}
-              {% unless product.metafield.custom.hide_order_multiple_table == true %}
               <script>
-              console.log("Metafield value:", "{{ product.metafield.custom.hide_order_multiple_table }}");
+                console.log("prod object",{{product}})
               </script>
-              <span onClick="selectOrderType(this)" class="multiple-order">Multiple Order</span>
+              {% unless product.metafield.custom.hide_order_multiple_table == true %}
+                <script>
+                  console.log("Metafield value:", "{{ product.metafield.custom.hide_order_multiple_table }}");
+                </script>
+                <span onClick="selectOrderType(this)" class="multiple-order">Multiple Order</span>
               {% endunless %}
-            {% endcomment %}
             </div>
           {% endif %}
           <fieldset class="js product-form__input {{ option.name | replace: ' ', '-' }}-field-set">
