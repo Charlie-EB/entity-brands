@@ -23,7 +23,7 @@
         "template--21557584986429__0ecfebae-285a-4bb9-8042-4caaa867fdd9-heading-1": {
           "type": "heading",
           "settings": {
-            "heading": "About Us",
+            "heading": "Apply For An Account",
             "heading_size": "h1"
           }
         },
@@ -47,162 +47,90 @@
         "padding_bottom": 52
       }
     },
-    "bc50ce03-380e-450e-ae39-9eb2e1172d72": {
-      "type": "multicolumn",
+    "rich_text_3QWg6t": {
+      "type": "rich-text",
       "blocks": {
-        "template--21557584986429__bc50ce03-380e-450e-ae39-9eb2e1172d72-column-1": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Invest_in_each_other.png",
-            "title": "",
-            "text": "<p>Invest in each other</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "template--21557584986429__bc50ce03-380e-450e-ae39-9eb2e1172d72-column-2": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Respect_each_customer.png",
-            "title": "",
-            "text": "<p>Respect the customer</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "template--21557584986429__bc50ce03-380e-450e-ae39-9eb2e1172d72-column-3": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Make_it_happen.png",
-            "title": "",
-            "text": "<p>Make it happen</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "dc7b505f-bad4-4987-9883-6c34d270c137": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/grow.png",
-            "title": "",
-            "text": "<p>Consciously<br/>grow and<br/>innovate</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "9f25e6cd-a91c-4e1e-a2e9-cfd407425fc9": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Have_fun.png",
-            "title": "",
-            "text": "<p>Have fun!</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "template--21557584986429__bc50ce03-380e-450e-ae39-9eb2e1172d72-column-1",
-        "template--21557584986429__bc50ce03-380e-450e-ae39-9eb2e1172d72-column-2",
-        "template--21557584986429__bc50ce03-380e-450e-ae39-9eb2e1172d72-column-3",
-        "dc7b505f-bad4-4987-9883-6c34d270c137",
-        "9f25e6cd-a91c-4e1e-a2e9-cfd407425fc9"
-      ],
-      "disabled": true,
-      "settings": {
-        "custom_class": "",
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "half",
-        "image_ratio": "adapt",
-        "columns_desktop": 5,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 36,
-        "padding_bottom": 0
-      }
-    },
-    "image_with_text_FmEgaa": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_HqUAyC": {
+        "heading_JNgTTz": {
           "type": "heading",
           "settings": {
-            "heading": "Our Story",
+            "heading": "Stockist or Agent",
             "heading_size": "h1"
           }
         },
-        "text_pJ4iBa": {
+        "text_hQdaKh": {
           "type": "text",
           "settings": {
-            "text": "<p>Entity Brands was founded in 2016 by Jonathan Brown with the purpose of providing high-quality workwear solutions.</p><p>Founded on the principles of family, service and value; the brands we partner with carry the same ethos, with a focus on sustainable practices, community benefit programs, and superior quality.</p><p>Today, Jonathan's legacy continues under the leadership of his son, Shannon Brown, who now drives the business from our Sydney headquarters.<br/><br/></p>",
-            "text_style": "body"
+            "text": "<p>You have a shopfront and you want to stock our brands. Or you are an Agent and you want to resell our brands. </p>"
+          }
+        },
+        "button_hBEB7j": {
+          "type": "button",
+          "settings": {
+            "button_label": "APPLY HERE",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
       "block_order": [
-        "heading_HqUAyC",
-        "text_pJ4iBa"
+        "heading_JNgTTz",
+        "text_hQdaKh",
+        "button_hBEB7j"
       ],
-      "name": "t:sections.image-with-text.presets.name",
+      "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "custom_class": "",
-        "image": "shopify://shop_images/JOnny_Shannon_Webshot_Dec24.jpg",
-        "height": "small",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
         "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     },
-    "image_with_text_wygnUy": {
-      "type": "image-with-text",
+    "rich_text_DTDYwb": {
+      "type": "rich-text",
       "blocks": {
-        "heading_FPPyyP": {
+        "heading_GbL9Wt": {
           "type": "heading",
           "settings": {
-            "heading": "Our Solutions",
+            "heading": "Uniforms for your Business",
             "heading_size": "h1"
           }
         },
-        "text_GqHGQX": {
+        "text_CWd6FQ": {
           "type": "text",
           "settings": {
-            "text": "<p>Our team advises small and large businesses across a wide range of sectors. We take pride in being able to offer a large selection of quality global brands. Our size means our clients enjoy choice, more personalised attention, prompt service and effective solutions.</p>",
-            "text_style": "body"
+            "text": "<p>You are after uniforms for your team/business, or merch that will stand out. </p>"
+          }
+        },
+        "button_6R3Uqw": {
+          "type": "button",
+          "settings": {
+            "button_label": "APPLY HERE",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
       "block_order": [
-        "heading_FPPyyP",
-        "text_GqHGQX"
+        "heading_GbL9Wt",
+        "text_CWd6FQ",
+        "button_6R3Uqw"
       ],
-      "name": "t:sections.image-with-text.presets.name",
+      "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "custom_class": "",
-        "image": "shopify://shop_images/EB_UniformsWithImpact-01_b23601f3-5ff3-43cd-a935-e000e2e33cb4.png",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
         "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     },
     "image_with_text_YC6tgr": {
@@ -257,9 +185,8 @@
   "order": [
     "main",
     "0ecfebae-285a-4bb9-8042-4caaa867fdd9",
-    "bc50ce03-380e-450e-ae39-9eb2e1172d72",
-    "image_with_text_FmEgaa",
-    "image_with_text_wygnUy",
+    "rich_text_DTDYwb",
+    "rich_text_3QWg6t",
     "image_with_text_YC6tgr"
   ]
 }
