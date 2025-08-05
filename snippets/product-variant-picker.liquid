@@ -17,35 +17,55 @@
       data-section="{{ section.id }}"
       data-url="{{ product.url }}"
       {% if update_url == false %}
-        data-update-url="false"
+      data-update-url="false"
       {% endif %}
-      {{ block.shopify_attributes }}
-    >
+      {{ block.shopify_attributes }}>
       {%- for option in product.options_with_values -%}
         {% if customer.b2b? %}
           {% if option.name contains 'Size' %}
-          <div class="select-order-type">
-            <span onClick="selectOrderType(this)" class="active single-order">Single Order</span>
-            <span onClick="selectOrderType(this)" class="multiple-order">Multiple Order</span>
-          </div>
+            <div class="select-order-type">
+              <span onClick="selectOrderType(this)" class="active single-order">Single Order</span>
+                <span onClick="selectOrderType(this)" class="multiple-order">Multiple Order</span>
+            </div>
           {% endif %}
           <fieldset class="js product-form__input {{ option.name | replace: ' ', '-' }}-field-set">
             {% if option.name contains 'Size' %}
-            <div class="size-dispatch-time-box">
-              <legend class="form__label">{{ option.name }} Selected: <span class="{{ option.name }}-option option-selected">{% if option.selected_value %}{{ option.selected_value }}{% endif %}</span></legend>
-              <span class="dispatch-time">1-2 Days Dispatch</span>
-            </div>
+              <div class="size-dispatch-time-box">
+                <legend class="form__label">{{ option.name }} Selected:
+                  <span class="{{ option.name }}-option option-selected">
+                    {% if option.selected_value %}
+                      {{ option.selected_value }}{% endif %}
+                  </span>
+                </legend>
+                <span class="dispatch-time">1-2 Days Dispatch</span>
+              </div>
             {% else %}
-              <legend class="form__label">{{ option.name }} Selected: <span class="{{ option.name }}-option option-selected">{% if option.selected_value %}{{ option.selected_value }}{% endif %}</span></legend>
-              
+              <legend class="form__label">{{ option.name }} Selected:
+                <span class="{{ option.name }}-option option-selected">
+                  {% if option.selected_value %}
+                    {{ option.selected_value }}{% endif %}
+                </span>
+              </legend>
+
             {% endif %}
-            {% render 'product-variant-options', product: product, option: option, block: block %}
+            {% render 'product-variant-options'
+              , product: product
+              , option: option
+              , block: block %}
           </fieldset>
         {% else %}
           {% if option.name contains 'Color' or option.name contains 'Colour' %}
             <fieldset class="js product-form__input">
-              <legend class="form__label">{{ option.name }} Selected: <span class="{{ option.name }}-option option-selected">{% if option.selected_value %}{{ option.selected_value }}{% endif %}</span></legend>
-              {% render 'product-variant-options', product: product, option: option, block: block %}
+              <legend class="form__label">{{ option.name }} Selected:
+                <span class="{{ option.name }}-option option-selected">
+                  {% if option.selected_value %}
+                    {{ option.selected_value }}{% endif %}
+                </span>
+              </legend>
+              {% render 'product-variant-options'
+                , product: product
+                , option: option
+                , block: block %}
             </fieldset>
           {% endif %}
         {% endif %}
@@ -61,10 +81,9 @@
       data-section="{{ section.id }}"
       data-url="{{ product.url }}"
       {% if update_url == false %}
-        data-update-url="false"
+      data-update-url="false"
       {% endif %}
-      {{ block.shopify_attributes }}
-    >
+      {{ block.shopify_attributes }}>
       {%- for option in product.options_with_values -%}
         <div class="product-form__input product-form__input--dropdown">
           <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
@@ -75,9 +94,11 @@
               id="Option-{{ section.id }}-{{ forloop.index0 }}"
               class="select__select"
               name="options[{{ option.name | escape }}]"
-              form="{{ product_form_id }}"
-            >
-              {% render 'product-variant-options', product: product, option: option, block: block %}
+              form="{{ product_form_id }}">
+              {% render 'product-variant-options'
+                , product: product
+                , option: option
+                , block: block %}
             </select>
             {% render 'icon-caret' %}
           </div>
@@ -101,18 +122,16 @@
         name="id"
         id="Variants-{{ section.id }}"
         class="select__select"
-        form="{{ product_form_id }}"
-      >
+        form="{{ product_form_id }}">
         {%- for variant in product.variants -%}
           <option
             {% if variant == product.selected_or_first_available_variant %}
-              selected="selected"
+            selected="selected"
             {% endif %}
             {% if variant.available == false %}
-              disabled
+            disabled
             {% endif %}
-            value="{{ variant.id }}"
-          >
+            value="{{ variant.id }}">
             {%- liquid
               echo variant.title
               echo variant.price | money | strip_html | prepend: ' - '
