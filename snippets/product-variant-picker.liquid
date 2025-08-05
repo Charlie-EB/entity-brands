@@ -29,7 +29,7 @@
                 console.log("prod object",{{product | json}})
                 console.log("prod metafields",{{ product.metafields }});
               </script>
-              {% unless product.metafields.custom.hide_order_multiple_table == true %}
+              {% unless product.metafields.custom.hide_order_multiple_table.value == true %}
                 <script>
                   console.log("Metafield value:", "{{ product.metafields.custom.hide_order_multiple_table }}");
                 </script>
