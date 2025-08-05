@@ -27,11 +27,11 @@
               <span onClick="selectOrderType(this)" class="active single-order">Single Order</span>
               <script>
                 console.log("prod object",{{product | json}})
-                console.log({{ product.metafields }});
+                console.log("prod metafields",{{ product.metafields }});
               </script>
-              {% unless product.metafield.custom.hide_order_multiple_table == true %}
+              {% unless product.metafields.custom.hide_order_multiple_table == true %}
                 <script>
-                  console.log("Metafield value:", "{{ product.metafield.custom.hide_order_multiple_table }}");
+                  console.log("Metafield value:", "{{ product.metafields.custom.hide_order_multiple_table }}");
                 </script>
                 <span onClick="selectOrderType(this)" class="multiple-order">Multiple Order</span>
               {% endunless %}
