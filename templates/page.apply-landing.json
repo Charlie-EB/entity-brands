@@ -47,6 +47,49 @@
         "padding_bottom": 52
       }
     },
+    "rich_text_DTDYwb": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_GbL9Wt": {
+          "type": "heading",
+          "settings": {
+            "heading": "Uniforms For Your Business",
+            "heading_size": "h1"
+          }
+        },
+        "text_CWd6FQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>You are after uniforms for your team/business, or merch that will stand out. </p>"
+          }
+        },
+        "button_6R3Uqw": {
+          "type": "button",
+          "settings": {
+            "button_label": "APPLY HERE",
+            "button_link": "shopify://pages/uniform-solutions",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_GbL9Wt",
+        "text_CWd6FQ",
+        "button_6R3Uqw"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "rich_text_3QWg6t": {
       "type": "rich-text",
       "blocks": {
@@ -67,7 +110,7 @@
           "type": "button",
           "settings": {
             "button_label": "APPLY HERE",
-            "button_link": "",
+            "button_link": "shopify://pages/apply",
             "button_style_secondary": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -75,46 +118,11 @@
           }
         }
       },
-      "block_order": ["heading_JNgTTz", "text_hQdaKh", "button_hBEB7j"],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
-    "rich_text_DTDYwb": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_GbL9Wt": {
-          "type": "heading",
-          "settings": {
-            "heading": "Uniforms for your Business",
-            "heading_size": "h1"
-          }
-        },
-        "text_CWd6FQ": {
-          "type": "text",
-          "settings": {
-            "text": "<p>You are after uniforms for your team/business, or merch that will stand out. </p>"
-          }
-        },
-        "button_6R3Uqw": {
-          "type": "button",
-          "settings": {
-            "button_label": "APPLY HERE",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": ["heading_GbL9Wt", "text_CWd6FQ", "button_6R3Uqw"],
+      "block_order": [
+        "heading_JNgTTz",
+        "text_hQdaKh",
+        "button_hBEB7j"
+      ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
@@ -138,7 +146,7 @@
         "text_kMnedE": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Dedicated Account Manager.</li><li>Special industry pricing.</li><li>We service all business sizes and types, from corporate to restaurant chains.</li><li>Customised ordering portals for multi-location accounts.</li><li>In-house Embroidery and Screen Printing services.</li><li>High-tech, automated Distribution Center with stocked inventory.</li><li>Quick turnaround and response rate.</li></ul>",
+            "text": "<ul><li>Dedicated Account Manager.</li><li>Special industry pricing.</li><li>We service all business sizes and types, from corporate to restaurant chains.</li><li>Customised ordering portals for multi-location accounts.</li><li>In-house Embroidery and Printing services.</li><li>High-tech, automated Distribution Center with stocked inventory.</li><li>Quick turnaround and response rate.</li></ul>",
             "text_style": "body"
           }
         },
@@ -151,7 +159,11 @@
           }
         }
       },
-      "block_order": ["heading_ywyGtd", "text_kMnedE", "button_JcPjFa"],
+      "block_order": [
+        "heading_ywyGtd",
+        "text_kMnedE",
+        "button_JcPjFa"
+      ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "custom_class": "",
