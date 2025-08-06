@@ -3,41 +3,49 @@
     <h2>{{ section.settings.section_title }}</h2>
   {% endif %}
   <div class="brands-section-row">
-  {% assign custom_order = "Port & Company,Sport-Tek,Ogio Endurance,District,Ogio,Bella + Canvas,Red Kap,Cornerstone" | split: ',' %}
+    {% assign custom_order = 'Port & Company,Sport-Tek,Ogio Endurance,District,Ogio,Bella + Canvas,Red Kap,Cornerstone'
+      | split: ','
+    %}
 
-{% assign sorted_collections = collections | sort: "title" %}
+    {% assign sorted_collections = collections | sort: 'title' %}
 
-{% for brand in custom_order %}
-    {% for collection in collections %}
+    {% for brand in custom_order %}
+      {% for collection in collections %}
         {% if collection.title == brand and collection.metafields.custom.brand_logo %}
-            <a href="{{ collection.url }}" class="brand-item">
-                <img loading="lazy" src="{{ collection.metafields.custom.brand_logo | img_url: 'medium' }}" alt="{{ collection.title }}">
-            </a>
+          <a href="{{ collection.url }}" class="brand-item">
+            <img
+              loading="lazy"
+              src="{{ collection.metafields.custom.brand_logo | img_url: 'medium' }}"
+              alt="{{ collection.title }}"
+            >
+          </a>
         {% endif %}
+      {% endfor %}
     {% endfor %}
-{% endfor %}
 
-<!-- Display remaining collections in natural order that are not in custom_order -->
-{% for collection in sorted_collections %}
-    {% unless custom_order contains collection.title %}
+    <!-- Display remaining collections in natural order that are not in custom_order -->
+    {% for collection in sorted_collections %}
+      {% unless custom_order contains collection.title %}
         {% if collection.metafields.custom.brand_logo %}
-            <a href="{{ collection.url }}" class="brand-item">
-                <img loading="lazy" src="{{ collection.metafields.custom.brand_logo | img_url: 'medium' }}" alt="{{ collection.title }}">
-            </a>
+          <a href="{{ collection.url }}" class="brand-item">
+            <img
+              loading="lazy"
+              src="{{ collection.metafields.custom.brand_logo | img_url: 'medium' }}"
+              alt="{{ collection.title }}"
+            >
+          </a>
         {% endif %}
-    {% endunless %}
-{% endfor %}
-
+      {% endunless %}
+    {% endfor %}
   </div>
 </div>
 
 <style>
-.brands-section {
+  .brands-section {
     margin-bottom: 30px;
-}
+  }
 
-
-.brands-section h2 {
+  .brands-section h2 {
     color: #040707;
     font-size: 27px;
     font-weight: 300;
@@ -47,118 +55,118 @@
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 20px;
-}
-  
-.brands-section-row {
+  }
+
+  .brands-section-row {
     display: flex;
     margin: 0 -10px;
-}
+  }
 
-.brands-section-row .slick-track {
+  .brands-section-row .slick-track {
     display: flex !important;
-}
+  }
 
-a.brand-item:hover img {
+  a.brand-item:hover img {
     transform: scale(1.05);
-}
+  }
 
-a.brand-item {
+  a.brand-item {
     height: inherit !important;
     display: flex;
     align-items: center;
     padding: 10px;
-}
+  }
 
-a.brand-item img {
+  a.brand-item img {
     padding: 10px;
     /*border: 1px solid #ddd;*/
     height: 100%;
     width: 100%;
     object-fit: contain;
     transition: 0.3s ease all;
-}
+  }
 
-svg.btn-slick-prev.slick-arrow {
+  svg.btn-slick-prev.slick-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: -20px;
     cursor: pointer;
-}
+  }
 
-svg.btn-slick-next.slick-arrow {
+  svg.btn-slick-next.slick-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     right: -20px;
     cursor: pointer;
-}
+  }
 
+  @media screen and (max-width: 989px) {
+    .brands-section-row {
+      margin: 0;
+      padding: 0 27.5px;
+    }
 
+    a.brand-item {
+      padding: 0 7.5px;
+    }
 
-@media screen and (max-width: 989px) {
-.brands-section-row {
-    margin: 0;
-    padding: 0 27.5px;
-}
+    svg.btn-slick-prev.slick-arrow {
+      left: 5px;
+    }
 
-a.brand-item {
-    padding: 0 7.5px;
-}
+    svg.btn-slick-next.slick-arrow {
+      right: 5px;
+    }
 
-svg.btn-slick-prev.slick-arrow {
-    left: 5px;
-}
-
-svg.btn-slick-next.slick-arrow {
-    right: 5px;
-}
-
-.brands-section-row .slick-arrow {
-    opacity: 0;
-}
-}
+    .brands-section-row .slick-arrow {
+      opacity: 0;
+    }
+  }
 </style>
 
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 <script type="text/javascript" language="javascript">
-	$(".brands-section-row").slick({
-		lazyLoad:'progressive',
-		infinite: true,
-		autoplay: true,
-		autoplaySpeed: 2500,
-		slidesToShow: 8,
-		slidesToScroll: 1,
-				prevArrow: '<svg class="btn-slick-prev" width="15.6360011px" height="27.6360022px" viewBox="0 0 15.6360011 27.6360022" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>Arrow Left</title><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g id="Entity-Brands---Product-Page---Logged-In---Multiple-Order-V3" transform="translate(-322.182000, -690.181999)" stroke="#000000" stroke-width="3.636"><g id="Arrow-Left" transform="translate(324.000000, 692.000000)"><path d="M12,24 L0.241052189,12.5653333 C0.0867209024,12.4154717 0,12.2120875 0,12 C0,11.7879125 0.0867209024,11.5845283 0.241052189,11.4346667 L12,0" id="Path"></path></g></g></g></svg>',
-				nextArrow: '<svg class="btn-slick-next" width="15.6360011px" height="27.6360022px" viewBox="0 0 15.6360011 27.6360022" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>Arrow Right</title><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g id="Entity-Brands---Product-Page---Logged-In---Multiple-Order-V3" transform="translate(-891.181999, -690.181999)" stroke="#000000" stroke-width="3.636"><g id="Arrow-Right" transform="translate(899.000000, 704.000000) scale(-1, 1) translate(-899.000000, -704.000000) translate(893.000000, 692.000000)"><path d="M12,24 L0.241052189,12.5653333 C0.0867209024,12.4154717 0,12.2120875 0,12 C0,11.7879125 0.0867209024,11.5845283 0.241052189,11.4346667 L12,0" id="Path"></path></g></g></g></svg>',
-		responsive: [
-		  {
-			breakpoint: 1599,
-			settings: {
-			  slidesToShow: 6,
-			  slidesToScroll: 1,
-			  infinite: true
-			}
-		  },
-		  {
-			breakpoint: 1199,
-			settings: {
-			  slidesToShow: 4,
-			  slidesToScroll: 1,
-			  infinite: true
-			}
-		  },
-		  {
-			breakpoint: 767,
-			settings: {
-			  slidesToShow: 2,
-			  slidesToScroll: 1
-			}
-		  }
-		]
-	  });
+  $('.brands-section-row').slick({
+    lazyLoad: 'progressive',
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 2500,
+    slidesToShow: 8,
+    slidesToScroll: 1,
+    prevArrow:
+      '<svg class="btn-slick-prev" width="15.6360011px" height="27.6360022px" viewBox="0 0 15.6360011 27.6360022" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>Arrow Left</title><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g id="Entity-Brands---Product-Page---Logged-In---Multiple-Order-V3" transform="translate(-322.182000, -690.181999)" stroke="#000000" stroke-width="3.636"><g id="Arrow-Left" transform="translate(324.000000, 692.000000)"><path d="M12,24 L0.241052189,12.5653333 C0.0867209024,12.4154717 0,12.2120875 0,12 C0,11.7879125 0.0867209024,11.5845283 0.241052189,11.4346667 L12,0" id="Path"></path></g></g></g></svg>',
+    nextArrow:
+      '<svg class="btn-slick-next" width="15.6360011px" height="27.6360022px" viewBox="0 0 15.6360011 27.6360022" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>Arrow Right</title><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g id="Entity-Brands---Product-Page---Logged-In---Multiple-Order-V3" transform="translate(-891.181999, -690.181999)" stroke="#000000" stroke-width="3.636"><g id="Arrow-Right" transform="translate(899.000000, 704.000000) scale(-1, 1) translate(-899.000000, -704.000000) translate(893.000000, 692.000000)"><path d="M12,24 L0.241052189,12.5653333 C0.0867209024,12.4154717 0,12.2120875 0,12 C0,11.7879125 0.0867209024,11.5845283 0.241052189,11.4346667 L12,0" id="Path"></path></g></g></g></svg>',
+    responsive: [
+      {
+        breakpoint: 1599,
+        settings: {
+          slidesToShow: 6,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 1199,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  });
 </script>
 
 {% schema %}

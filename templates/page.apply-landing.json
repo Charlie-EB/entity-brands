@@ -75,11 +75,7 @@
           }
         }
       },
-      "block_order": [
-        "heading_JNgTTz",
-        "text_hQdaKh",
-        "button_hBEB7j"
-      ],
+      "block_order": ["heading_JNgTTz", "text_hQdaKh", "button_hBEB7j"],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
@@ -118,11 +114,7 @@
           }
         }
       },
-      "block_order": [
-        "heading_GbL9Wt",
-        "text_CWd6FQ",
-        "button_6R3Uqw"
-      ],
+      "block_order": ["heading_GbL9Wt", "text_CWd6FQ", "button_6R3Uqw"],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
@@ -159,11 +151,7 @@
           }
         }
       },
-      "block_order": [
-        "heading_ywyGtd",
-        "text_kMnedE",
-        "button_JcPjFa"
-      ],
+      "block_order": ["heading_ywyGtd", "text_kMnedE", "button_JcPjFa"],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "custom_class": "",

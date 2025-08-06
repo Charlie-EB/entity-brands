@@ -17,35 +17,76 @@
         </label>
         <span class="variation_price_">{{ variant.price | money }}</span>
         <div class="variant_input_wrap">
-          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-minus js-qty-down" fill="none" viewBox="0 0 10 2"><path fill-rule="evenodd" clip-rule="evenodd" d="M.5 1C.5.7.7.5 1 .5h8a.5.5 0 110 1H1A.5.5 0 01.5 1z" fill="currentColor">
-          </path></svg>
-          <input class="js-qty-input" type="number" id="variant-{{ variant.id }}" name="quantity_{{ variant.id }}" value="0" min="0">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            focusable="false"
+            class="icon icon-minus js-qty-down"
+            fill="none"
+            viewBox="0 0 10 2"
+          >
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M.5 1C.5.7.7.5 1 .5h8a.5.5 0 110 1H1A.5.5 0 01.5 1z" fill="currentColor">
+            </path>
+          </svg>
+          <input
+            class="js-qty-input"
+            type="number"
+            id="variant-{{ variant.id }}"
+            name="quantity_{{ variant.id }}"
+            value="0"
+            min="0"
+          >
           <input type="hidden" name="id[]" value="{{ variant.id }}">
-          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-plus js-qty-up" fill="none" viewBox="0 0 10 10"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 4.51a.5.5 0 000 1h3.5l.01 3.5a.5.5 0 001-.01V5.5l3.5-.01a.5.5 0 00-.01-1H5.5L5.49.99a.5.5 0 00-1 .01v3.5l-3.5.01H1z" fill="currentColor">
-          </path></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            focusable="false"
+            class="icon icon-plus js-qty-up"
+            fill="none"
+            viewBox="0 0 10 10"
+          >
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1 4.51a.5.5 0 000 1h3.5l.01 3.5a.5.5 0 001-.01V5.5l3.5-.01a.5.5 0 00-.01-1H5.5L5.49.99a.5.5 0 00-1 .01v3.5l-3.5.01H1z" fill="currentColor">
+            </path>
+          </svg>
         </div>
-        <span class="1-2-days-dispatch-value">{% if variant.inventory_quantity < 0 %} 0 {% else %}{{ variant.inventory_quantity }}{% endif %}</span>
+        <span class="1-2-days-dispatch-value">
+          {%- if variant.inventory_quantity < 0 %} 0 {% else %}{{ variant.inventory_quantity }}{% endif -%}
+        </span>
         <span class="7-10-days-dispatch-value">{{ variant.metafields.custom._7_10_day_dispatch_stock }}</span>
       </div>
     {% endfor %}
     <button type="button" class="add-to-cart button button--primary" onclick="addVariantsToCart(this)">
-      <svg class="icon icon-cart" width="27px" height="25px" viewBox="0 0 27 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <title>Cart Icon</title>
-          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-              <g id="Entity-Brands---Homepage-V3" transform="translate(-1776.000000, -127.000000)" stroke="#fff" stroke-width="1.5">
-                  <g id="Cart-Icon" transform="translate(1776.000000, 127.000000)">
-                      <g id="Rectangle-2" transform="translate(0.000000, 7.120000)">
-                          <rect id="Rectangle" x="0.75" y="0.75" width="25.5" height="16.38"></rect>
-                      </g>
-                      <path d="M19.25,0.75 L19.25,7.86542987 L8.75,7.86542987 L8.75,0.75 L19.25,0.75 Z" id="Rectangle"></path>
-                  </g>
-              </g>
-          </g>
+      <svg
+        class="icon icon-cart"
+        width="27px"
+        height="25px"
+        viewBox="0 0 27 25"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <title>Cart Icon</title>
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Entity-Brands---Homepage-V3" transform="translate(-1776.000000, -127.000000)" stroke="#fff" stroke-width="1.5">
+                <g id="Cart-Icon" transform="translate(1776.000000, 127.000000)">
+                    <g id="Rectangle-2" transform="translate(0.000000, 7.120000)">
+                        <rect id="Rectangle" x="0.75" y="0.75" width="25.5" height="16.38"></rect>
+                    </g>
+                    <path d="M19.25,0.75 L19.25,7.86542987 L8.75,7.86542987 L8.75,0.75 L19.25,0.75 Z" id="Rectangle"></path>
+                </g>
+            </g>
+        </g>
       </svg>
       <span>Add Selected To Cart</span>
       <div class="loading-overlay hidden">
         <div class="loading-overlay__spinner">
-          <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            class="spinner"
+            viewBox="0 0 66 66"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
           </svg>
         </div>
@@ -55,26 +96,25 @@
 
   <script>
     $(function () {
-        addVariantsToCart = function (elm) {
+      addVariantsToCart = function (elm) {
         //const form = document.querySelector('.variants-form');
         const form = $(elm).parents('.variants-form');
         const formData = new FormData(form[0]);
         const selectedVariants = {};
         //$('.variants-form button.add-to-cart').addClass('loading');
-          
-  
+
         formData.forEach((value, key) => {
           if (key.startsWith('quantity_') && parseInt(value) > 0) {
             const variantId = key.replace('quantity_', '');
             selectedVariants[variantId] = value;
           }
         });
-  
+
         const selectedVariantIds = Object.keys(selectedVariants);
-        const selectedProducts = selectedVariantIds.map(id => ({ id, quantity: selectedVariants[id] }));
-  
+        const selectedProducts = selectedVariantIds.map((id) => ({ id, quantity: selectedVariants[id] }));
+
         if (selectedProducts.length > 0) {
-          $(elm).addClass('loading')
+          $(elm).addClass('loading');
           fetch('/cart/add.js', {
             method: 'POST',
             headers: {
@@ -82,193 +122,205 @@
             },
             body: JSON.stringify({ items: selectedProducts }),
           })
-          .then(response => {
-            return response.json();
-          })
-          .then(data => {
-            console.log(data); // Handle response data as needed
-            // Update slide-out cart (Assuming you have a function updateSlideOutCartData to update cart)
-            //updateSlideOutCartData();
-            $.ajax({
-      		type: "GET",
-      		url: '/cart',
-      		data: { },
-      		success: function(data){
-      			var newData = $(data).find('div#CartDrawer').html();
-      			$('div#CartDrawer').html(newData);
+            .then((response) => {
+              return response.json();
+            })
+            .then((data) => {
+              console.log(data); // Handle response data as needed
+              // Update slide-out cart (Assuming you have a function updateSlideOutCartData to update cart)
+              //updateSlideOutCartData();
+              $.ajax({
+                type: 'GET',
+                url: '/cart',
+                data: {},
+                success: function (data) {
+                  var newData = $(data).find('div#CartDrawer').html();
+                  $('div#CartDrawer').html(newData);
                   $('cart-drawer.drawer').removeClass('is-empty');
                   $('.variant-item input').val(0);
-        		  $(".ajax_loader").removeClass("active");
+                  $('.ajax_loader').removeClass('active');
                   if ($('.cart-count-bubble').length > 0) {
-                    $('a#cart-icon-bubble .cart-count-bubble').html($(data).find('a#cart-icon-bubble .cart-count-bubble').html());
+                    $('a#cart-icon-bubble .cart-count-bubble').html(
+                      $(data).find('a#cart-icon-bubble .cart-count-bubble').html(),
+                    );
                   } else {
-                    $('a#cart-icon-bubble').append($(data).find('a#cart-icon-bubble .cart-count-bubble'))
+                    $('a#cart-icon-bubble').append($(data).find('a#cart-icon-bubble .cart-count-bubble'));
                   }
                   //$('.header__icon--cart')[0].click();
                   $('.variants-form button.add-to-cart').removeClass('loading');
-      		}
-      	});
-          })
-          .catch(error => {
-            console.error('Error:', error);
-          });
+                },
+              });
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
         } else {
           console.log('No variants selected for addition to the cart.');
         }
-      }
+      };
     });
 
-    $(".js-qty-up").off().click(function(){
-		
-		var curQty = $(this).siblings(".js-qty-input").val();
-		$(this).siblings(".js-qty-input").val((parseInt(curQty) + 1));
-		$(this).siblings(".js-qty-input").attr("value", (parseInt(curQty) + 1));
-		
-	});
+    $('.js-qty-up')
+      .off()
+      .click(function () {
+        var curQty = $(this).siblings('.js-qty-input').val();
+        $(this)
+          .siblings('.js-qty-input')
+          .val(parseInt(curQty) + 1);
+        $(this)
+          .siblings('.js-qty-input')
+          .attr('value', parseInt(curQty) + 1);
+      });
 
-	$(".js-qty-down").off().click(function(){
-		var curQty = $(this).siblings(".js-qty-input").val();
-		if(curQty > 0){
-			$(this).siblings(".js-qty-input").val((parseInt(curQty) - 1));
-			$(this).siblings(".js-qty-input").attr("value", (parseInt(curQty) - 1));
+    $('.js-qty-down')
+      .off()
+      .click(function () {
+        var curQty = $(this).siblings('.js-qty-input').val();
+        if (curQty > 0) {
+          $(this)
+            .siblings('.js-qty-input')
+            .val(parseInt(curQty) - 1);
+          $(this)
+            .siblings('.js-qty-input')
+            .attr('value', parseInt(curQty) - 1);
         }
-	});
+      });
   </script>
   <style>
+    .variants-form-header-right {
+      width: 40%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      text-align: center;
+      row-gap: 15px;
+    }
 
-.variants-form-header-right {
-    width: 40%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    text-align: center;
-    row-gap: 15px;
-}
+    .variants-form-header-right div {
+      width: 100%;
+    }
 
-.variants-form-header-right div {
-    width: 100%;
-}
+    .variants-form-header-right span {
+      width: 50%;
+      color: #040707;
+      font-family: Poppins;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0;
+      line-height: 18px;
+    }
 
-.variants-form-header-right span {
-    width: 50%;
-    color: #040707;
-    font-family: Poppins;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0;
-    line-height: 18px;
-}
+    .variants-form-header {
+      color: #040707;
+      font-family: Poppins;
+      font-size: 16.36px;
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 25px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+    }
 
-.variants-form-header {
-    color: #040707;
-    font-family: Poppins;
-    font-size: 16.36px;
-    font-weight: 500;
-    letter-spacing: 0;
-    line-height: 25px;
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: space-between;
-}
+    .variant-item {
+      display: none;
+      margin-bottom: 13px;
+    }
 
-.variant-item {
-    display: none;
-    margin-bottom: 13px;
-}
+    .variant-item.show {
+      display: flex !important;
+    }
 
-.variant-item.show {
-    display: flex !important;
-}
+    .variant-item > * {
+      width: 20%;
+      display: inline-block;
+      line-height: 38px !important;
+    }
 
-.variant-item>* {
-    width: 20%;
-    display: inline-block;
-    line-height: 38px !important;
-}
+    .variant-item > span:not(.variation_price_),
+    .variant-item > input {
+      color: #040707;
+      font-family: Poppins;
+      font-size: 16.36px;
+      letter-spacing: 0;
+      line-height: 25px;
+      text-align: center;
+    }
 
-.variant-item>span:not(.variation_price_), .variant-item>input {
-    color: #040707;
-    font-family: Poppins;
-    font-size: 16.36px;
-    letter-spacing: 0;
-    line-height: 25px;
-    text-align: center;
-}
+    .variants-form button.add-to-cart {
+      text-transform: uppercase;
+      color: #fff;
+      font-family: Poppins;
+      font-size: 14.56px;
+      letter-spacing: 0;
+      line-height: 55px;
+      text-align: center;
+      margin: 0 auto;
+      width: 100%;
+      margin: 30px auto 0;
+      display: flex;
+      column-gap: 10px;
+      max-width: 44rem;
+    }
 
-.variants-form button.add-to-cart {
-    text-transform: uppercase;
-    color: #fff;
-    font-family: Poppins;
-    font-size: 14.56px;
-    letter-spacing: 0;
-    line-height: 55px;
-    text-align: center;
-    margin: 0 auto;
-    width: 100%;
-    margin: 30px auto 0;
-    display: flex;
-    column-gap: 10px;
-    max-width: 44rem;
-}
+    .variants-form button.add-to-cart svg {
+      width: 20px;
+    }
 
-.variants-form button.add-to-cart svg {
-    width: 20px;
-}
+    .variant-item label {
+      color: #040707;
+      font-family: Poppins;
+      font-size: 18.18px;
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 27px;
+    }
 
-.variant-item label {
-    color: #040707;
-    font-family: Poppins;
-    font-size: 18.18px;
-    font-weight: 500;
-    letter-spacing: 0;
-    line-height: 27px;
-}
+    span.variation_price_ {
+      color: #040707;
+      font-family: Poppins;
+      font-size: 16.36px;
+      letter-spacing: 0;
+      line-height: 25px;
+    }
 
-span.variation_price_ {
-    color: #040707;
-    font-family: Poppins;
-    font-size: 16.36px;
-    letter-spacing: 0;
-    line-height: 25px;
-}
+    .variant-item input {
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      line-height: 36px;
+      width: 50%;
+      border: none;
+    }
 
-.variant-item input {
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    line-height: 36px;
-    width: 50%;
-    border: none;
-}
+    .variant_input_wrap {
+      display: flex;
+    }
 
-.variant_input_wrap {
-    display: flex;
-}
+    .variant_input_wrap svg {
+      width: 15px;
+      cursor: pointer;
+    }
 
-.variant_input_wrap svg {
-    width: 15px;
-    cursor: pointer;
-}
+    .variant_input_wrap {
+      border: 0.91px solid #c5c5c5;
+      border-radius: 4.54px;
+      background-color: #ffffff;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 10px;
+    }
 
-.variant_input_wrap {
-    border: 0.91px solid #C5C5C5;
-    border-radius: 4.54px;
-    background-color: #FFFFFF;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 10px;
-}
+    .variant-item input::-webkit-outer-spin-button,
+    .variant-item input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
 
-.variant-item input::-webkit-outer-spin-button,
-.variant-item input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-.variant-item input {
-  -moz-appearance: textfield;
-}
+    /* Firefox */
+    .variant-item input {
+      -moz-appearance: textfield;
+    }
   </style>
 {% endif %}
