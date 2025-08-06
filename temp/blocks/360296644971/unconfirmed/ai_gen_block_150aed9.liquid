@@ -1,6 +1,594 @@
+{% doc %}
+  @prompt
+    Create a custom rich text section with two side-by-side text areas that can be independently customized. Each side should support rich text formatting and be responsive on mobile devices., this block should be a section instead.
+    and each content should also have a button that is a link (and i can edit and pass in the link)
+
+{% enddoc %}
+{% assign ai_gen_id = section.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-dual-richtext-{{ ai_gen_id }} {
+    padding: {{ section.settings.section_padding }}px 0;
+    background-color: {{ section.settings.background_color }};
+  }
+
+  .ai-dual-richtext-container-{{ ai_gen_id }} {
+    max-width: {{ settings.page_width }}px;
+    margin: 0 auto;
+    padding: 0 {{ settings.spacing_grid_horizontal }}px;
+  }
+
+  .ai-dual-richtext-wrapper-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: {{ section.settings.column_gap }}px;
+    align-items: {{ section.settings.vertical_alignment }};
+  }
+
+  .ai-dual-richtext-column-{{ ai_gen_id }} {
+    padding: {{ section.settings.column_padding }}px;
+    background-color: {{ section.settings.column_background_color }};
+    border-radius: {{ section.settings.column_border_radius }}px;
+    {% if section.settings.column_border_thickness > 0 %}
+      border: {{ section.settings.column_border_thickness }}px solid {{ section.settings.column_border_color }};
+    {% endif %}
+  }
+
+  .ai-dual-richtext-column-left-{{ ai_gen_id }} {
+    text-align: {{ section.settings.left_text_alignment }};
+    color: {{ section.settings.left_text_color }};
+  }
+
+  .ai-dual-richtext-column-right-{{ ai_gen_id }} {
+    text-align: {{ section.settings.right_text_alignment }};
+    color: {{ section.settings.right_text_color }};
+  }
+
+  .ai-dual-richtext-column-{{ ai_gen_id }} h1,
+  .ai-dual-richtext-column-{{ ai_gen_id }} h2,
+  .ai-dual-richtext-column-{{ ai_gen_id }} h3,
+  .ai-dual-richtext-column-{{ ai_gen_id }} h4,
+  .ai-dual-richtext-column-{{ ai_gen_id }} h5,
+  .ai-dual-richtext-column-{{ ai_gen_id }} h6 {
+    margin: 0 0 1em 0;
+    line-height: 1.3;
+  }
+
+  .ai-dual-richtext-column-{{ ai_gen_id }} p {
+    margin: 0 0 1em 0;
+    line-height: 1.6;
+  }
+
+  .ai-dual-richtext-column-{{ ai_gen_id }} p:last-child {
+    margin-bottom: 0;
+  }
+
+  .ai-dual-richtext-column-{{ ai_gen_id }} ul,
+  .ai-dual-richtext-column-{{ ai_gen_id }} ol {
+    margin: 0 0 1em 0;
+    padding-left: 1.5em;
+  }
+
+  .ai-dual-richtext-column-{{ ai_gen_id }} li {
+    margin-bottom: 0.5em;
+  }
+
+  .ai-dual-richtext-column-{{ ai_gen_id }} a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .ai-dual-richtext-column-{{ ai_gen_id }} a:hover {
+    opacity: 0.8;
+  }
+
+  .ai-dual-richtext-column-{{ ai_gen_id }} strong {
+    font-weight: bold;
+  }
+
+  .ai-dual-richtext-column-{{ ai_gen_id }} em {
+    font-style: italic;
+  }
+
+  .ai-dual-richtext-content-{{ ai_gen_id }} {
+    margin-bottom: {{ section.settings.button_spacing }}px;
+  }
+
+  .ai-dual-richtext-button-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: {{ section.settings.button_padding_vertical }}px {{ section.settings.button_padding_horizontal }}px;
+    background-color: {{ section.settings.button_background_color }};
+    color: {{ section.settings.button_text_color }};
+    text-decoration: none;
+    border-radius: {{ section.settings.button_border_radius }}px;
+    font-size: {{ section.settings.button_font_size }}px;
+    font-weight: {{ section.settings.button_font_weight }};
+    transition: all 0.3s ease;
+    border: {{ section.settings.button_border_thickness }}px solid {{ section.settings.button_border_color }};
+  }
+
+  .ai-dual-richtext-button-{{ ai_gen_id }}:hover {
+    background-color: {{ section.settings.button_hover_background_color }};
+    color: {{ section.settings.button_hover_text_color }};
+    border-color: {{ section.settings.button_hover_border_color }};
+    text-decoration: none;opacity: 1;
+  }
+
+  .ai-dual-richtext-button-left-{{ ai_gen_id }} {
+    {% if section.settings.left_text_alignment == 'center' %}
+      margin: 0 auto;
+    {% elsif section.settings.left_text_alignment == 'right' %}
+      margin-left: auto;{% endif %}
+  }
+
+  .ai-dual-richtext-button-right-{{ ai_gen_id }} {
+    {% if section.settings.right_text_alignment == 'center' %}
+      margin: 0 auto;
+    {% elsif section.settings.right_text_alignment == 'right' %}
+      margin-left: auto;
+    {% endif %}
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-dual-richtext-wrapper-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;gap: {{ section.settings.mobile_column_gap }}px;
+    }
+
+    .ai-dual-richtext-column-{{ ai_gen_id }} {
+      padding: {{ section.settings.mobile_column_padding }}px;
+    }
+
+    .ai-dual-richtext-{{ ai_gen_id }} {
+      padding: {{ section.settings.mobile_section_padding }}px 0;
+    }
+
+    .ai-dual-richtext-content-{{ ai_gen_id }} {
+      margin-bottom: {{ section.settings.mobile_button_spacing }}px;
+    }
+
+    .ai-dual-richtext-button-{{ ai_gen_id }} {
+      padding: {{ section.settings.mobile_button_padding_vertical }}px {{ section.settings.mobile_button_padding_horizontal }}px;
+      font-size: {{ section.settings.mobile_button_font_size }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-dual-richtext-{{ ai_gen_id }}">
+  <div class="ai-dual-richtext-container-{{ ai_gen_id }}">
+    <div class="ai-dual-richtext-wrapper-{{ ai_gen_id }}">
+      <div class="ai-dual-richtext-column-{{ ai_gen_id }} ai-dual-richtext-column-left-{{ ai_gen_id }}">
+        <div class="ai-dual-richtext-content-{{ ai_gen_id }}">
+          {% if section.settings.left_content != blank %}
+            {{ section.settings.left_content }}
+          {% else %}
+            <h2>Left Column</h2><p>Add your left column content here. You can use rich text formatting including<strong>bold</strong>, <em>italic</em>, and links.</p>
+          {% endif %}
+        </div>
+        
+        {% if section.settings.left_button_text != blank and section.settings.left_button_link != blank %}
+          <a href="{{ section.settings.left_button_link }}" class="ai-dual-richtext-button-{{ ai_gen_id }} ai-dual-richtext-button-left-{{ ai_gen_id }}">
+            {{ section.settings.left_button_text }}
+          </a>
+        {% endif %}
+      </div>
+      
+      <div class="ai-dual-richtext-column-{{ ai_gen_id }} ai-dual-richtext-column-right-{{ ai_gen_id }}">
+        <div class="ai-dual-richtext-content-{{ ai_gen_id }}">
+          {% if section.settings.right_content != blank %}
+            {{ section.settings.right_content }}
+          {% else %}
+            <h2>Right Column</h2>
+            <p>Add your right column content here. You can format this text independently from the left column.</p>
+          {% endif %}
+        </div>
+        
+        {% if section.settings.right_button_text != blank and section.settings.right_button_link != blank %}
+          <a href="{{ section.settings.right_button_link }}" class="ai-dual-richtext-button-{{ ai_gen_id }} ai-dual-richtext-button-right-{{ ai_gen_id }}">
+            {{ section.settings.right_button_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Dual Rich Text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Left Column"
+    },
+    {
+      "type": "richtext",
+      "id": "left_content",
+      "label": "Left column content",
+      "default": "<h2>Left Column</h2><p>This is the left column content. You can add <strong>bold text</strong>, <em>italic text</em>, lists, and links.</p>"
+    },
+    {
+      "type": "text",
+      "id": "left_button_text",
+      "label": "Left button text",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "left_button_link",
+      "label": "Left button link"
+    },
+    {
+      "type": "header",
+      "content": "Right Column"
+    },
+    {
+      "type": "richtext",
+      "id": "right_content",
+      "label": "Right column content",
+      "default": "<h2>Right Column</h2><p>This is the right column content. You can format this text independently from the left column.</p>"
+    },
+    {
+      "type": "text",
+      "id": "right_button_text",
+      "label": "Right button text",
+      "default": "Get Started"
+    },
+    {
+      "type": "url",
+      "id": "right_button_link",
+      "label": "Right button link"
+    },
+    {
+      "type": "header",
+      "content": "Text Alignment"
+    },
+    {
+      "type": "select",
+      "id": "left_text_alignment",
+      "label": "Left column text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "right_text_alignment",
+      "label": "Right column text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "label": "Vertical alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "end",
+          "label": "Bottom"
+        }
+      ],
+      "default": "start"
+    },
+    {
+      "type": "header",
+      "content": "Section Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "column_background_color",
+      "label": "Column background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "left_text_color",
+      "label": "Left column text color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "right_text_color",
+      "label": "Right column text color",
+      "default": "#121212"
+    },
+    {
+      "type": "header",
+      "content": "Button Colors"
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Button background color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_background_color",
+      "label": "Button hover background color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Button hover text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button border color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_border_color",
+      "label": "Button hover border color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Section padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "mobile_section_padding",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile section padding",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Column gap",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "mobile_column_gap",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile column gap",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "column_padding",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Column padding",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "mobile_column_padding",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile column padding",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Column Styling"
+    },
+    {
+      "type": "range",
+      "id": "column_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Column border radius",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "column_border_thickness",
+      "min": 0,
+      "max": 8,
+      "step": 1,
+      "unit": "px",
+      "label": "Column border thickness",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "column_border_color",
+      "label": "Column border color",
+      "default": "#e5e5e5"
+    },
+    {
+      "type": "header",
+      "content": "Button Styling"
+    },
+    {
+      "type": "range",
+      "id": "button_spacing",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Button spacing",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_button_spacing",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile button spacing",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_padding_vertical",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Button vertical padding",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "button_padding_horizontal",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Button horizontal padding",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "mobile_button_padding_vertical",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile button vertical padding",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "mobile_button_padding_horizontal",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile button horizontal padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Button border radius",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "button_border_thickness",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "label": "Button border thickness",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Button font size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_button_font_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile button font size",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "button_font_weight",
+      "label": "Button font weight",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "bold",
+          "label": "Bold"
+        }
+      ],
+      "default": "normal"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dual Rich Text"
+    }
+  ]
+}
 {% endschema %}
