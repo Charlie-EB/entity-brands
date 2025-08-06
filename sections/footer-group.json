@@ -1,1 +1,60 @@
-{"name":"t:sections.footer.name","type":"footer","sections":{"footer":{"type":"footer","blocks":{"1a56fcf6-45c3-4589-9b1c-e8abd86c8ac6":{"type":"brand_information","settings":{"show_social":false}},"a6d77f4b-c253-4062-8574-026aeb9f7269":{"type":"link_list","settings":{"heading":"Entity Brands","menu":"footer-entity-brands-menu"}},"c5ce28e1-8fb2-4708-a5c5-977a2d68ed97":{"type":"link_list","settings":{"heading":"Services","menu":"footer-services-menu"}},"6e0263e0-afda-4372-b881-b3472f4f4d01":{"type":"link_list","settings":{"heading":"Information","menu":"footer"}},"text_dX9Wqn":{"type":"text","disabled":true,"settings":{"heading":"Keep in touch","subtext":"<p>Be one of the first to receive new product launches, sale offers, collabs & more.<\/p>"}}},"block_order":["1a56fcf6-45c3-4589-9b1c-e8abd86c8ac6","a6d77f4b-c253-4062-8574-026aeb9f7269","c5ce28e1-8fb2-4708-a5c5-977a2d68ed97","6e0263e0-afda-4372-b881-b3472f4f4d01","text_dX9Wqn"],"settings":{"color_scheme":"background-1","newsletter_enable":false,"newsletter_heading":"Subscribe to our emails","enable_follow_on_shop":true,"show_social":true,"enable_country_selector":false,"enable_language_selector":false,"payment_enable":false,"show_policy":false,"margin_top":0,"padding_top":12,"padding_bottom":0}}},"order":["footer"]}
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "1a56fcf6-45c3-4589-9b1c-e8abd86c8ac6": {
+          "type": "brand_information",
+          "settings": { "show_social": false }
+        },
+        "a6d77f4b-c253-4062-8574-026aeb9f7269": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Entity Brands",
+            "menu": "footer-entity-brands-menu"
+          }
+        },
+        "c5ce28e1-8fb2-4708-a5c5-977a2d68ed97": {
+          "type": "link_list",
+          "settings": { "heading": "Services", "menu": "footer-services-menu" }
+        },
+        "6e0263e0-afda-4372-b881-b3472f4f4d01": {
+          "type": "link_list",
+          "settings": { "heading": "Information", "menu": "footer" }
+        },
+        "text_dX9Wqn": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "heading": "Keep in touch",
+            "subtext": "<p>Be one of the first to receive new product launches, sale offers, collabs & more.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "1a56fcf6-45c3-4589-9b1c-e8abd86c8ac6",
+        "a6d77f4b-c253-4062-8574-026aeb9f7269",
+        "c5ce28e1-8fb2-4708-a5c5-977a2d68ed97",
+        "6e0263e0-afda-4372-b881-b3472f4f4d01",
+        "text_dX9Wqn"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "newsletter_enable": false,
+        "newsletter_heading": "Subscribe to our emails",
+        "enable_follow_on_shop": true,
+        "show_social": true,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "payment_enable": false,
+        "show_policy": false,
+        "margin_top": 0,
+        "padding_top": 12,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": ["footer"]
+}

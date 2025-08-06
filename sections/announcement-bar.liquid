@@ -15,14 +15,14 @@
 -%}
 
 <style>
-.utility-bar .announcement-bar__message:after {
+  .utility-bar .announcement-bar__message:after {
     content: attr(text-content);
-}
+  }
 
-.utility-bar .announcement-bar__message span {
+  .utility-bar .announcement-bar__message span {
     font-size: 0;
     display: none;
-}
+  }
 </style>
 
 {% if social_icons %}
@@ -140,23 +140,22 @@
       {%- endif -%}
     {%- endif -%}
     <div class="localization-wrapper">
-
-    <ul class="top-menu">
-      {% for link in section.settings.top_menu.links %}
-        <li class="menu-link">
-          {%- if link.title == 'Create an Account' -%}
-            {%- if customer -%}
-              <a href="{{ link.url }}">Account</a>
+      <ul class="top-menu">
+        {% for link in section.settings.top_menu.links %}
+          <li class="menu-link">
+            {%- if link.title == 'Create an Account' -%}
+              {%- if customer -%}
+                <a href="{{ link.url }}">Account</a>
+              {%- else -%}
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              {%- endif -%}
             {%- else -%}
               <a href="{{ link.url }}">{{ link.title }}</a>
             {%- endif -%}
-          {%- else -%}
-            <a href="{{ link.url }}">{{ link.title }}</a>
-          {%- endif -%}
-        </li>
-      {% endfor %}
-    </ul>
-      
+          </li>
+        {% endfor %}
+      </ul>
+
       {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
         <noscript class="small-hide medium-hide">
           {%- form 'localization', id: 'AnnouncementCountryMobileFormNoScript', class: 'localization-form' -%}

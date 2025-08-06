@@ -82,18 +82,26 @@
               disabled
             {% endif %}
           >
-            <svg class="icon icon-cart" width="27px" height="25px" viewBox="0 0 27 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <title>Cart Icon</title>
-                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                    <g id="Entity-Brands---Homepage-V3" transform="translate(-1776.000000, -127.000000)" stroke="#fff" stroke-width="1.5">
-                        <g id="Cart-Icon" transform="translate(1776.000000, 127.000000)">
-                            <g id="Rectangle-2" transform="translate(0.000000, 7.120000)">
-                                <rect id="Rectangle" x="0.75" y="0.75" width="25.5" height="16.38"></rect>
-                            </g>
-                            <path d="M19.25,0.75 L19.25,7.86542987 L8.75,7.86542987 L8.75,0.75 L19.25,0.75 Z" id="Rectangle"></path>
-                        </g>
-                    </g>
-                </g>
+            <svg
+              class="icon icon-cart"
+              width="27px"
+              height="25px"
+              viewBox="0 0 27 25"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <title>Cart Icon</title>
+              <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="Entity-Brands---Homepage-V3" transform="translate(-1776.000000, -127.000000)" stroke="#fff" stroke-width="1.5">
+                      <g id="Cart-Icon" transform="translate(1776.000000, 127.000000)">
+                          <g id="Rectangle-2" transform="translate(0.000000, 7.120000)">
+                              <rect id="Rectangle" x="0.75" y="0.75" width="25.5" height="16.38"></rect>
+                          </g>
+                          <path d="M19.25,0.75 L19.25,7.86542987 L8.75,7.86542987 L8.75,0.75 L19.25,0.75 Z" id="Rectangle"></path>
+                      </g>
+                  </g>
+              </g>
             </svg>
             <span data-backup-text="{{ 'products.product.add_to_cart' | t }}">
               {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}

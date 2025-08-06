@@ -70,26 +70,45 @@
       >
         {%- if card_product.featured_media -%}
           {% if customer.b2b? %}
-          <div onClick="quickView(this)" data-modal target-modal="quickViewBox" data-source="{{ card_product.url }}" class="quick_view">
+            <div
+              onClick="quickView(this)"
+              data-modal
+              target-modal="quickViewBox"
+              data-source="{{ card_product.url }}"
+              class="quick_view"
+            >
               <div class="loading-overlay hidden">
                 <div class="loading-overlay__spinner">
-                  <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    class="spinner"
+                    viewBox="0 0 66 66"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
                     <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
                   </svg>
                 </div>
               </div>
-              <svg width="21.0934922px" height="12.6557077px" viewBox="0 0 21.0934922 12.6557077" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <title>5F46ECD3-24DB-4848-B7BA-D5F31D45D5D5</title>
-                  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
-                      <g id="Entity-Brands---Category-Page---Filter-Open-V3" transform="translate(-525.000000, -1061.000000)" stroke="#FFFFFF">
-                          <g id="Group-16" transform="translate(467.000000, 1044.000000)">
-                              <g id="Quick-View-Icon" transform="translate(58.000000, 17.000000)">
-                                  <path d="M10.5453399,0.00113131021 C6.76627736,-0.0626186898 2.85783986,2.57831881 0.400652356,5.28300631 C-0.133550785,5.87607138 -0.133550785,6.77681624 0.400652356,7.36988131 C2.80440236,10.0173813 6.70158986,12.7192563 10.5453399,12.6545688 C14.3890899,12.7192563 18.2872149,10.0173813 20.6928399,7.36988131 C21.227043,6.77681624 21.227043,5.87607138 20.6928399,5.28300631 C18.2328399,2.57831881 14.3244024,-0.0626186898 10.5453399,0.00113131021 Z" id="Path"></path>
-                                  <path d="M14.0609654,6.32831881 C14.0604471,8.26982276 12.486219,9.84335139 10.544715,9.84300631 C8.60321103,9.84266112 7.02954246,8.26857291 7.02971499,6.32706889 C7.02988753,4.38556488 8.60383584,2.81175618 10.5453399,2.81175618 C11.4779803,2.81150741 12.37248,3.18195133 13.0318685,3.84151567 C13.691257,4.50108 14.0614624,5.39567845 14.0609654,6.32831881 L14.0609654,6.32831881 Z" id="Path"></path>
-                              </g>
-                          </g>
-                      </g>
-                  </g>
+              <svg
+                width="21.0934922px"
+                height="12.6557077px"
+                viewBox="0 0 21.0934922 12.6557077"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <title>5F46ECD3-24DB-4848-B7BA-D5F31D45D5D5</title>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                    <g id="Entity-Brands---Category-Page---Filter-Open-V3" transform="translate(-525.000000, -1061.000000)" stroke="#FFFFFF">
+                        <g id="Group-16" transform="translate(467.000000, 1044.000000)">
+                            <g id="Quick-View-Icon" transform="translate(58.000000, 17.000000)">
+                                <path d="M10.5453399,0.00113131021 C6.76627736,-0.0626186898 2.85783986,2.57831881 0.400652356,5.28300631 C-0.133550785,5.87607138 -0.133550785,6.77681624 0.400652356,7.36988131 C2.80440236,10.0173813 6.70158986,12.7192563 10.5453399,12.6545688 C14.3890899,12.7192563 18.2872149,10.0173813 20.6928399,7.36988131 C21.227043,6.77681624 21.227043,5.87607138 20.6928399,5.28300631 C18.2328399,2.57831881 14.3244024,-0.0626186898 10.5453399,0.00113131021 Z" id="Path"></path>
+                                <path d="M14.0609654,6.32831881 C14.0604471,8.26982276 12.486219,9.84335139 10.544715,9.84300631 C8.60321103,9.84266112 7.02954246,8.26857291 7.02971499,6.32706889 C7.02988753,4.38556488 8.60383584,2.81175618 10.5453399,2.81175618 C11.4779803,2.81150741 12.37248,3.18195133 13.0318685,3.84151567 C13.691257,4.50108 14.0614624,5.39567845 14.0609654,6.32831881 L14.0609654,6.32831881 Z" id="Path"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
               </svg>
               Quick View
             </div>
@@ -142,78 +161,94 @@
             </div>
           </div>
         {%- endif -%}
-       	<a
-		  href="{{ card_product.url }}"
-		  id="CardLink-{{ section_id }}-{{ card_product.id }}"
-		  class="full-unstyled-link"
-		  aria-label="{{ card_product.title | escape }}"
+        <a
+          href="{{ card_product.url }}"
+          id="CardLink-{{ section_id }}-{{ card_product.id }}"
+          class="full-unstyled-link"
+          aria-label="{{ card_product.title | escape }}"
           style="z-index: 1;width: 100%;"
-		>
-			<div class="card__content">
-			  <div class="card__information">
-				<h3
-				  class="card__heading"
-				  {% if card_product.featured_media == null and settings.card_style == 'standard' %}
-					id="title-{{ section_id }}-{{ card_product.id }}"
-				  {% endif %}
-				>
-					{{ card_product.title | escape }}
-				</h3>
-			  </div>
-			  <div class="card__badge {{ settings.badge_position }}">
-				<div class="hide">{%- if card_product.available == false -%}
-				  <span
-					id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-					class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
-				  >
-					{{- 'products.product.sold_out' | t -}}
-				  </span>
-				{%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
-				  <img class="sale-badge-img" width="85" height="40" src="https://cdn.shopify.com/s/files/1/0799/3953/5165/files/Sale_Badge_-_Product_Thumb_2x_1.png?v=1699966511" alt="Sale badge">
-				  <div class="hide"><span
-					id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-					class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
-				  >
-					{{- 'products.product.on_sale' | t -}}
-				  </span></div>
-				{%- endif -%}</div>
-			  </div>
-			</div>
-
-              {% assign currentVariantThumb = card_product.selected_or_first_available_variant %}
-                {% assign currentDateThumb = 'now' | date: "%s" | plus: 0 %}
-                {% assign productDateThumb = card_product.created_at | date: "%s" | plus: 0 %}
-                {% assign threeMonthsAgoThumb = currentDateThumb | minus: 7776000 %}
-                
-                {% assign productStatusThumb = currentVariantThumb.metafields.custom.product_status.value %}
-                
-                {% if productStatusThumb %}
-                  <div class="badges">
-                    <span data-badge="{{ productStatusThumb }}" class="badge {{ productStatusThumb | handle }}-badge">{{ productStatusThumb }}</span>
-                  </div>
-                {% elsif currentVariantThumb.compare_at_price > currentVariantThumb.price %}
-                  <div class="badges">
-                    <span data-badge="Sale" class="badge sale-badge">Sale</span>
-                  </div>
-                {% elsif productDateThumb >= threeMonthsAgoThumb %}
-                  <div class="badges hide">
-                    <span data-badge="New" class="badge new-badge">New</span>
-                  </div>
-                {% else %}
-                  <div class="badges hide">
-                    <span data-badge="New" class="badge new-badge">New</span>
-                  </div>
+        >
+          <div class="card__content">
+            <div class="card__information">
+              <h3
+                class="card__heading"
+                {% if card_product.featured_media == null and settings.card_style == 'standard' %}
+                  id="title-{{ section_id }}-{{ card_product.id }}"
                 {% endif %}
-          
+              >
+                {{ card_product.title | escape }}
+              </h3>
+            </div>
+            <div class="card__badge {{ settings.badge_position }}">
+              <div class="hide">
+                {%- if card_product.available == false -%}
+                  <span
+                    id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                    class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
+                  >
+                    {{- 'products.product.sold_out' | t -}}
+                  </span>
+                {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
+                  <img
+                    class="sale-badge-img"
+                    width="85"
+                    height="40"
+                    src="https://cdn.shopify.com/s/files/1/0799/3953/5165/files/Sale_Badge_-_Product_Thumb_2x_1.png?v=1699966511"
+                    alt="Sale badge"
+                  >
+                  <div class="hide">
+                    <span
+                      id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                      class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
+                    >
+                      {{- 'products.product.on_sale' | t -}}
+                    </span>
+                  </div>
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+
+          {% assign currentVariantThumb = card_product.selected_or_first_available_variant %}
+          {% assign currentDateThumb = 'now' | date: '%s' | plus: 0 %}
+          {% assign productDateThumb = card_product.created_at | date: '%s' | plus: 0 %}
+          {% assign threeMonthsAgoThumb = currentDateThumb | minus: 7776000 %}
+
+          {% assign productStatusThumb = currentVariantThumb.metafields.custom.product_status.value %}
+
+          {% if productStatusThumb %}
+            <div class="badges">
+              <span data-badge="{{ productStatusThumb }}" class="badge {{ productStatusThumb | handle }}-badge">
+                {{- productStatusThumb -}}
+              </span>
+            </div>
+          {% elsif currentVariantThumb.compare_at_price > currentVariantThumb.price %}
+            <div class="badges">
+              <span data-badge="Sale" class="badge sale-badge">Sale</span>
+            </div>
+          {% elsif productDateThumb >= threeMonthsAgoThumb %}
+            <div class="badges hide">
+              <span data-badge="New" class="badge new-badge">New</span>
+            </div>
+          {% else %}
+            <div class="badges hide">
+              <span data-badge="New" class="badge new-badge">New</span>
+            </div>
+          {% endif %}
         </a>
       </div>
       <div class="card__content">
         <div class="card__information">
           <div class="reviews_wrap">
-            <!--<div class="rating" role="img" aria-label=" out of  stars">
-              <span aria-hidden="true" class="rating-star" style="--rating: 4; --rating-max: 5; --rating-decimal: 0;"></span>
-            </div>-->
-            <div class="ruk_rating_snippet" data-sku="{{ card_product.handle }};{{ card_product.variants | map: 'sku' | join: ';' }};{{ card_product.variants | map: 'id' | join: ';' }}"></div>
+            <!--
+              <div class="rating" role="img" aria-label=" out of  stars">
+                <span aria-hidden="true" class="rating-star" style="--rating: 4; --rating-max: 5; --rating-decimal: 0;"></span>
+              </div>
+            -->
+            <div
+              class="ruk_rating_snippet"
+              data-sku="{{ card_product.handle }};{{ card_product.variants | map: 'sku' | join: ';' }};{{ card_product.variants | map: 'id' | join: ';' }}"
+            ></div>
           </div>
           <h3
             class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
@@ -284,69 +319,85 @@
                     {%- for variant in card_product.variants -%}
                       {%- for variant_option in variant.options -%}
                         {%- if variant_option == variant.option1 -%}
-                         
-                            {%- assign product_metaobjects = variant.metafields.custom.colour_swatch_url.value -%}
-                            
-                          
-                            {% assign card_option2_pure = variant.option2 | replace: "/", "" | remove_last: "-" %}
-                          
-                            {% assign card_product_sku_pure = variant.sku | replace: card_option2_pure, "" | remove_last: "-" %}
-                
-                            
-                            {%- if variant.option2 == card_product.selected_or_first_available_variant.option2 -%}
-                              {% assign currentDateThumbColor = 'now' | date: "%s" | plus: 0 %}
-                              {% assign productDateThumbColor = card_product.created_at | date: "%s" | plus: 0 %}
-                              {% assign threeMonthsAgoThumbColor = currentDateThumbColor | minus: 7776000 %}
-                              
-                              {% assign productStatusThumbColor = variant.metafields.custom.product_status.value %}
-                              
-                              {% if productStatusThumbColor %}
-                                {% assign data_bagdeThumbColor = productStatusThumbColor %}
-                              {% elsif variant.compare_at_price > variant.price %}
-                                {% assign data_bagdeThumbColor = 'Sale' %}
-                              {% elsif productDateThumbColor >= threeMonthsAgoThumbColor %}
-                                {% assign data_bagdeThumbColor = 'New' %}
-                              {% endif %}
-                            {%- endif -%}
+                          {%- assign product_metaobjects = variant.metafields.custom.colour_swatch_url.value -%}
 
-                            {%- unless unique_colors contains variant.option1 -%}
-                              {%- assign unique_colors = unique_colors | join: ',' | append: ',' | append: variant.option1 | split: ',' -%}
-                            {%- endunless -%}
-                            
-                            <span onClick="location.href = '{{ variant.url }}'" card_product_sku_pure="{{ card_product_sku_pure }}" data-value="{{ variant.option1 }}" data-badge="{{ data_bagdeThumbColor }}" color_value="{{ product_metaobjects }}" onmouseover="variation_colors_thumb(this)" data-img="https://entity-brands-b2b.myshopify.com/cdn/shop/{{ variant.featured_media }}" style="background-image: url('{{ product_metaobjects }}') !important;" class="with_color {% if variant.featured_media %} has_img{% endif %}"></span>
-                            <style>
-                              .variation_colors_wrap span[data-value="{{ variant.option1 }}"] ~ span[data-value="{{ variant.option1 }}"] {
-                                  display: none;
-                              }
-                            </style>
+                          {% assign card_option2_pure = variant.option2 | replace: '/', '' | remove_last: '-' %}
 
-                            <div class="variation_image_helper_box">
+                          {% assign card_product_sku_pure = variant.sku
+                            | replace: card_option2_pure, ''
+                            | remove_last: '-'
+                          %}
+
+                          {%- if variant.option2 == card_product.selected_or_first_available_variant.option2 -%}
+                            {% assign currentDateThumbColor = 'now' | date: '%s' | plus: 0 %}
+                            {% assign productDateThumbColor = card_product.created_at | date: '%s' | plus: 0 %}
+                            {% assign threeMonthsAgoThumbColor = currentDateThumbColor | minus: 7776000 %}
+
+                            {% assign productStatusThumbColor = variant.metafields.custom.product_status.value %}
+
+                            {% if productStatusThumbColor %}
+                              {% assign data_bagdeThumbColor = productStatusThumbColor %}
+                            {% elsif variant.compare_at_price > variant.price %}
+                              {% assign data_bagdeThumbColor = 'Sale' %}
+                            {% elsif productDateThumbColor >= threeMonthsAgoThumbColor %}
+                              {% assign data_bagdeThumbColor = 'New' %}
+                            {% endif %}
+                          {%- endif -%}
+
+                          {%- unless unique_colors contains variant.option1 -%}
+                            {%- assign unique_colors = unique_colors
+                              | join: ','
+                              | append: ','
+                              | append: variant.option1
+                              | split: ','
+                            -%}
+                          {%- endunless -%}
+
+                          <span
+                            onClick="location.href = '{{ variant.url }}'"
+                            card_product_sku_pure="{{ card_product_sku_pure }}"
+                            data-value="{{ variant.option1 }}"
+                            data-badge="{{ data_bagdeThumbColor }}"
+                            color_value="{{ product_metaobjects }}"
+                            onmouseover="variation_colors_thumb(this)"
+                            data-img="https://entity-brands-b2b.myshopify.com/cdn/shop/{{ variant.featured_media }}"
+                            style="background-image: url('{{ product_metaobjects }}') !important;"
+                            class="with_color {% if variant.featured_media %} has_img{% endif %}"
+                          ></span>
+                          <style>
+                            .variation_colors_wrap span[data-value="{{ variant.option1 }}"] ~ span[data-value="{{ variant.option1 }}"] {
+                                display: none;
+                            }
+                          </style>
+
+                          <div class="variation_image_helper_box">
                             {% assign previous_alt_text = '' %}
                             {% for image in card_product.images %}
                               {% if image.alt != previous_alt_text %}
-                                <div imageAltText="{{ image.alt | escape }}" imageLink="{{ image.src | img_url: 'original' }}"></div>
+                                <div
+                                  imageAltText="{{ image.alt | escape }}"
+                                  imageLink="{{ image.src | img_url: 'original' }}"
+                                ></div>
                                 {% assign previous_alt_text = image.alt %}
                               {% endif %}
                             {% endfor %}
-                            </div>
-                            
-                          
+                          </div>
                         {%- endif -%}
                       {%- endfor -%}
                     {%- endfor -%}
                   {%- endif -%}
                 {%- endfor -%}
               {%- endif -%}
-
             </div>
 
             <div class="unique_colors_size">{{ unique_colors | size | minus: 1 }} colours</div>
 
-
             {% if customer.b2b? %}
               {% if card_product.variants.size > 1 %}
                 <div class="price ">
-                  <span class="new-from-price">{{ card_product.price_min | money }} - {{ card_product.price_max | money }}</span>
+                  <span class="new-from-price">
+                    {{- card_product.price_min | money }} - {{ card_product.price_max | money -}}
+                  </span>
                 </div>
               {% else %}
                 <div class="price regular-single-orice-wrap">

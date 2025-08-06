@@ -103,7 +103,7 @@
                     <a href="{{ item.url }}" class="cart-item__name h4 break">{{ item.product.title | escape }}</a>
 
                     {%- if item.sku -%}
-                    <div class="prod-cart-sku">SKU: {{ item.sku }}</div>
+                      <div class="prod-cart-sku">SKU: {{ item.sku }}</div>
                     {%- endif -%}
 
                     {%- if item.original_price != item.final_price -%}
@@ -173,9 +173,19 @@
                     </ul>
 
                     {%- if item.quantity > item.variant.inventory_quantity -%}
-                      <span shop-qty="{{ item.variant.inventory_quantity }}" meta-qty="{{ item.variant.metafields.custom.field_7_10_day_dispatch_stock }}" class="cart-item-dispatch-value">7-10 Days Dispatch</span>
+                      <span
+                        shop-qty="{{ item.variant.inventory_quantity }}"
+                        meta-qty="{{ item.variant.metafields.custom.field_7_10_day_dispatch_stock }}"
+                        class="cart-item-dispatch-value"
+                        >7-10 Days Dispatch</span
+                      >
                     {%- else -%}
-                      <span shop-qty="{{ item.variant.inventory_quantity }}" meta-qty="{{ item.variant.metafields.custom.field_7_10_day_dispatch_stock }}" class="cart-item-dispatch-value">1-2 Days Dispatch</span>
+                      <span
+                        shop-qty="{{ item.variant.inventory_quantity }}"
+                        meta-qty="{{ item.variant.metafields.custom.field_7_10_day_dispatch_stock }}"
+                        class="cart-item-dispatch-value"
+                        >1-2 Days Dispatch</span
+                      >
                     {%- endif -%}
                   </td>
 
