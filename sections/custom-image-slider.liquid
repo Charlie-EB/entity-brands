@@ -42,4 +42,34 @@
   @keyframes scrollSlides {
     0%   { transform: translateX(0); }
     25%  { transform: translateX(calc(-1 * (400px + 20px))); }
-    50%  { tr
+    50%  { transform: translateX(calc(-2 * (400px + 20px))); }
+    75%  { transform: translateX(calc(-3 * (400px + 20px))); }
+    100% { transform: translateX(0); }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom Image Slider",
+  "max_blocks": 10,
+  "blocks": [
+    {
+      "type": "image_slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Upload Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Image Slider",
+      "category": "Media"
+    }
+  ]
+}
+{% endschema %}
