@@ -64,7 +64,6 @@
 
 {%- endstyle -%}
 
-<div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
   <div class="side-by-side content-container color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} side-by-side--full-width content-container--full-width{% endif %} section-{{ section.id }}-padding">
     <div class="side-by-side__wrapper side-by-side__wrapper--{{ section.settings.desktop_content_position }}{% if section.settings.full_width %} page-width{% endif %}">
       <div class="side-by-side__blocks {{ section.settings.content_alignment }}">
@@ -81,17 +80,6 @@
               >
                 {{ block.settings.heading }}
               </h2>
-            {%- when 'caption' -%}
-              <p
-                class="side-by-side__caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-                {{ block.shopify_attributes }}
-                {% if settings.animations_reveal_on_scroll %}
-                  data-cascade
-                  style="--animation-order: {{ forloop.index }};"
-                {% endif %}
-              >
-                {{ block.settings.caption | escape }}
-              </p>
             {%- when 'text' -%}
               <div
                 class="side-by-side__text rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -142,7 +130,6 @@
       </div>
     </div>
   </div>
-</div>
 
 {% schema %}
 {
