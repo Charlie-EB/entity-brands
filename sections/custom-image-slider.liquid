@@ -1,17 +1,19 @@
-{% comment %} Section: Custom Image Slider - 3 images wide with autoplay {% endcomment %}
+{% comment %} Section: Custom Image Slider - Autoplay 3 at a time {% endcomment %}
 <div class="custom-image-slider">
-  <div class="slider-wrapper">
-    {% for block in section.blocks %}
-      {% if block.settings.image %}
-        <div class="slide">
-          <img 
-            src="{{ block.settings.image | image_url: width: 400, height: 400, crop: 'center' }}" 
-            width="400" 
-            height="400" 
-            alt="{{ block.settings.image.alt | escape }}">
-        </div>
-      {% endif %}
-    {% endfor %}
+  <div class="slider-viewport">
+    <div class="slider-wrapper">
+      {% for block in section.blocks %}
+        {% if block.settings.image %}
+          <div class="slide">
+            <img 
+              src="{{ block.settings.image | image_url: width: 400, height: 400, crop: 'center' }}" 
+              width="400" 
+              height="400" 
+              alt="{{ block.settings.image.alt | escape }}">
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
   <button class="slider-prev">&#10094;</button>
   <button class="slider-next">&#10095;</button>
@@ -20,18 +22,29 @@
 <style>
   .custom-image-slider {
     position: relative;
-    width: 1200px; /* 3 images * 400px */
-    overflow: hidden;
+    max-width: 1200px;
     margin: auto;
+    overflow: hidden;
   }
+
+  .slider-viewport {
+    overflow: hidden;
+  }
+
   .slider-wrapper {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    will-change: transform;
   }
+
   .slide {
     min-width: 400px;
+    max-width: 400px;
     flex-shrink: 0;
+    padding: 5px;
+    box-sizing: border-box;
   }
+
   .slider-prev,
   .slider-next {
     position: absolute;
@@ -44,55 +57,74 @@
     cursor: pointer;
     z-index: 10;
   }
+
   .slider-prev { left: 0; }
   .slider-next { right: 0; }
+
+  @media screen and (max-width: 1024px) {
+    .slide {
+      min-width: 300px;
+      max-width: 300px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .slide {
+      min-width: 100%;
+      max-width: 100%;
+    }
+  }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const slider = document.querySelector('.slider-wrapper');
+    const sliderWrapper = document.querySelector('.slider-wrapper');
     const slides = document.querySelectorAll('.slide');
     const prevBtn = document.querySelector('.slider-prev');
     const nextBtn = document.querySelector('.slider-next');
-    const totalSlides = slides.length;
+
     const visibleSlides = 3;
+    let totalSlides = slides.length;
     let index = 0;
 
     function updateSlider() {
-      // Calculate max index so we don’t scroll beyond last full slide
-      let maxIndex = totalSlides - visibleSlides;
-      if (index > maxIndex) index = 0;
-      if (index < 0) index = maxIndex;
-      slider.style.transform = 'translateX(' + (-400 * index) + 'px)';
+      let translateX = -(index * 400);
+      sliderWrapper.style.transform = `translateX(${translateX}px)`;
     }
 
-    prevBtn.addEventListener('click', function() {
+    function goToNextSlide() {
+      index++;
+      if (index > totalSlides - visibleSlides) {
+        index = 0;
+      }
+      updateSlider();
+    }
+
+    function goToPrevSlide() {
       index--;
+      if (index < 0) {
+        index = totalSlides - visibleSlides;
+      }
       updateSlider();
-      resetAutoScroll();
-    });
+    }
 
-    nextBtn.addEventListener('click', function() {
-      index++;
-      updateSlider();
-      resetAutoScroll();
-    });
-
-    // Auto scroll every 3 seconds
-    let autoScroll = setInterval(function() {
-      index++;
-      updateSlider();
-    }, 3000);
+    let autoScroll = setInterval(goToNextSlide, 3000);
 
     function resetAutoScroll() {
       clearInterval(autoScroll);
-      autoScroll = setInterval(function() {
-        index++;
-        updateSlider();
-      }, 3000);
+      autoScroll = setInterval(goToNextSlide, 3000);
     }
 
-    // Initial update
+    nextBtn.addEventListener('click', () => {
+      goToNextSlide();
+      resetAutoScroll();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      goToPrevSlide();
+      resetAutoScroll();
+    });
+
     updateSlider();
   });
 </script>
