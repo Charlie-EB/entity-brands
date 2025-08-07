@@ -305,6 +305,12 @@
           "settings": {
             "image": "shopify://shop_images/Apron-100.jpg"
           }
+        },
+        "image_slide_E7xy9m": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/JL-100.jpg"
+          }
         }
       },
       "block_order": [
@@ -312,7 +318,8 @@
         "image_slide_gLVw9p",
         "image_slide_LtLrLK",
         "image_slide_aEHB3R",
-        "image_slide_peV6iA"
+        "image_slide_peV6iA",
+        "image_slide_E7xy9m"
       ],
       "name": "Custom Image Slider",
       "settings": {}
