@@ -292,6 +292,30 @@
       ],
       "name": "Custom Image Slider",
       "settings": {}
+    },
+    "rich_text_NjPaJx": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_bf7jeB": {
+          "type": "heading",
+          "settings": {
+            "heading": "Brands We Love to Brand!",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_bf7jeB"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
@@ -302,6 +326,7 @@
     "image_with_text_wygnUy",
     "image_with_text_YC6tgr",
     "image_slider_4TWCMz",
-    "custom_image_slider_TWHTdy"
+    "custom_image_slider_TWHTdy",
+    "rich_text_NjPaJx"
   ]
 }
