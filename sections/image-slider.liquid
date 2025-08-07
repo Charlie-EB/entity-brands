@@ -1,371 +1,97 @@
-{% liquid
-  assign sectionID = 'shopify-section-' | append: section.id
-  assign divID = section.id | replace: 'template--', '' | replace: 'shopify-section-', '' | replace: '__', ''
-%}
-
-<div id="{{ divID }}" class="{{ section.settings.custom_class }} container-fluid collection-list">
-  <h2>{{ section.settings.heading }}</h2>
-  <div class="slider_wrapper splide" role="group" aria-label="Splendid Splide Slider">
-    <div class="splide__track">
-      <ul class="splide__list">
-        {% for block in section.blocks %}
-          {% if block.settings.block_image != blank %}
-            <li class="splide__slide">
-              {% assign original_string = block.settings.image_text %}
-              {% assign formatted_string = original_string | replace: '<br>', ' ' %}
-              {% assign words = formatted_string | split: ' ' %}
-
-              {% if words.size > 1 %}
-                {% assign final_string = '' %}
-                {% for word in words %}
-                  {% if forloop.first %}
-                    {% assign final_string = word | capitalize %}
-                  {% else %}
-                    {% assign word2 = word | capitalize %}
-                    {% assign final_string = final_string | append: '+' | append: word2 %}
-                  {% endif %}
-                {% endfor %}
-              {% else %}
-                {% assign final_string = original_string %}
-              {% endif %}
-
-              {% unless final_string contains '+' %}
-                {% assign final_string = final_string | capitalize %}
-              {% endunless %}
-
-              <a
-                class="block_link"
-                href="
-                  {% if section.settings.custom_class == 'shop_by_color' %}
-                  {% if block.settings.custom_url != blank %}
-                    {{ block.settings.custom_url }}
-                    {% else %}
-                      /collections/all?filter.v.price.gte=&filter.v.price.lte=&filter.v.option.colour={{final_string}}
-                  {% endif %}
-                  {% else %}#{% endif %}
-                "
-              >
-                {% if block.settings.image_text != blank %}
-                  <p style="color:{{ block.settings.image_text_color }}" class="image_text">
-                    {{ block.settings.image_text }}
-                  </p>
-                {% endif %}
-                <img
-                  class="block_image"
-                  src="{{ block.settings.block_image | img_url: 'master' }}"
-                  alt="{{ block.settings.block_title }}"
-                  {% if section.settings.custom_class == 'shop_by_color' %}
-                    style="width: 170px; height: 170px; object-fit: cover; object-position: {{ block.settings.image_position }}%;"
-                  {% endif %}
-                >
-              </a>
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
-  </div>
-</div>
-<style>
-  #{{sectionID}} .collection-list {
-      overflow:hidden;
-      padding: 45px 0 !important;
-      background: linear-gradient(0deg, {{section.settings.usp_background_color}} 0%, {{section.settings.usp_background_color}} 100%);
-      position:relative;
-  }
-    #{{sectionID}} .shop_by_color.collection-list {
-      margin:0 !important;
-      justify-content: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
-    #{{sectionID}} h2 {
-      font-weight: 700;
-      font-size: 30px;
-    }
-  #{{sectionID}} .collection-list:after {
-       {% if section.settings.usp_background != blank %}
-      content:'';
-      background-image: url({{section.settings.usp_background | image_url}});
+{% comment %} Section: Image Slider {% endcomment %}
+<div class="custom-image-slider">
+  <div class="slider-wrapper">
+    {% for block in section.blocks %}
+      {% if block.settings.image %}
+        <div class="slide">
+          <img 
+            src="{{ block.settings.image | image_url: width: 800 }}" 
+            width="800" 
+            height="800" 
+            alt="{{ block.settings.image.alt | escape }}">
+        </div>
       {% endif %}
-      position:absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      opacity:0.3;
-      background-repeat: no-repeat;
-      background-position: 50% 0;
-      background-size: cover;
-   }
-   #{{sectionID}} .container, .container-fluid {
-      margin-right: auto;
-      margin-left: auto;
-  }
-   #{{sectionID}} .collection-list-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-  }
-  #{{sectionID}}  .collection-list-wrapper a {
-      position: relative;
-      width: 100%;
-      color:white;
-      text-decoration: none;
-  }
-   #{{sectionID}} .single-collection-chefworks {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      overflow: hidden;
-  }
-  #{{sectionID}}  .single-collection-chefworks p {
-      font-size: 12px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      text-transform: capitalize;
-      color: white;
-      margin-bottom: 0;
-  }
-  #{{sectionID}}  .single-collection-chefworks img {
-      height: 68px;
-  }
-   #{{sectionID}} .container-fluid.collection-list > a,
-   #{{sectionID}} .collection-list-wrapper > a[style="width: 100%;display: block;"] {
-      display:none !important;
-      width: 0 !important;
-    }
+    {% endfor %}
+  </div>
+  <button class="slider-prev">&#10094;</button>
+  <button class="slider-next">&#10095;</button>
+</div>
 
-   #{{sectionID}} .shop_by_color .block_link
-  {
-        padding:0 !important;
-        width: 170px !important;
-        height: 170px;
+<style>
+  .custom-image-slider {
+    position: relative;
+    width: 800px;
+    overflow: hidden;
+    margin: auto;
   }
-        .shop_by_color h2, .logo_slider h2{
-          align-self: flex-start;
-          width: 1170px;
-          margin: 0 auto 20px;
-          font-family: "kepler-std-condensed-subhead", serif !important;
-          letter-spacing: 1.492px;
-
-  }
-         .logo_slider h2{
-          margin: 0 !important;
-          margin-bottom: 20px !important;
-
-         }
-
-
-   #{{sectionID}} .shop_by_color img.block_image {
-      width: 170px;
-      height: 170px;
-      object-fit: none !important;
-  }
-
-   #{{sectionID}}  .shop_by_color .image_text {
-      position: absolute;
-      margin: 0;
-      left: calc(50% - 25px);
-      top: calc(50% - 15px);
-      font-weight: 700;
-  }
-   #{{sectionID}}  .shop_by_color .splide__slide {
+  .slider-wrapper {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    transition: transform 0.5s ease-in-out;
   }
-
-   #{{sectionID}} .shop_by_color .block_image {
-    width: 170px;
-    height: 170px;
-    object-fit: cover;}
-
-    #{{sectionID}} .shop_by_color  .splide {
-      max-width: 1276px;
+  .slide {
+    min-width: 800px;
   }
-
-  #{{sectionID}} .shop_by_color  .splide .splide__track {
-      overflow: hidden;
+  .slider-prev,
+  .slider-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    z-index: 10;
   }
-
-  #{{sectionID}} .shop_by_color  .splide .splide__list {
-      display: flex;
-      align-items: center;
-  }
-
-  #{{sectionID}} .shop_by_color  .splide .splide__slide {
-      width: 170px;
-      height: 170px;
-      position: relative;
-  }
-  #{{sectionID}} .splide .splide__slide {
-      flex-shrink: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
-    #{{sectionID}} .logo_slider .splide .splide__slide {
-      margin-right: 60px !important;
-    }
-  #{{sectionID}} .shop_by_color  .splide .block_image {
-      width: 170px;
-      height: 170px;
-      object-fit: cover;
-  }
-
-  #{{sectionID}} .shop_by_color  .splide .image_text {
-      position: absolute;
-      width: 100%;
-      text-align: center;
-      color: white;
-      font-weight: bold;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-  }
-   .splide__pagination {
-    display: none !important;
-  }
-      #{{sectionID}} .logo_slider .splide__slide img {
-        object-fit: contain;
-        width: inherit;
-        height: inherit;
-        max-width: 200px;
-        margin: 0 auto;
-    }
-
-    #{{sectionID}} .logo_slider a.block_link {
-        width: 100%;
-        height: 100%;
-        display: flex;
-    }
-
-    #{{sectionID}} .logo_slider .splide .splide__slide {
-        margin-right: 0;
-    }
-  @media all and (max-width: 991px) {
-
-    .shop_by_color h2, .logo_slider h2 {
-      padding-left: 20px;
-    }
-  }
-  @media all and (min-width: 992px) {
-      #{{sectionID}} .collection-list {
-      padding: 45px !important;
-    }
-  }
-    @media all and (max-width: 1340px ) {
-          div#splide01-track {
-      margin: 0 auto !important;
-  }
-    }
-    @media all and (min-width: 1028px) and (max-width: 1340px ) {
-          div#splide01-track {
-      max-width: 80% !important;
-  }
-    }
-    @media all and (min-width: 633px) and (max-width: 1028px ) {
-          div#splide01-track {
-      max-width: 50% !important;
-  }
-    }
-      @media all and (max-width: 632px ) {
-          div#splide01-track {
-      max-width: 30% !important;
-  }
-    }
+  .slider-prev { left: 0; }
+  .slider-next { right: 0; }
 </style>
-<script>
-  const splideObserver = new MutationObserver((mutationsList, observer) => {
-    if (document.querySelector('.logo_slider .splide')) {
-      new Splide('.logo_slider .splide', {
-        type: 'loop',
-        perPage: 5,
-        autoplay: true,
-        interval: 3000,
-        gap: '20px',
-        arrows: false,
-        pagination: false,
-        breakpoints: { 991: { perPage: 3 } },
-      }).mount();
-      observer.disconnect();
-    }
-  });
 
-  splideObserver.observe(document.body, { childList: true, subtree: true });
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.slider-wrapper');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.slider-prev');
+    const nextBtn = document.querySelector('.slider-next');
+    let index = 0;
+
+    function updateSlider() {
+      slider.style.transform = 'translateX(' + (-800 * index) + 'px)';
+    }
+
+    prevBtn.addEventListener('click', function() {
+      index = (index === 0) ? slides.length - 1 : index - 1;
+      updateSlider();
+    });
+
+    nextBtn.addEventListener('click', function() {
+      index = (index === slides.length - 1) ? 0 : index + 1;
+      updateSlider();
+    });
+  });
 </script>
 
 {% schema %}
 {
   "name": "Image Slider",
-  "settings": [
-    {
-      "type": "text",
-      "id": "custom_class",
-      "label": "Custom Class"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Section Heading"
-    },
-    {
-      "type": "image_picker",
-      "id": "usp_background",
-      "label": "Section Background"
-    },
-    {
-      "type": "color",
-      "id": "usp_background_color",
-      "label": "Section Background Color"
-    }
-  ],
+  "max_blocks": 10,
   "blocks": [
     {
-      "type": "Block",
-      "name": "Block",
+      "type": "image_slide",
+      "name": "Slide",
       "settings": [
         {
           "type": "image_picker",
-          "id": "block_image",
-          "label": "Image"
-        },
-        {
-          "type": "text",
-          "id": "image_text",
-          "label": "Image Text",
-          "info": "add <br> between each word"
-        },
-        {
-          "type": "color",
-          "id": "image_text_color",
-          "label": "Image Text Color"
-        },
-        {
-          "type": "range",
-          "id": "image_position",
-          "label": "Image Position",
-          "min": 0,
-          "max": 100,
-          "step": 2,
-          "unit": "%",
-          "default": 50
-        },
-        {
-          "type": "url",
-          "id": "custom_url",
-          "label": "Custom URL"
+          "id": "image",
+          "label": "Upload Image"
         }
       ]
     }
   ],
-  "max_blocks": 8,
   "presets": [
     {
-      "name": "Image Slider"
+      "name": "Image Slider",
+      "category": "Media"
     }
   ]
 }
