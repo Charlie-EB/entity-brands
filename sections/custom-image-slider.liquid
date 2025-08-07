@@ -1,4 +1,4 @@
-{% comment %} Section: Custom Image Slider (400x400) {% endcomment %}
+{% comment %} Section: Custom Image Slider - 3 images wide with autoplay {% endcomment %}
 <div class="custom-image-slider">
   <div class="slider-wrapper">
     {% for block in section.blocks %}
@@ -20,7 +20,7 @@
 <style>
   .custom-image-slider {
     position: relative;
-    width: 400px;
+    width: 1200px; /* 3 images * 400px */
     overflow: hidden;
     margin: auto;
   }
@@ -30,6 +30,7 @@
   }
   .slide {
     min-width: 400px;
+    flex-shrink: 0;
   }
   .slider-prev,
   .slider-next {
@@ -53,21 +54,46 @@
     const slides = document.querySelectorAll('.slide');
     const prevBtn = document.querySelector('.slider-prev');
     const nextBtn = document.querySelector('.slider-next');
+    const totalSlides = slides.length;
+    const visibleSlides = 3;
     let index = 0;
 
     function updateSlider() {
+      // Calculate max index so we don’t scroll beyond last full slide
+      let maxIndex = totalSlides - visibleSlides;
+      if (index > maxIndex) index = 0;
+      if (index < 0) index = maxIndex;
       slider.style.transform = 'translateX(' + (-400 * index) + 'px)';
     }
 
     prevBtn.addEventListener('click', function() {
-      index = (index === 0) ? slides.length - 1 : index - 1;
+      index--;
       updateSlider();
+      resetAutoScroll();
     });
 
     nextBtn.addEventListener('click', function() {
-      index = (index === slides.length - 1) ? 0 : index + 1;
+      index++;
       updateSlider();
+      resetAutoScroll();
     });
+
+    // Auto scroll every 3 seconds
+    let autoScroll = setInterval(function() {
+      index++;
+      updateSlider();
+    }, 3000);
+
+    function resetAutoScroll() {
+      clearInterval(autoScroll);
+      autoScroll = setInterval(function() {
+        index++;
+        updateSlider();
+      }, 3000);
+    }
+
+    // Initial update
+    updateSlider();
   });
 </script>
 
@@ -82,7 +108,7 @@
       "settings": [
         {
           "type": "image_picker",
- "id": "image",
+          "id": "image",
           "label": "Upload Image"
         }
       ]
