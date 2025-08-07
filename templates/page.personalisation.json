@@ -23,14 +23,14 @@
         "template--21557584986429__0ecfebae-285a-4bb9-8042-4caaa867fdd9-heading-1": {
           "type": "heading",
           "settings": {
-            "heading": "About Us",
+            "heading": "Personalisation Services",
             "heading_size": "h1"
           }
         },
         "template--21557584986429__0ecfebae-285a-4bb9-8042-4caaa867fdd9-text-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Entity Brands provides Australian and New Zealand customers access to some of the world’s leading uniform brands.</p>"
+            "text": "<p>Stand out from the crowd by adding your logo, name, or branding to your garments. Our personalisation service allows you to create a unique and professional look that sets your team apart. From embroidered logos to printed names, we offer a range of high-quality personalisation techniques that ensure your garments reflect your identity.</p>"
           }
         }
       },
@@ -133,14 +133,14 @@
         "heading_HqUAyC": {
           "type": "heading",
           "settings": {
-            "heading": "Our Story",
+            "heading": "Embroidery",
             "heading_size": "h1"
           }
         },
         "text_pJ4iBa": {
           "type": "text",
           "settings": {
-            "text": "<p>Entity Brands was founded in 2016 by Jonathan Brown with the purpose of providing high-quality workwear solutions.</p><p>Founded on the principles of family, service and value; the brands we partner with carry the same ethos, with a focus on sustainable practices, community benefit programs, and superior quality.</p><p>Today, Jonathan's legacy continues under the leadership of his son, Shannon Brown, who now drives the business from our Sydney headquarters.<br/><br/></p>",
+            "text": "<p>From logos to names, our embroidery services are quick and easy. You can set up or reorder all your uniform needs, in just a few clicks. (Minimums required, email sales@entitybrands.com.au to request a quote)</p>",
             "text_style": "body"
           }
         }
@@ -152,7 +152,7 @@
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "custom_class": "",
-        "image": "shopify://shop_images/JOnny_Shannon_Webshot_Dec24.jpg",
+        "image": "shopify://shop_images/cc-customization-6-lg.jpg",
         "height": "small",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -172,14 +172,14 @@
         "heading_FPPyyP": {
           "type": "heading",
           "settings": {
-            "heading": "Our Solutions",
+            "heading": "Screen Print",
             "heading_size": "h1"
           }
         },
         "text_GqHGQX": {
           "type": "text",
           "settings": {
-            "text": "<p>Our team advises small and large businesses across a wide range of sectors. We take pride in being able to offer a large selection of quality global brands. Our size means our clients enjoy choice, more personalised attention, prompt service and effective solutions.</p>",
+            "text": "<p>Screen printing is available on chef jackets, aprons, hats, tees and more. Whether your needs are simple or complex, we can custom-design your request to make your vision a reality. (Minimums required, email sales@entitybrands.com.au to request a quote)</p>",
             "text_style": "body"
           }
         }
@@ -191,7 +191,7 @@
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "custom_class": "",
-        "image": "shopify://shop_images/EB_UniformsWithImpact-01_b23601f3-5ff3-43cd-a935-e000e2e33cb4.png",
+        "image": "shopify://shop_images/cc-customization-7-lg.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -211,35 +211,26 @@
         "heading_ywyGtd": {
           "type": "heading",
           "settings": {
-            "heading": "Benefits of Partnering with Us",
+            "heading": "Direct To Film",
             "heading_size": "h1"
           }
         },
         "text_kMnedE": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Dedicated Account Manager.</li><li>Special industry pricing.</li><li>We service all business sizes and types, from corporate to restaurant chains.</li><li>Customised ordering portals for multi-location accounts.</li><li>In-house Embroidery and Screen Printing services.</li><li>High-tech, automated Distribution Center with stocked inventory.</li><li>Quick turnaround and response rate.</li></ul>",
+            "text": "<p>A modern solution for vibrant, full-colour designs, even on dark fabrics. DTF is ideal for detailed artwork or designs with gradients. (Minimums required, email sales@entitybrands.com.au to request a quote)</p>",
             "text_style": "body"
-          }
-        },
-        "button_JcPjFa": {
-          "type": "button",
-          "settings": {
-            "button_label": "Discover More",
-            "button_link": "shopify://pages/uniform-solutions",
-            "button_style_secondary": false
           }
         }
       },
       "block_order": [
         "heading_ywyGtd",
-        "text_kMnedE",
-        "button_JcPjFa"
+        "text_kMnedE"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "custom_class": "",
-        "image": "shopify://shop_images/EB_341.jpg",
+        "image": "shopify://shop_images/DTF.jpg",
         "height": "small",
         "desktop_image_width": "medium",
         "layout": "image_first",
