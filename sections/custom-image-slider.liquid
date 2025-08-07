@@ -1,0 +1,98 @@
+{% comment %} Section: Custom Image Slider {% endcomment %}
+<div class="custom-image-slider">
+  <div class="slider-wrapper">
+    {% for block in section.blocks %}
+      {% if block.settings.image %}
+        <div class="slide">
+          <img 
+            src="{{ block.settings.image | image_url: width: 800 }}" 
+            width="800" 
+            height="800" 
+            alt="{{ block.settings.image.alt | escape }}">
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <button class="slider-prev">&#10094;</button>
+  <button class="slider-next">&#10095;</button>
+</div>
+
+<style>
+  .custom-image-slider {
+    position: relative;
+    width: 800px;
+    overflow: hidden;
+    margin: auto;
+  }
+  .slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .slide {
+    min-width: 800px;
+  }
+  .slider-prev,
+  .slider-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  .slider-prev { left: 0; }
+  .slider-next { right: 0; }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.slider-wrapper');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.slider-prev');
+    const nextBtn = document.querySelector('.slider-next');
+    let index = 0;
+
+    function updateSlider() {
+      slider.style.transform = 'translateX(' + (-800 * index) + 'px)';
+    }
+
+    prevBtn.addEventListener('click', function() {
+      index = (index === 0) ? slides.length - 1 : index - 1;
+      updateSlider();
+    });
+
+    nextBtn.addEventListener('click', function() {
+      index = (index === slides.length - 1) ? 0 : index + 1;
+      updateSlider();
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Custom Image Slider",
+  "max_blocks": 10,
+  "blocks": [
+    {
+      "type": "image_slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Upload Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Image Slider",
+      "category": "Media"
+    }
+  ]
+}
+{% endschema %}
