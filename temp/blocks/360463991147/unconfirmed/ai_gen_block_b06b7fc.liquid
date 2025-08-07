@@ -1,6 +1,501 @@
+{% doc %}
+  @prompt
+    Create a reusable image gallery section with autoscroll functionality. The section should allow merchants to add multiple image URLs through the theme customizer and automatically scroll through the images in a smooth, continuous loop. Include customization options for scroll speed, image sizing, and gallery layout.
+
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-image-gallery-{{ ai_gen_id }} {
+    width: 100%;
+    overflow: hidden;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.section_padding }}px 0;
+  }
+
+  .ai-image-gallery-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-image-gallery-header-{{ ai_gen_id }} {
+    text-align: {{ block.settings.text_alignment }};
+    margin-bottom: {{ block.settings.header_spacing }}px;
+  }
+
+  .ai-image-gallery-title-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.title_size }}px;
+    margin: 0 0 10px;
+  }
+
+  .ai-image-gallery-subtitle-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.subtitle_size }}px;
+    margin: 0;
+    opacity: 0.8;
+  }
+
+  .ai-image-gallery-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    overflow: hidden;
+    border-radius: {{ block.settings.gallery_border_radius }}px;
+  }
+
+  .ai-image-gallery-track-{{ ai_gen_id }} {
+    display: flex;
+    gap: {{ block.settings.image_gap }}px;
+    animation: ai-scroll-{{ ai_gen_id }} {{ block.settings.scroll_speed }}s linear infinite;
+    will-change: transform;
+  }
+
+  .ai-image-gallery-track-{{ ai_gen_id }}:hover {
+    animation-play-state: {{ block.settings.pause_on_hover | default: true }};
+  }
+
+  .ai-image-gallery-item-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: {{ block.settings.image_width }}px;
+    height: {{ block.settings.image_height }}px;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .ai-image-gallery-item-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: {{ block.settings.image_fit }};
+    transition: transform 0.3s ease;
+  }
+
+  .ai-image-gallery-item-{{ ai_gen_id }}:hover img {
+    transform: scale({{ block.settings.hover_scale }});
+  }
+
+  .ai-image-gallery-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-image-gallery-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  @keyframes ai-scroll-{{ ai_gen_id }} {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-100% - {{ block.settings.image_gap }}px));
+    }
+  }
+
+  {% if block.settings.pause_on_hover %}
+    .ai-image-gallery-track-{{ ai_gen_id }}:hover {
+      animation-play-state: paused;
+    }
+  {% endif %}
+
+  @media screen and (max-width: 749px) {
+    .ai-image-gallery-item-{{ ai_gen_id }} {
+      width: {{ block.settings.image_width | times: 0.7 }}px;
+      height: {{ block.settings.image_height | times: 0.7 }}px;
+    }
+
+    .ai-image-gallery-container-{{ ai_gen_id }} {
+      padding: 0 15px;
+    }
+
+    .ai-image-gallery-title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.title_size | times: 0.8 }}px;
+    }
+
+    .ai-image-gallery-subtitle-{{ ai_gen_id }} {
+      font-size: {{ block.settings.subtitle_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<auto-scroll-gallery-{{ ai_gen_id }}
+  class="ai-image-gallery-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-image-gallery-container-{{ ai_gen_id }}">
+    {% if block.settings.title != blank or block.settings.subtitle != blank %}
+      <div class="ai-image-gallery-header-{{ ai_gen_id }}">
+        {% if block.settings.title != blank %}
+          <h2 class="ai-image-gallery-title-{{ ai_gen_id }}">{{ block.settings.title }}</h2>
+        {% endif %}
+        {% if block.settings.subtitle != blank %}
+          <p class="ai-image-gallery-subtitle-{{ ai_gen_id }}">{{ block.settings.subtitle }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="ai-image-gallery-wrapper-{{ ai_gen_id }}">
+      <div class="ai-image-gallery-track-{{ ai_gen_id }}">
+        {% for i in (1..10) %}
+          {% assign image_key = 'image_' | append: i %}
+          {% assign image = block.settings[image_key] %}
+          
+          {% if image != blank %}
+            <div class="ai-image-gallery-item-{{ ai_gen_id }}">
+              <img
+                src="{{ image | image_url: width: 800 }}"
+                alt="{{ image.alt | escape }}"
+                loading="lazy"
+                width="{{ block.settings.image_width }}"
+                height="{{ block.settings.image_height }}"
+              >
+            </div>
+          {% endif %}
+        {% endfor %}
+
+        {% for i in (1..10) %}
+          {% assign image_key = 'image_' | append: i %}
+          {% assign image = block.settings[image_key] %}
+          
+          {% if image != blank %}
+            <div class="ai-image-gallery-item-{{ ai_gen_id }}">
+              <img
+                src="{{ image | image_url: width: 800 }}"
+                alt="{{ image.alt | escape }}"
+                loading="lazy"
+                width="{{ block.settings.image_width }}"
+                height="{{ block.settings.image_height }}"
+              >
+            </div>
+          {% endif %}
+        {% endfor %}
+
+        {% if block.settings.image_1 == blank and block.settings.image_2 == blank and block.settings.image_3 == blank %}
+          {% for i in (1..6) %}
+            <div class="ai-image-gallery-item-{{ ai_gen_id }}">
+              <div class="ai-image-gallery-placeholder-{{ ai_gen_id }}">
+                {{ 'image' | placeholder_svg_tag }}
+              </div>
+            </div>
+          {% endfor %}
+          {% for i in (1..6) %}
+            <div class="ai-image-gallery-item-{{ ai_gen_id }}">
+              <div class="ai-image-gallery-placeholder-{{ ai_gen_id }}">
+                {{ 'image' | placeholder_svg_tag }}
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</auto-scroll-gallery-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class AutoScrollGallery{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.track = this.querySelector('.ai-image-gallery-track-{{ ai_gen_id }}');
+        this.setupInfiniteScroll();
+      }
+
+      setupInfiniteScroll() {
+        if (!this.track) return;
+
+        const items = this.track.children;
+        const itemCount = items.length / 2;
+        
+        if (itemCount === 0) return;
+
+        this.track.addEventListener('animationiteration', () => {
+          this.track.style.transform = 'translateX(0)';
+        });
+      }
+    }
+
+    customElements.define('auto-scroll-gallery-{{ ai_gen_id }}', AutoScrollGallery{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Auto-Scroll Image Gallery",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Gallery title",
+      "default": "Image Gallery"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Gallery subtitle",
+      "default": "Discover our collection"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Image 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_5",
+      "label": "Image 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_6",
+      "label": "Image 6"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_7",
+      "label": "Image 7"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_8",
+      "label": "Image 8"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_9",
+      "label": "Image 9"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_10",
+      "label": "Image 10"
+    },
+    {
+      "type": "header",
+      "content": "Gallery Layout"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "min": 150,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "label": "Image width",
+      "default": 250
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "min": 150,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "label": "Image height",
+      "default": 250
+    },
+    {
+      "type": "range",
+      "id": "image_gap",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Gap between images",
+      "default": 20
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "contain",
+          "label": "Contain"
+        },
+        {
+          "value": "fill",
+          "label": "Fill"
+        }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "header",
+      "content": "Scroll Settings"
+    },
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "s",
+      "label": "Scroll duration",
+      "default": 30
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on hover",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "hover_scale",
+      "min": 1,
+      "max": 1.2,
+      "step": 0.1,
+      "label": "Hover scale effect",
+      "default": 1.1
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Title size",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Subtitle size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Section padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "header_spacing",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Header spacing",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 800,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "label": "Maximum width",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "gallery_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Gallery border radius",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Image border radius",
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Auto-Scroll Image Gallery"
+    }
+  ]
+}
 {% endschema %}
