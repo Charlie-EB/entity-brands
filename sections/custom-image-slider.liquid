@@ -1,4 +1,4 @@
-{% comment %} Section: Custom Image Slider - continuous scroll, 3 visible slides, 400x400 {% endcomment %}
+{% comment %} Section: Custom Image Slider - smooth scroll, 3 images visible, 400x400 each {% endcomment %}
 <div class="custom-slider-container">
   <div class="custom-slider-track">
     {% for block in section.blocks %}
@@ -12,7 +12,7 @@
         </div>
       {% endif %}
     {% endfor %}
-    <!-- Duplicate slides for seamless loop -->
+    <!-- Duplicate for seamless scrolling -->
     {% for block in section.blocks %}
       {% if block.settings.image %}
         <div class="custom-slide">
@@ -29,7 +29,9 @@
 
 <style>
   .custom-slider-container {
+    width: 1240px; /* 3 images (400px) + 2 gaps (20px) = 1240px */
     overflow: hidden;
+    margin: 0 auto;
     padding-bottom: 40px;
   }
 
@@ -37,7 +39,7 @@
     display: flex;
     gap: 20px;
     animation: scrollLoop 40s linear infinite;
-    width: fit-content;
+    width: max-content;
   }
 
   .custom-slide {
