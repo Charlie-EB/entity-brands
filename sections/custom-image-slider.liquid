@@ -1,4 +1,4 @@
-{% comment %} Section: Custom Image Slider - 3 visible slides, 400x400, padding, auto scroll {% endcomment %}
+{% comment %} Section: Custom Image Slider - 3 visible slides, 400x400, padding, auto scroll, bottom spacing {% endcomment %}
 <div class="custom-slider-container">
   <div class="custom-slider-track">
     {% for block in section.blocks %}
@@ -21,6 +21,7 @@
     overflow: hidden;
     margin: 0 auto;
     position: relative;
+    padding-bottom: 40px; /* Adds space below the slider */
   }
 
   .custom-slider-track {
@@ -41,34 +42,4 @@
   @keyframes scrollSlides {
     0%   { transform: translateX(0); }
     25%  { transform: translateX(calc(-1 * (400px + 20px))); }
-    50%  { transform: translateX(calc(-2 * (400px + 20px))); }
-    75%  { transform: translateX(calc(-3 * (400px + 20px))); }
-    100% { transform: translateX(0); }
-  }
-</style>
-
-{% schema %}
-{
-  "name": "Custom Image Slider",
-  "max_blocks": 10,
-  "blocks": [
-    {
-      "type": "image_slide",
-      "name": "Slide",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Upload Image"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Custom Image Slider",
-      "category": "Media"
-    }
-  ]
-}
-{% endschema %}
+    50%  { tr
