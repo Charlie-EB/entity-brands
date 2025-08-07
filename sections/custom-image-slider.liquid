@@ -1,4 +1,4 @@
-{% comment %} Section: Custom Image Slider - 3 visible slides, 400x400, auto scroll {% endcomment %}
+{% comment %} Section: Custom Image Slider - 3 visible slides, 400x400, padding, auto scroll {% endcomment %}
 <div class="custom-slider-container">
   <div class="custom-slider-track">
     {% for block in section.blocks %}
@@ -17,7 +17,7 @@
 
 <style>
   .custom-slider-container {
-    width: 1200px; /* 3 slides * 400px */
+    width: calc((400px + 20px) * 3); /* 3 slides + padding */
     overflow: hidden;
     margin: 0 auto;
     position: relative;
@@ -25,6 +25,7 @@
 
   .custom-slider-track {
     display: flex;
+    gap: 20px;
     width: max-content;
     animation: scrollSlides 12s linear infinite;
   }
@@ -38,10 +39,10 @@
   }
 
   @keyframes scrollSlides {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-400px); }
-    50% { transform: translateX(-800px); }
-    75% { transform: translateX(-1200px); }
+    0%   { transform: translateX(0); }
+    25%  { transform: translateX(calc(-1 * (400px + 20px))); }
+    50%  { transform: translateX(calc(-2 * (400px + 20px))); }
+    75%  { transform: translateX(calc(-3 * (400px + 20px))); }
     100% { transform: translateX(0); }
   }
 </style>
