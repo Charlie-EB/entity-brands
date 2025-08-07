@@ -1,6 +1,18 @@
-{% comment %} Section: Custom Image Slider - 3 visible slides, 400x400, padding, auto scroll, bottom spacing {% endcomment %}
+{% comment %} Section: Custom Image Slider - continuous scroll, 3 visible slides, 400x400 {% endcomment %}
 <div class="custom-slider-container">
   <div class="custom-slider-track">
+    {% for block in section.blocks %}
+      {% if block.settings.image %}
+        <div class="custom-slide">
+          <img 
+            src="{{ block.settings.image | image_url: width: 400, height: 400, crop: 'center' }}" 
+            width="400" 
+            height="400" 
+            alt="{{ block.settings.image.alt | escape }}">
+        </div>
+      {% endif %}
+    {% endfor %}
+    <!-- Duplicate slides for seamless loop -->
     {% for block in section.blocks %}
       {% if block.settings.image %}
         <div class="custom-slide">
@@ -17,34 +29,33 @@
 
 <style>
   .custom-slider-container {
-    width: calc((400px + 20px) * 3); /* 3 slides + padding */
     overflow: hidden;
-    margin: 0 auto;
-    position: relative;
-    padding-bottom: 40px; /* Adds space below the slider */
+    padding-bottom: 40px;
   }
 
   .custom-slider-track {
     display: flex;
     gap: 20px;
-    width: max-content;
-    animation: scrollSlides 12s linear infinite;
+    animation: scrollLoop 40s linear infinite;
+    width: fit-content;
   }
 
   .custom-slide {
-    flex: 0 0 400px;
+    flex: 0 0 auto;
+    width: 400px;
     height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  @keyframes scrollSlides {
-    0%   { transform: translateX(0); }
-    25%  { transform: translateX(calc(-1 * (400px + 20px))); }
-    50%  { transform: translateX(calc(-2 * (400px + 20px))); }
-    75%  { transform: translateX(calc(-3 * (400px + 20px))); }
-    100% { transform: translateX(0); }
+  @keyframes scrollLoop {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 </style>
 
