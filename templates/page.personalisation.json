@@ -243,6 +243,74 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "image_slider_4TWCMz": {
+      "type": "image-slider",
+      "blocks": {
+        "block_nJarKq": {
+          "type": "Block",
+          "settings": {
+            "block_image": "shopify://shop_images/Apron-100.jpg",
+            "image_text": "",
+            "image_text_color": "",
+            "image_position": 50,
+            "custom_url": ""
+          }
+        },
+        "block_QmhfXB": {
+          "type": "Block",
+          "settings": {
+            "block_image": "shopify://shop_images/Merch2-100.jpg",
+            "image_text": "",
+            "image_text_color": "",
+            "image_position": 50,
+            "custom_url": ""
+          }
+        },
+        "block_NP3iaV": {
+          "type": "Block",
+          "settings": {
+            "block_image": "shopify://shop_images/Influence.png",
+            "image_text": "",
+            "image_text_color": "",
+            "image_position": 50,
+            "custom_url": ""
+          }
+        },
+        "block_rXcXJa": {
+          "type": "Block",
+          "settings": {
+            "block_image": "shopify://shop_images/Cap-100.jpg",
+            "image_text": "",
+            "image_text_color": "",
+            "image_position": 50,
+            "custom_url": ""
+          }
+        },
+        "block_hhdGc7": {
+          "type": "Block",
+          "settings": {
+            "block_image": "shopify://shop_images/Merch-100.jpg",
+            "image_text": "",
+            "image_text_color": "",
+            "image_position": 50,
+            "custom_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_nJarKq",
+        "block_QmhfXB",
+        "block_NP3iaV",
+        "block_rXcXJa",
+        "block_hhdGc7"
+      ],
+      "name": "Image Slider",
+      "settings": {
+        "custom_class": "",
+        "heading": "",
+        "usp_background_color": ""
+      }
     }
   },
   "order": [
@@ -251,6 +319,7 @@
     "bc50ce03-380e-450e-ae39-9eb2e1172d72",
     "image_with_text_FmEgaa",
     "image_with_text_wygnUy",
-    "image_with_text_YC6tgr"
+    "image_with_text_YC6tgr",
+    "image_slider_4TWCMz"
   ]
 }
