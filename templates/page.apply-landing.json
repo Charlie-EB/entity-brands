@@ -47,31 +47,6 @@
         "padding_bottom": 52
       }
     },
-    "1754617852a11662eb": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_f198b0f_yHDN9b": {
-          "type": "ai_gen_block_f198b0f",
-          "settings": {
-            "heading1": "Uniforms For Your Business",
-            "text1": "You are looking for uniforms for your team or merch that will stand out.",
-            "button_label1": "Apply Now",
-            "button_link1": "shopify://pages/uniform-solutions",
-            "heading2": "Heading Two",
-            "text2": "This is the second content box.",
-            "button_label2": "Contact Us",
-            "button_link2": "",
-            "box_bg_color": "#ffffff",
-            "button_color": "#000000"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_f198b0f_yHDN9b"
-      ],
-      "settings": {}
-    },
     "rich_text_3QWg6t": {
       "type": "rich-text",
       "blocks": {
@@ -168,7 +143,6 @@
   "order": [
     "main",
     "0ecfebae-285a-4bb9-8042-4caaa867fdd9",
-    "1754617852a11662eb",
     "rich_text_3QWg6t",
     "image_with_text_YC6tgr"
   ]
