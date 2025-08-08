@@ -103,7 +103,7 @@
         "text2": "You have a storefront and want to stock our brands. Or you are an Agent and want to resell our brands.",
         "button_label2": "Apply Now",
         "button_link2": "shopify://pages/apply-reseller",
-        "box_bg_color": "#ffffff",
+        "box_bg_color": "#f3f3f3",
         "button_color": "#e96c24"
       }
     },
