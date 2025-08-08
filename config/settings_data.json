@@ -9,18 +9,18 @@
  */
 {
   "current": {
-    "header_image_1": "shopify:\/\/shop_images\/Banner_Image.jpg",
-    "header_link_1": "shopify:\/\/collections\/polos-knits",
-    "header_text_1": "Unisex Polo\/Knits",
-    "header_image_2": "shopify:\/\/shop_images\/Workwear_Collection_2x_599f6b45-919e-491a-8d56-686dfe50d59d.jpg",
+    "header_image_1": "shopify://shop_images/Banner_Image.jpg",
+    "header_link_1": "shopify://collections/polos-knits",
+    "header_text_1": "Unisex Polo/Knits",
+    "header_image_2": "shopify://shop_images/Workwear_Collection_2x_599f6b45-919e-491a-8d56-686dfe50d59d.jpg",
     "header_link_2": "#",
     "header_text_2": "Jackets For Work",
-    "header_image_3": "shopify:\/\/shop_images\/Activewear_Collection_2x_81233400-acbf-43c5-8149-de3e136664a5.jpg",
+    "header_image_3": "shopify://shop_images/Activewear_Collection_2x_81233400-acbf-43c5-8149-de3e136664a5.jpg",
     "header_link_3": "#",
     "header_text_3": "For All Ages Collection",
-    "logo": "shopify:\/\/shop_images\/Group_2212_1.png",
+    "logo": "shopify://shop_images/Group_2212_1.png",
     "logo_width": 280,
-    "favicon": "shopify:\/\/shop_images\/entity-brands-secondary-grayscale-rgb-900px-w-72ppi.png",
+    "favicon": "shopify://shop_images/entity-brands-secondary-grayscale-rgb-900px-w-72ppi.png",
     "type_header_font": "poppins_n4",
     "heading_scale": 100,
     "type_body_font": "poppins_n4",
@@ -117,8 +117,8 @@
     "sale_badge_color_scheme": "accent-2",
     "sold_out_badge_color_scheme": "inverse",
     "brand_headline": "",
-    "brand_description": "<p><a href=\"tel:02 8039 8869\" title=\"tel:02 8039 8869\">+61 (02) 8039 8869<\/a><\/p><p><a href=\"mailto:sales@entitybrands.com.au\" target=\"_blank\" title=\"mailto:sales@entitybrands.com.au\">sales@entitybrands.com.au<\/a><\/p>",
-    "brand_image": "shopify:\/\/shop_images\/Group_2212.png",
+    "brand_description": "<p><a href=\"tel:02 8039 8869\" title=\"tel:02 8039 8869\">+61 (02) 8039 8869</a></p><p><a href=\"mailto:sales@entitybrands.com.au\" target=\"_blank\" title=\"mailto:sales@entitybrands.com.au\">sales@entitybrands.com.au</a></p>",
+    "brand_image": "shopify://shop_images/Group_2212.png",
     "brand_image_width": 280,
     "social_facebook_link": "",
     "social_instagram_link": "",
@@ -138,23 +138,27 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
-    "checkout_logo_image": "shopify:\/\/shop_images\/EB_Logo_Checkout.png",
+    "checkout_logo_image": "shopify://shop_images/EB_Logo_Checkout.png",
     "checkout_accent_color": "#838484",
     "checkout_button_color": "#121212",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
-        "settings": { "color_scheme": "background-1" }
+        "settings": {
+          "color_scheme": "background-1"
+        }
       },
       "main-password-footer": {
         "type": "main-password-footer",
-        "settings": { "color_scheme": "background-1" }
+        "settings": {
+          "color_scheme": "background-1"
+        }
       }
     },
     "content_for_index": [],
     "blocks": {
       "16274361319697914395": {
-        "type": "shopify:\/\/apps\/reviews-io\/blocks\/reviewsio-floating\/92a082e5-b297-4e88-b428-ac96cbc505f9",
+        "type": "shopify://apps/reviews-io/blocks/reviewsio-floating/92a082e5-b297-4e88-b428-ac96cbc505f9",
         "disabled": false,
         "settings": {
           "widget_id": "",
@@ -166,7 +170,7 @@
         }
       },
       "15316669992541710076": {
-        "type": "shopify:\/\/apps\/reviews-io\/blocks\/reviewsio-rating-snippet\/92a082e5-b297-4e88-b428-ac96cbc505f9",
+        "type": "shopify://apps/reviews-io/blocks/reviewsio-rating-snippet/92a082e5-b297-4e88-b428-ac96cbc505f9",
         "disabled": false,
         "settings": {
           "star": "#000000",
@@ -183,12 +187,15 @@
         }
       },
       "10830403595879607806": {
-        "type": "shopify:\/\/apps\/reviews-io\/blocks\/reviewsio-core\/92a082e5-b297-4e88-b428-ac96cbc505f9",
+        "type": "shopify://apps/reviews-io/blocks/reviewsio-core/92a082e5-b297-4e88-b428-ac96cbc505f9",
         "disabled": false,
-        "settings": { "url_key": "entity-brands", "lang": "auto" }
+        "settings": {
+          "url_key": "entity-brands",
+          "lang": "auto"
+        }
       },
       "855628211100114053": {
-        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
         "disabled": false,
         "settings": {}
       }
@@ -407,7 +414,7 @@
       "sale_badge_color_scheme": "accent-2",
       "sold_out_badge_color_scheme": "inverse",
       "brand_headline": "",
-      "brand_description": "<p><\/p>",
+      "brand_description": "<p></p>",
       "brand_image_width": 100,
       "social_twitter_link": "",
       "social_facebook_link": "",
@@ -429,11 +436,15 @@
       "sections": {
         "main-password-header": {
           "type": "main-password-header",
-          "settings": { "color_scheme": "background-1" }
+          "settings": {
+            "color_scheme": "background-1"
+          }
         },
         "main-password-footer": {
           "type": "main-password-footer",
-          "settings": { "color_scheme": "background-1" }
+          "settings": {
+            "color_scheme": "background-1"
+          }
         }
       }
     }
