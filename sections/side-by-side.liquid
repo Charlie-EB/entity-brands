@@ -60,7 +60,19 @@
 <div class="side-by-side content-container color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} side-by-side--full-width content-container--full-width{% endif %} section-{{ section.id }}-padding">
   <div class="side-by-side__wrapper side-by-side__wrapper--{{ section.settings.desktop_content_position }}{% if section.settings.full_width %} page-width{% endif %}">
     <div class="side-by-side__blocks {{ section.settings.content_alignment }}">
-      {% comment %} i think instead of using the switch statement, i should hard code 2 x side by side sections {% endcomment %}
+      {% comment %} 
+        i think instead of using the switch statement, i should hard code 2 x side by side sections 
+        and it would be nice to use the existing blocks for heading text etc. for consistant sytyling
+
+        and so- the only thing i need to change is the orange button colour
+
+        qustion: why use a case to begin with? why do we need liquid?
+        we need liquid to feed in the various user defined settings. 
+
+        2nd question: if we had 2 x headings- how does this code work?
+
+      
+      {% endcomment %}
       <div>
         <h2>left heading</h2>
       </div>
