@@ -64,7 +64,7 @@
             "text_alignment": "left",
             "gap": 60,
             "padding": 60,
-            "box_padding": 50,
+            "box_padding": 15,
             "border_thickness": 2,
             "border_color": "#e0e0e0",
             "box_background_color": "#ffffff",
