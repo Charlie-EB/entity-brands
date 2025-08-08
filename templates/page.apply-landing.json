@@ -47,48 +47,43 @@
         "padding_bottom": 52
       }
     },
-    "rich_text_DTDYwb": {
-      "type": "rich-text",
+    "1754617852a11662eb": {
+      "type": "_blocks",
       "blocks": {
-        "heading_GbL9Wt": {
-          "type": "heading",
+        "ai_gen_block_f198b0f_yHDN9b": {
+          "type": "ai_gen_block_f198b0f",
           "settings": {
-            "heading": "Uniforms For Your Business",
-            "heading_size": "h1"
-          }
-        },
-        "text_CWd6FQ": {
-          "type": "text",
-          "settings": {
-            "text": "<p>You are after uniforms for your team/business, or merch that will stand out. </p>"
-          }
-        },
-        "button_6R3Uqw": {
-          "type": "button",
-          "settings": {
-            "button_label": "APPLY HERE",
-            "button_link": "shopify://pages/uniform-solutions",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
+            "box1_header": "Uniforms For Your Business",
+            "box1_body": "<p>You are after uniforms for your team or merch that will stand out.</p>",
+            "box1_button_text": "Apply Now",
+            "box1_button_link": "shopify://pages/uniform-solutions",
+            "box2_header": "Stockist or Agent",
+            "box2_body": "<p>You have a storefront and want to stock our brands. Or you are an Agent and want to resell our brands. </p>",
+            "box2_button_text": "Apply Now",
+            "box2_button_link": "shopify://pages/apply",
+            "text_alignment": "left",
+            "gap": 30,
+            "padding": 20,
+            "box_padding": 30,
+            "border_thickness": 2,
+            "border_color": "#e0e0e0",
+            "box_background_color": "#ffffff",
+            "header_color": "#121212",
+            "body_color": "#121212",
+            "button_background_color": "#e96c24",
+            "button_hover_color": "#000000",
+            "button_text_color": "#ffffff",
+            "header_size": 24,
+            "body_size": 16,
+            "button_font_size": 14
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "heading_GbL9Wt",
-        "text_CWd6FQ",
-        "button_6R3Uqw"
+        "ai_gen_block_f198b0f_yHDN9b"
       ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
+      "settings": {}
     },
     "rich_text_3QWg6t": {
       "type": "rich-text",
@@ -123,6 +118,7 @@
         "text_hQdaKh",
         "button_hBEB7j"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
@@ -185,7 +181,7 @@
   "order": [
     "main",
     "0ecfebae-285a-4bb9-8042-4caaa867fdd9",
-    "rich_text_DTDYwb",
+    "1754617852a11662eb",
     "rich_text_3QWg6t",
     "image_with_text_YC6tgr"
   ]
