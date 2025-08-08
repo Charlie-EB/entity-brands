@@ -32,11 +32,31 @@
           "settings": {
             "text": "<p>Entity Brands provides Australian and New Zealand customers access to some of the world’s leading uniform brands.</p>"
           }
+        },
+        "button_exqqpR": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "heading_Ywend8": {
+          "type": "heading",
+          "settings": {
+            "heading": "2nd heading",
+            "heading_size": "h1"
+          }
         }
       },
       "block_order": [
         "template--21557584986429__0ecfebae-285a-4bb9-8042-4caaa867fdd9-heading-1",
-        "template--21557584986429__0ecfebae-285a-4bb9-8042-4caaa867fdd9-text-1"
+        "template--21557584986429__0ecfebae-285a-4bb9-8042-4caaa867fdd9-text-1",
+        "button_exqqpR",
+        "heading_Ywend8"
       ],
       "settings": {
         "desktop_content_position": "center",
