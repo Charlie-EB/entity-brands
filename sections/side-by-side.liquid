@@ -60,20 +60,18 @@
 <div class="side-by-side content-container color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} side-by-side--full-width content-container--full-width{% endif %} section-{{ section.id }}-padding">
   <div class="side-by-side__wrapper side-by-side__wrapper--{{ section.settings.desktop_content_position }}{% if section.settings.full_width %} page-width{% endif %}">
     <div class="side-by-side__blocks {{ section.settings.content_alignment }}">
-      {% comment %} 
-        i think instead of using the switch statement, i should hard code 2 x side by side sections 
+      {% comment %}
+        i think instead of using the switch statement, i should hard code 2 x side by side sections
         and it would be nice to use the existing blocks for heading text etc. for consistant sytyling
 
         and so- the only thing i need to change is the orange button colour
 
         qustion: why use a case to begin with? why do we need liquid?
-        we need liquid to feed in the various user defined settings. 
+        we need liquid to feed in the various user defined settings.
 
         2nd question: if we had 2 x headings- how does this code work?
-
-      
       {% endcomment %}
-     
+
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'heading' -%}
@@ -138,13 +136,15 @@
   </div>
 </div>
 
-      <div>
-        <h2>left heading</h2>
-      </div>
-      <div>
-        <h2>right heading</h2>
-      </div>
-      <script>console.log('sanity check')</script>
+<div>
+  <h2>left heading</h2>
+</div>
+<div>
+  <h2>right heading</h2>
+</div>
+<script>
+  console.log('sanity check');
+</script>
 
 {% schema %}
 {
@@ -153,47 +153,6 @@
     "groups": ["header", "footer"]
   },
   "settings": [
-    {
-      "type": "select",
-      "id": "desktop_content_position",
-      "options": [
-        {
-          "value": "left",
-          "label": "t:sections.side-by-side.settings.desktop_content_position.options__1.label"
-        },
-        {
-          "value": "center",
-          "label": "t:sections.side-by-side.settings.desktop_content_position.options__2.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.side-by-side.settings.desktop_content_position.options__3.label"
-        }
-      ],
-      "default": "center",
-      "label": "t:sections.side-by-side.settings.desktop_content_position.label",
-      "info": "t:sections.side-by-side.settings.desktop_content_position.info"
-    },
-    {
-      "type": "select",
-      "id": "content_alignment",
-      "options": [
-        {
-          "value": "left",
-          "label": "t:sections.side-by-side.settings.content_alignment.options__1.label"
-        },
-        {
-          "value": "center",
-          "label": "t:sections.side-by-side.settings.content_alignment.options__2.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.side-by-side.settings.content_alignment.options__3.label"
-        }
-      ],
-      "default": "center",
-      "label": "t:sections.side-by-side.settings.content_alignment.label"
-    },
     {
       "type": "color_scheme",
       "id": "color_scheme",
