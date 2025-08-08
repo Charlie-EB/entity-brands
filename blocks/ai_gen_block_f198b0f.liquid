@@ -1,353 +1,153 @@
-{% doc %}
-  @prompt
-    Create two content boxes positioned side by side, each containing a customizable header, body text, and button. The boxes should be responsive and work well on both desktop and mobile devices., Make the font and styling match our website, Can you put an outline boarder around the boxes
-
-{% enddoc %}
 {% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
 
-{% style %}
+<div class="page-width">
+  <div class="ai-content-boxes-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+    <div class="ai-content-box-{{ ai_gen_id }}">
+      <h2 class="ai-heading-{{ ai_gen_id }}">{{ block.settings.heading1 }}</h2>
+      <div class="ai-text-{{ ai_gen_id }}">{{ block.settings.text1 }}</div>
+      {% if block.settings.button_label1 != blank %}
+        <a href="{{ block.settings.button_link1 }}" class="ai-button-{{ ai_gen_id }}">{{ block.settings.button_label1 }}</a>
+      {% endif %}
+    </div>
+    <div class="ai-content-box-{{ ai_gen_id }}">
+      <h2 class="ai-heading-{{ ai_gen_id }}">{{ block.settings.heading2 }}</h2>
+      <div class="ai-text-{{ ai_gen_id }}">{{ block.settings.text2 }}</div>
+      {% if block.settings.button_label2 != blank %}
+        <a href="{{ block.settings.button_link2 }}" class="ai-button-{{ ai_gen_id }}">{{ block.settings.button_label2 }}</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<style>
   .ai-content-boxes-{{ ai_gen_id }} {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: {{ block.settings.gap }}px;
-    padding: {{ block.settings.padding }}px;
-    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.gap | default: '2rem' }};
+    padding: {{ block.settings.padding | default: '2rem' }};
+  }
+
+  @media (min-width: 768px) {
+    .ai-content-boxes-{{ ai_gen_id }} {
+      flex-direction: row;
+    }
   }
 
   .ai-content-box-{{ ai_gen_id }} {
-    background-color: {{ block.settings.box_background_color }};
-    border: {{ block.settings.border_thickness }}px solid {{ block.settings.border_color }};
-    border-radius: {{ settings.text_boxes_radius }}px;
-    padding: {{ block.settings.box_padding }}px;
-    text-align: {{ block.settings.text_alignment }};
-    display: flex;
-    flex-direction: column;
-    height: 100%;box-shadow: {{ settings.text_boxes_shadow_horizontal_offset }}px {{ settings.text_boxes_shadow_vertical_offset }}px {{ settings.text_boxes_shadow_blur }}px rgba({{ settings.colors.default.settings.shadow.red }}, {{ settings.colors.default.settings.shadow.green }}, {{ settings.colors.default.settings.shadow.blue }}, {{ settings.text_boxes_shadow_opacity | divided_by: 100.0 }});
+    flex: 1;
+    border: 1px solid #ddd;
+    padding: 2rem;
+    border-radius: 8px;
+    background-color: {{ block.settings.box_bg_color | default: '#fff' }};
   }
 
-  .ai-content-box__header-{{ ai_gen_id }} {
-    color: {{ block.settings.header_color }};
-    font-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
-    font-style: {{ settings.type_header_font.style }};
-    font-weight: {{ settings.type_header_font.weight }};
-    font-size: calc({{ block.settings.header_size }}px * {{ settings.heading_scale | divided_by: 100.0 }});
-    margin: 0 0 16px 0;
-    line-height: 1.3;
+  .ai-heading-{{ ai_gen_id }} {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
   }
 
-  .ai-content-box__body-{{ ai_gen_id }} {
-    color: {{ block.settings.body_color }};
-    font-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
-    font-style: {{ settings.type_body_font.style }};
-    font-weight: {{ settings.type_body_font.weight }};
-    font-size: calc({{ block.settings.body_size }}px * {{ settings.body_scale | divided_by: 100.0 }});
-    line-height: 1.5;
-    margin: 0 0 24px 0;flex-grow: 1;
+  .ai-text-{{ ai_gen_id }} {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
   }
 
-  .ai-content-box__button-{{ ai_gen_id }} {
+  .ai-button-{{ ai_gen_id }} {
     display: inline-block;
-    background-color: {{ block.settings.button_background_color }};
-    color: {{ block.settings.button_text_color }};
-    padding: 12px 24px;
-    border: {{ settings.buttons_border_thickness }}px solid rgba({{ block.settings.button_background_color.red }}, {{ block.settings.button_background_color.green }}, {{ block.settings.button_background_color.blue }}, {{ settings.buttons_border_opacity | divided_by: 100.0 }});
-    border-radius: {{ settings.buttons_radius }}px;
+    padding: 0.75rem 1.5rem;
+    background-color: {{ block.settings.button_color | default: '#000' }};
+    color: #fff;
     text-decoration: none;
-    font-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
-    font-style: {{ settings.type_body_font.style }};
-    font-weight: {{ settings.type_body_font.weight }};
-    font-size: calc({{ block.settings.button_font_size }}px * {{ settings.body_scale | divided_by: 100.0 }});
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: auto;
-    align-self: flex-start;
-    box-shadow: {{ settings.buttons_shadow_horizontal_offset }}px {{ settings.buttons_shadow_vertical_offset }}px {{ settings.buttons_shadow_blur }}px rgba({{ settings.colors.default.settings.shadow.red }}, {{ settings.colors.default.settings.shadow.green }}, {{ settings.colors.default.settings.shadow.blue }}, {{ settings.buttons_shadow_opacity | divided_by: 100.0 }});}
-
-  .ai-content-box__button-{{ ai_gen_id }}:hover {
-    background-color: {{ block.settings.button_hover_color }};
-    border-color: rgba({{ block.settings.button_hover_color.red }}, {{ block.settings.button_hover_color.green }}, {{ block.settings.button_hover_color.blue }}, {{ settings.buttons_border_opacity | divided_by: 100.0 }});
+    border-radius: 4px;
   }
 
-  {% if block.settings.text_alignment == 'center' %}
-    .ai-content-box__button-{{ ai_gen_id }} {
-      align-self: center;
-    }
-  {% elsif block.settings.text_alignment == 'right' %}
-    .ai-content-box__button-{{ ai_gen_id }} {
-      align-self: flex-end;
-    }
-  {% endif %}
-
-  @media screen and (max-width: 749px) {
-    .ai-content-boxes-{{ ai_gen_id }} {
-      grid-template-columns: 1fr;
-      gap: {{ block.settings.gap | times: 0.75 }}px;padding: {{ block.settings.padding | times: 0.75 }}px;
-    }
-
-    .ai-content-box-{{ ai_gen_id }} {
-      padding: {{ block.settings.box_padding | times: 0.8 }}px;
-    }
-
-    .ai-content-box__header-{{ ai_gen_id }} {
-      font-size: calc({{ block.settings.header_size | times: 0.9 }}px * {{ settings.heading_scale | divided_by: 100.0 }});
-    }
-
-    .ai-content-box__body-{{ ai_gen_id }} {
-      font-size: calc({{ block.settings.body_size | times: 0.95 }}px * {{ settings.body_scale | divided_by: 100.0 }});
-    }
+  .ai-button-{{ ai_gen_id }}:hover {
+    opacity: 0.85;
   }
-{% endstyle %}
-
-="ai-content-boxes-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
- <div class="page-width">
-  <div class="ai-content-boxes-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
-    <div class="ai-content-box-{{ ai_gen_id }}">
-      ...
-    </div>
-    <div class="ai-content-box-{{ ai_gen_id }}">
-      ...
-    </div>
-  </div>
-</div>
-    
-    {% if block.settings.box1_body != blank %}
-      <div class="ai-content-box__body-{{ ai_gen_id }}">{{ block.settings.box1_body }}</div>
-    {% endif %}
-    
-    {% if block.settings.box1_button_text != blank and block.settings.box1_button_link != blank %}
-      <a href="{{ block.settings.box1_button_link }}" class="ai-content-box__button-{{ ai_gen_id }}">
-        {{ block.settings.box1_button_text }}
-      </a>
-    {% endif %}
-  </div><div class="ai-content-box-{{ ai_gen_id }}">
-    {% if block.settings.box2_header != blank %}
-      <h3 class="ai-content-box__header-{{ ai_gen_id }}">{{ block.settings.box2_header }}</h3>
-    {% endif %}
-    
-    {% if block.settings.box2_body != blank %}
-      <div class="ai-content-box__body-{{ ai_gen_id }}">{{ block.settings.box2_body }}</div>
-    {% endif %}
-    
-    {% if block.settings.box2_button_text != blank and block.settings.box2_button_link != blank %}
-      <a href="{{ block.settings.box2_button_link }}" class="ai-content-box__button-{{ ai_gen_id }}">
-        {{ block.settings.box2_button_text }}
-      </a>
-    {% endif %}
-  </div>
-</div>
+</style>
 
 {% schema %}
 {
   "name": "Content boxes",
   "settings": [
     {
-      "type": "header",
-      "content": "Box 1"
+      "type": "text",
+      "id": "heading1",
+      "label": "Heading 1",
+      "default": "Heading One"
+    },
+    {
+      "type": "textarea",
+      "id": "text1",
+      "label": "Text 1",
+      "default": "Add content for the first box here."
     },
     {
       "type": "text",
-      "id": "box1_header",
-      "label": "Header",
-      "default": "Feature One"
-    },
-    {
-      "type": "richtext",
-      "id": "box1_body",
-      "label": "Body text",
-      "default": "<p>Describe your first feature or benefit here. Keep it concise and compelling.</p>"
-    },
-    {
-      "type": "text",
-      "id": "box1_button_text",
-      "label": "Button text",
-      "default": "Learn more"
+      "id": "button_label1",
+      "label": "Button Label 1",
+      "default": "Learn More"
     },
     {
       "type": "url",
-      "id": "box1_button_link",
-      "label": "Button link"
-    },
-    {
-      "type": "header",
-      "content": "Box 2"
+      "id": "button_link1",
+      "label": "Button Link 1"
     },
     {
       "type": "text",
-      "id": "box2_header",
-      "label": "Header",
-      "default": "Feature Two"
+      "id": "heading2",
+      "label": "Heading 2",
+      "default": "Heading Two"
     },
     {
-      "type": "richtext",
-      "id": "box2_body",
-      "label": "Body text",
-      "default": "<p>Describe your second feature or benefit here. Keep it concise and compelling.</p>"
+      "type": "textarea",
+      "id": "text2",
+      "label": "Text 2",
+      "default": "Add content for the second box here."
     },
     {
       "type": "text",
-      "id": "box2_button_text",
-      "label": "Button text",
-      "default": "Learn more"
+      "id": "button_label2",
+      "label": "Button Label 2",
+      "default": "Learn More"
     },
     {
       "type": "url",
-      "id": "box2_button_link",
-      "label": "Button link"
-    },
-    {
-      "type": "header",
-      "content": "Layout"
-    },
-    {
-      "type": "select",
-      "id": "text_alignment",
-      "label": "Text alignment",
-      "options": [
-        {
-          "value": "left",
-          "label": "Left"
-        },
-        {
-          "value": "center",
-          "label": "Center"
-        },
-        {
-          "value": "right",
-          "label": "Right"
-        }
-      ],
-      "default": "left"
+      "id": "button_link2",
+      "label": "Button Link 2"
     },
     {
       "type": "range",
       "id": "gap",
       "label": "Gap between boxes",
-      "min": 10,
-      "max": 60,
-      "step": 5,
+      "min": 0,
+      "max": 100,
+      "step": 4,
       "unit": "px",
-      "default": 30
+      "default": 32
     },
     {
-      "type": "range",
+      "type": "text",
       "id": "padding",
-      "label": "Section padding",
-      "min": 0,
-      "max": 60,
-      "step": 5,
-      "unit": "px",
-      "default": 20
-    },
-    {
-      "type": "range",
-      "id": "box_padding",
-      "label": "Box padding",
-      "min": 15,
-      "max": 60,
-      "step": 5,
-      "unit": "px",
-      "default": 30
-    },
-    {
-      "type": "header",
-      "content": "Border"
-    },
-    {
-      "type": "range",
-      "id": "border_thickness",
-      "label": "Border thickness",
-      "min": 0,
-      "max": 10,
-      "step": 1,
-      "unit": "px",
-      "default": 2
+      "label": "Padding",
+      "default": "2rem"
     },
     {
       "type": "color",
-      "id": "border_color",
-      "label": "Border color",
-      "default": "#e0e0e0"
-    },
-    {
-      "type": "header",
-      "content": "Colors"
-    },
-    {
-      "type": "color",
-      "id": "box_background_color",
-      "label": "Box background",
+      "id": "box_bg_color",
+      "label": "Box Background Color",
       "default": "#ffffff"
     },
     {
       "type": "color",
-      "id": "header_color",
-      "label": "Header color",
-      "default": "#121212"
-    },
-    {
-      "type": "color",
-      "id": "body_color",
-      "label": "Body text color",
-      "default": "#121212"
-    },
-    {
-      "type": "color",
-      "id": "button_background_color",
-      "label": "Button background",
-      "default": "#121212"
-    },
-    {
-      "type": "color",
-      "id": "button_hover_color",
-      "label": "Button hover background",
+      "id": "button_color",
+      "label": "Button Background Color",
       "default": "#000000"
-    },
-    {
-      "type": "color",
-      "id": "button_text_color",
-      "label": "Button text color",
-      "default": "#ffffff"
-    },
-    {
-      "type": "header",
-      "content": "Typography"
-    },
-    {
-      "type": "range",
-      "id": "header_size",
-      "label": "Header size",
-      "min": 16,
-      "max": 36,
-      "step": 2,
-      "unit": "px",
-      "default": 24
-    },
-    {
-      "type": "range",
-      "id": "body_size",
-      "label": "Body text size",
-      "min": 12,
-      "max": 20,
-      "step": 1,
-      "unit": "px",
-      "default": 16
-    },
-    {
-      "type": "range",
-      "id": "button_font_size",
-      "label": "Button font size",
-      "min": 12,
-      "max": 20,
-      "step": 1,
-      "unit": "px",
-      "default": 14
     }
   ],
   "presets": [
     {
       "name": "Content boxes"
     }
-  ],
-  "tag": null
+  ]
 }
 {% endschema %}
