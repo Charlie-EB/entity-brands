@@ -1,0 +1,89 @@
+<div class="page-width">
+  <div class="content-boxes" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+    <div class="content-box" style="flex: 1; min-width: 300px; padding: 2rem; background: {{ section.settings.box_bg_color }}; border: 1px solid #ddd; border-radius: 8px;">
+      <h2>{{ section.settings.heading1 }}</h2>
+      <p>{{ section.settings.text1 }}</p>
+      {% if section.settings.button_label1 != blank %}
+        <a href="{{ section.settings.button_link1 }}" class="btn" style="display:inline-block; margin-top:1rem; padding: 0.75rem 1.5rem; background: {{ section.settings.button_color }}; color: white; border-radius: 4px;">{{ section.settings.button_label1 }}</a>
+      {% endif %}
+    </div>
+    <div class="content-box" style="flex: 1; min-width: 300px; padding: 2rem; background: {{ section.settings.box_bg_color }}; border: 1px solid #ddd; border-radius: 8px;">
+      <h2>{{ section.settings.heading2 }}</h2>
+      <p>{{ section.settings.text2 }}</p>
+      {% if section.settings.button_label2 != blank %}
+        <a href="{{ section.settings.button_link2 }}" class="btn" style="display:inline-block; margin-top:1rem; padding: 0.75rem 1.5rem; background: {{ section.settings.button_color }}; color: white; border-radius: 4px;">{{ section.settings.button_label2 }}</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Content Boxes (2 Columns)",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading1",
+      "label": "Box 1 Heading",
+      "default": "Heading One"
+    },
+    {
+      "type": "textarea",
+      "id": "text1",
+      "label": "Box 1 Text",
+      "default": "This is the first content box."
+    },
+    {
+      "type": "text",
+      "id": "button_label1",
+      "label": "Box 1 Button Label",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "button_link1",
+      "label": "Box 1 Button Link"
+    },
+    {
+      "type": "text",
+      "id": "heading2",
+      "label": "Box 2 Heading",
+      "default": "Heading Two"
+    },
+    {
+      "type": "textarea",
+      "id": "text2",
+      "label": "Box 2 Text",
+      "default": "This is the second content box."
+    },
+    {
+      "type": "text",
+      "id": "button_label2",
+      "label": "Box 2 Button Label",
+      "default": "Contact Us"
+    },
+    {
+      "type": "url",
+      "id": "button_link2",
+      "label": "Box 2 Button Link"
+    },
+    {
+      "type": "color",
+      "id": "box_bg_color",
+      "label": "Box Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Background Color",
+      "default": "#000000"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Content Boxes (2 Columns)"
+    }
+  ]
+}
+{% endschema %}
