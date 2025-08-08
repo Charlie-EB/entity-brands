@@ -1,17 +1,21 @@
 <div class="page-width">
   <div class="content-boxes" style="display: flex; flex-wrap: wrap; gap: 2rem;">
-    <div class="content-box" style="flex: 1; min-width: 300px; padding: 2rem; background: {{ section.settings.box_bg_color }}; border: 1px solid #ddd; border-radius: 8px;">
+    <div class="content-box" style="flex: 1; min-width: 300px; padding: 2rem; background-color: {{ section.settings.box_bg_color }}; border: 1px solid #ddd; border-radius: 8px;">
       <h2>{{ section.settings.heading1 }}</h2>
       <p>{{ section.settings.text1 }}</p>
-      {% if section.settings.button_label1 != blank %}
-        <a href="{{ section.settings.button_link1 }}" class="btn" style="display:inline-block; margin-top:1rem; padding: 0.75rem 1.5rem; background: {{ section.settings.button_color }}; color: white; border-radius: 4px;">{{ section.settings.button_label1 }}</a>
+      {% if section.settings.button_label1 != blank and section.settings.button_link1 != blank %}
+        <a href="{{ section.settings.button_link1 }}" class="btn" style="margin-top: 1rem; display: inline-block; padding: 0.75rem 1.5rem; background-color: {{ section.settings.button_color }}; color: #fff; border-radius: 4px; text-decoration: none;">
+          {{ section.settings.button_label1 }}
+        </a>
       {% endif %}
     </div>
-    <div class="content-box" style="flex: 1; min-width: 300px; padding: 2rem; background: {{ section.settings.box_bg_color }}; border: 1px solid #ddd; border-radius: 8px;">
+    <div class="content-box" style="flex: 1; min-width: 300px; padding: 2rem; background-color: {{ section.settings.box_bg_color }}; border: 1px solid #ddd; border-radius: 8px;">
       <h2>{{ section.settings.heading2 }}</h2>
       <p>{{ section.settings.text2 }}</p>
-      {% if section.settings.button_label2 != blank %}
-        <a href="{{ section.settings.button_link2 }}" class="btn" style="display:inline-block; margin-top:1rem; padding: 0.75rem 1.5rem; background: {{ section.settings.button_color }}; color: white; border-radius: 4px;">{{ section.settings.button_label2 }}</a>
+      {% if section.settings.button_label2 != blank and section.settings.button_link2 != blank %}
+        <a href="{{ section.settings.button_link2 }}" class="btn" style="margin-top: 1rem; display: inline-block; padding: 0.75rem 1.5rem; background-color: {{ section.settings.button_color }}; color: #fff; border-radius: 4px; text-decoration: none;">
+          {{ section.settings.button_label2 }}
+        </a>
       {% endif %}
     </div>
   </div>
@@ -19,19 +23,19 @@
 
 {% schema %}
 {
-  "name": "Content Boxes (2 Columns)",
+  "name": "Content Boxes (2 Column)",
   "settings": [
     {
       "type": "text",
       "id": "heading1",
       "label": "Box 1 Heading",
-      "default": "Heading One"
+      "default": "First Box Heading"
     },
     {
       "type": "textarea",
       "id": "text1",
       "label": "Box 1 Text",
-      "default": "This is the first content box."
+      "default": "This is the first box content."
     },
     {
       "type": "text",
@@ -48,13 +52,13 @@
       "type": "text",
       "id": "heading2",
       "label": "Box 2 Heading",
-      "default": "Heading Two"
+      "default": "Second Box Heading"
     },
     {
       "type": "textarea",
       "id": "text2",
       "label": "Box 2 Text",
-      "default": "This is the second content box."
+      "default": "This is the second box content."
     },
     {
       "type": "text",
@@ -82,7 +86,7 @@
   ],
   "presets": [
     {
-      "name": "Content Boxes (2 Columns)"
+      "name": "Content Boxes (2 Column)"
     }
   ]
 }
