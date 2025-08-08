@@ -1,135 +1,71 @@
-{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
-
 <div class="page-width">
-  <div class="ai-content-boxes-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
-    <div class="ai-content-box-{{ ai_gen_id }}">
-      <h2 class="ai-heading-{{ ai_gen_id }}">{{ block.settings.heading1 }}</h2>
-      <div class="ai-text-{{ ai_gen_id }}">{{ block.settings.text1 }}</div>
-      {% if block.settings.button_label1 != blank %}
-        <a href="{{ block.settings.button_link1 }}" class="ai-button-{{ ai_gen_id }}">{{ block.settings.button_label1 }}</a>
+  <div class="content-boxes" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+    <div class="content-box" style="flex: 1; min-width: 300px; padding: 2rem; background: {{ section.settings.box_bg_color }}; border: 1px solid #ddd; border-radius: 8px;">
+      <h2>{{ section.settings.heading1 }}</h2>
+      <p>{{ section.settings.text1 }}</p>
+      {% if section.settings.button_label1 != blank %}
+        <a href="{{ section.settings.button_link1 }}" class="btn" style="display:inline-block; margin-top:1rem; padding: 0.75rem 1.5rem; background: {{ section.settings.button_color }}; color: white; border-radius: 4px;">{{ section.settings.button_label1 }}</a>
       {% endif %}
     </div>
-    <div class="ai-content-box-{{ ai_gen_id }}">
-      <h2 class="ai-heading-{{ ai_gen_id }}">{{ block.settings.heading2 }}</h2>
-      <div class="ai-text-{{ ai_gen_id }}">{{ block.settings.text2 }}</div>
-      {% if block.settings.button_label2 != blank %}
-        <a href="{{ block.settings.button_link2 }}" class="ai-button-{{ ai_gen_id }}">{{ block.settings.button_label2 }}</a>
+    <div class="content-box" style="flex: 1; min-width: 300px; padding: 2rem; background: {{ section.settings.box_bg_color }}; border: 1px solid #ddd; border-radius: 8px;">
+      <h2>{{ section.settings.heading2 }}</h2>
+      <p>{{ section.settings.text2 }}</p>
+      {% if section.settings.button_label2 != blank %}
+        <a href="{{ section.settings.button_link2 }}" class="btn" style="display:inline-block; margin-top:1rem; padding: 0.75rem 1.5rem; background: {{ section.settings.button_color }}; color: white; border-radius: 4px;">{{ section.settings.button_label2 }}</a>
       {% endif %}
     </div>
   </div>
 </div>
 
-<style>
-  .ai-content-boxes-{{ ai_gen_id }} {
-    display: flex;
-    flex-direction: column;
-    gap: {{ block.settings.gap | default: '2rem' }};
-    padding: {{ block.settings.padding | default: '2rem' }};
-  }
-
-  @media (min-width: 768px) {
-    .ai-content-boxes-{{ ai_gen_id }} {
-      flex-direction: row;
-    }
-  }
-
-  .ai-content-box-{{ ai_gen_id }} {
-    flex: 1;
-    border: 1px solid #ddd;
-    padding: 2rem;
-    border-radius: 8px;
-    background-color: {{ block.settings.box_bg_color | default: '#fff' }};
-  }
-
-  .ai-heading-{{ ai_gen_id }} {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .ai-text-{{ ai_gen_id }} {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .ai-button-{{ ai_gen_id }} {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background-color: {{ block.settings.button_color | default: '#000' }};
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-  }
-
-  .ai-button-{{ ai_gen_id }}:hover {
-    opacity: 0.85;
-  }
-</style>
-
 {% schema %}
 {
-  "name": "Content boxes",
+  "name": "Content Boxes (2 Columns)",
   "settings": [
     {
       "type": "text",
       "id": "heading1",
-      "label": "Heading 1",
+      "label": "Box 1 Heading",
       "default": "Heading One"
     },
     {
       "type": "textarea",
       "id": "text1",
-      "label": "Text 1",
-      "default": "Add content for the first box here."
+      "label": "Box 1 Text",
+      "default": "This is the first content box."
     },
     {
       "type": "text",
       "id": "button_label1",
-      "label": "Button Label 1",
+      "label": "Box 1 Button Label",
       "default": "Learn More"
     },
     {
       "type": "url",
       "id": "button_link1",
-      "label": "Button Link 1"
+      "label": "Box 1 Button Link"
     },
     {
       "type": "text",
       "id": "heading2",
-      "label": "Heading 2",
+      "label": "Box 2 Heading",
       "default": "Heading Two"
     },
     {
       "type": "textarea",
       "id": "text2",
-      "label": "Text 2",
-      "default": "Add content for the second box here."
+      "label": "Box 2 Text",
+      "default": "This is the second content box."
     },
     {
       "type": "text",
       "id": "button_label2",
-      "label": "Button Label 2",
-      "default": "Learn More"
+      "label": "Box 2 Button Label",
+      "default": "Contact Us"
     },
     {
       "type": "url",
       "id": "button_link2",
-      "label": "Button Link 2"
-    },
-    {
-      "type": "range",
-      "id": "gap",
-      "label": "Gap between boxes",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "default": 32
-    },
-    {
-      "type": "text",
-      "id": "padding",
-      "label": "Padding",
-      "default": "2rem"
+      "label": "Box 2 Button Link"
     },
     {
       "type": "color",
@@ -146,7 +82,7 @@
   ],
   "presets": [
     {
-      "name": "Content boxes"
+      "name": "Content Boxes (2 Columns)"
     }
   ]
 }
