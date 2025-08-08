@@ -98,11 +98,17 @@
   }
 {% endstyle %}
 
-<div class="ai-content-boxes-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
-  <div class="ai-content-box-{{ ai_gen_id }}">
-    {% if block.settings.box1_header != blank %}
-      <h3 class="ai-content-box__header-{{ ai_gen_id }}">{{ block.settings.box1_header }}</h3>
-    {% endif %}
+="ai-content-boxes-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+ <div class="page-width">
+  <div class="ai-content-boxes-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+    <div class="ai-content-box-{{ ai_gen_id }}">
+      ...
+    </div>
+    <div class="ai-content-box-{{ ai_gen_id }}">
+      ...
+    </div>
+  </div>
+</div>
     
     {% if block.settings.box1_body != blank %}
       <div class="ai-content-box__body-{{ ai_gen_id }}">{{ block.settings.box1_body }}</div>
