@@ -138,12 +138,29 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "content_boxes_Xfmcwk": {
+      "type": "content-boxes",
+      "name": "Content Boxes (2 Columns)",
+      "settings": {
+        "heading1": "Heading One",
+        "text1": "This is the first content box.",
+        "button_label1": "Learn More",
+        "button_link1": "",
+        "heading2": "Heading Two",
+        "text2": "This is the second content box.",
+        "button_label2": "Contact Us",
+        "button_link2": "",
+        "box_bg_color": "#ffffff",
+        "button_color": "#000000"
+      }
     }
   },
   "order": [
     "main",
     "0ecfebae-285a-4bb9-8042-4caaa867fdd9",
     "rich_text_3QWg6t",
-    "image_with_text_YC6tgr"
+    "image_with_text_YC6tgr",
+    "content_boxes_Xfmcwk"
   ]
 }
