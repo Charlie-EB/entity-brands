@@ -12,5 +12,9 @@
   "context": {
     "b2b": true
   },
-  "sections": {}
+  "sections": {
+    "compass_b2b_section": {
+      "type": "compass-b2b-content"
+    }
+  }
 }
