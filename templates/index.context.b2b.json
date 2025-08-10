@@ -13,6 +13,12 @@
     "b2b": true
   },
   "sections": {
+    "custom-compass_b2b_section": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% if customer.current_company.name == 'compass' %}<div class='compass-b2b-element'>Your custom content here</div>{% endif %}<script>console.log(`sanity check from b2b tempalte`)</script>"
+      }
+    },
     "compass_b2b_section": {
       "type": "compass-b2b-content"
     }

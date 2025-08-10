@@ -2,7 +2,8 @@
   Renders custom content for Compass company when B2B portal is enabled. 
 {% endcomment %}
 
-{% if customer.current_company.metafields.custom.enable_b2b_portal_menu and customer.current_company.name == 'Compass Group' %}
+{% comment %} compass group company id is 42043244907 {% endcomment %}
+{% if customer.current_company.metafields.custom.enable_b2b_portal_menu and customer.current_company.id == 42043244907 %}
   <div class="compass-b2b-content page-width">
     <div class="compass-b2b-content__inner">
       <a href="https://entitybrands.com.au/collections/compass-group">compas</a>
@@ -12,6 +13,7 @@
       <a href="https://entitybrands.com.au/collections/omega-1">omega</a>
     </div>
   </div>
+  <script>console.log('sanity check from compass landing section')</script>
 {% endif %}
 
 {% schema %}
