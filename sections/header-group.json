@@ -85,21 +85,11 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
-    },
-    "case_studies_list_kPb3w8": {
-      "type": "case-studies-list",
-      "name": "Case Studies List",
-      "settings": {
-        "case_blog": "",
-        "limit": 6,
-        "columns": 3
-      }
     }
   },
   "order": [
     "announcement-bar",
     "announcement_bar_dzyPqH",
-    "header",
-    "case_studies_list_kPb3w8"
+    "header"
   ]
 }
