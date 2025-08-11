@@ -7,7 +7,9 @@
 {% if customer.current_company.metafields.custom.enable_b2b_portal_menu and customer.current_company.id == 42043244907 %}
   <div class="compass-b2b-content page-width">
     <div class="compass-b2b-content__inner">
-      <a href="https://entitybrands.com.au/collections/compass-group">compas</a>
+      <a href="https://entitybrands.com.au/collections/compass-group">
+      {{ images['Compass_Group_Logo.png'] | image_url: width: 300 | image_tag }}
+      </a>
       <a href="https://entitybrands.com.au/collections/foodbuy">food</a>
       <a href="https://entitybrands.com.au/collections/ess">ess</a>
       <a href="https://entitybrands.com.au/collections/deltafm">delta</a>
