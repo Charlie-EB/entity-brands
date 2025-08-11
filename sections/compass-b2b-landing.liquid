@@ -15,7 +15,7 @@
 
   .compass-b2b-content__inner a {
     display: flex;
-    align-items:center;
+    align-items: center;
   }
 
   .compass-b2b-content__inner img {
@@ -23,6 +23,11 @@
     max-width: 100%;
     height: auto;
     padding: 10px;
+    transition: transform 0.3s ease; /* smooth zoom */
+  }
+
+  .compass-b2b-content__inner img:hover {
+    transform: scale(1.05);
   }
 {% endstyle %}
 
