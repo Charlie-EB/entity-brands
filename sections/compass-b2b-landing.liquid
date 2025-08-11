@@ -8,6 +8,12 @@
   display: flex
 }
 
+.compass-b2b-logo {
+  width: 200px; /* Adjust this value to your desired size */
+  max-width: 100%;
+  height: auto; /* Ensures the aspect ratio is maintained */
+}
+
 {% endstyle %}
 
 
@@ -18,19 +24,19 @@
   <div class="compass-b2b-content page-width">
     <div class="compass-b2b-content__inner">
       <a href="https://entitybrands.com.au/collections/compass-group">
-        {{ images['Compass_Group_Logo.png'] | image_url: width: 300 | image_tag }}
+        {{ images['Compass_Group_Logo.png'] | image_url: width: 300 | image_tag: class: 'compass-b2b-logo'}}
       </a>
       <a href="https://entitybrands.com.au/collections/foodbuy">
-        {{ images['Compass_Foodbuy_Logo.png'] | image_url: width: 300 | image_tag }}
+        {{ images['Compass_Foodbuy_Logo.png'] | image_url: width: 300 | image_tag class: 'compass-b2b-logo'}}
       </a>
       <a href="https://entitybrands.com.au/collections/ess">
-        {{ images['Compass_ESS_Support_Services_Logo.png'] | image_url: width: 300 | image_tag }}
+        {{ images['Compass_ESS_Support_Services_Logo.png'] | image_url: width: 300 | image_tag: class: 'compass-b2b-logo' }}
       </a>
       <a href="https://entitybrands.com.au/collections/deltafm">
-        {{ images['Compass_DeltaFM_Logo.png'] | image_url: width: 300 | image_tag }}
+        {{ images['Compass_DeltaFM_Logo.png'] | image_url: width: 300 | image_tag: class: 'compass-b2b-logo' }}
       </a>
       <a href="https://entitybrands.com.au/collections/omega-1">
-        {{ images['Compass_Omega_Logo.png'] | image_url: width: 300 | image_tag }}
+        {{ images['Compass_Omega_Logo.png'] | image_url: width: 300 | image_tag: class: 'compass-b2b-logo' }}
       </a>
     </div>
   </div>
