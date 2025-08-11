@@ -18,11 +18,13 @@
           "type": "announcement",
           "settings": {
             "text": "HOLIDAY CLOSURE AND ORDER CUT-OFF DATES | Click Here To Find Out More",
-            "link": "shopify:\/\/pages\/holiday-order-cutoff-dates"
+            "link": "shopify://pages/holiday-order-cutoff-dates"
           }
         }
       },
-      "block_order": ["announcement-bar-0"],
+      "block_order": [
+        "announcement-bar-0"
+      ],
       "disabled": true,
       "settings": {
         "color_scheme": "inverse",
@@ -46,7 +48,9 @@
           }
         }
       },
-      "block_order": ["announcement_tzJAP7"],
+      "block_order": [
+        "announcement_tzJAP7"
+      ],
       "settings": {
         "color_scheme": "inverse",
         "show_line_separator": true,
@@ -81,7 +85,21 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
+    },
+    "case_studies_list_kPb3w8": {
+      "type": "case-studies-list",
+      "name": "Case Studies List",
+      "settings": {
+        "case_blog": "",
+        "limit": 6,
+        "columns": 3
+      }
     }
   },
-  "order": ["announcement-bar", "announcement_bar_dzyPqH", "header"]
+  "order": [
+    "announcement-bar",
+    "announcement_bar_dzyPqH",
+    "header",
+    "case_studies_list_kPb3w8"
+  ]
 }
