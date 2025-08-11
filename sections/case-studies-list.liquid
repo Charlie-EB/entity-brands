@@ -3,36 +3,33 @@ Case Studies List Section
 Displays selected blog articles in a grid layout.
 {% endcomment %}
 
-<div class="case-studies-list page-width">
+<section class="case-studies-list page-width">
   {% if section.settings.case_blog != blank %}
-    {% assign blog_handle = section.settings.case_blog %}
-    {% assign case_blog = blogs[blog_handle] %}
+    {% assign case_blog = blogs[section.settings.case_blog] %}
     
-    {% if case_blog.articles_count > 0 %}
+    {% if case_blog and case_blog.articles_count > 0 %}
       <div class="grid grid--{{ section.settings.columns }}-col">
         {% for article in case_blog.articles limit: section.settings.limit %}
-          <div class="grid__item">
-            <div class="case-study-card">
-              {% if article.image %}
-                <a href="{{ article.url }}" class="case-study-image">
-                  <img 
-                    src="{{ article.image | img_url: '720x' }}" 
-                    alt="{{ article.image.alt | escape }}"
-                    loading="lazy"
-                  >
-                </a>
+          <article class="grid__item case-study-card">
+            {% if article.image %}
+              <a href="{{ article.url }}" class="case-study-image">
+                <img 
+                  src="{{ article.image | img_url: '720x' }}" 
+                  alt="{{ article.image.alt | escape }}"
+                  loading="lazy"
+                >
+              </a>
+            {% endif %}
+            
+            <div class="case-study-content">
+              <h3 class="case-study-title">
+                <a href="{{ article.url }}">{{ article.title }}</a>
+              </h3>
+              {% if article.excerpt != blank %}
+                <p class="case-study-excerpt">{{ article.excerpt | strip_html | truncatewords: 20 }}</p>
               {% endif %}
-              
-              <div class="case-study-content">
-                <h3 class="case-study-title">
-                  <a href="{{ article.url }}">{{ article.title }}</a>
-                </h3>
-                {% if article.excerpt != blank %}
-                  <p class="case-study-excerpt">{{ article.excerpt | strip_html | truncatewords: 20 }}</p>
-                {% endif %}
-              </div>
             </div>
-          </div>
+          </article>
         {% endfor %}
       </div>
     {% else %}
@@ -41,7 +38,7 @@ Displays selected blog articles in a grid layout.
   {% else %}
     <p>Please select a blog in the section settings.</p>
   {% endif %}
-</div>
+</section>
 
 <style>
   .case-studies-list {
@@ -80,7 +77,16 @@ Displays selected blog articles in a grid layout.
     grid-template-columns: 1fr;
   }
   .grid--2-col {
-    grid-template-columns: repeat(
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid--3-col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid--4-col {
+    grid-template-columns: repeat(4, 1fr);
+  }
+</style>
+
 {% schema %}
 {
   "name": "Case Studies List",
