@@ -305,16 +305,6 @@
         "padding_bottom": 36
       }
     },
-    "custom_liquid_jAN944": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "custom_liquid": "<script>console.log('sanity check from ui compass b2b landing is loading')</script>\n{% comment %} compass group company id is 42043244907 {% endcomment %}\n{% if customer.current_company.metafields.custom.enable_b2b_portal_menu and customer.current_company.id == 42043244907 %}\n  <div class=\"compass-b2b-content page-width\">\n    <div class=\"compass-b2b-content__inner\">\n      <a href=\"https://entitybrands.com.au/collections/compass-group\">compas</a>\n      <a href=\"https://entitybrands.com.au/collections/foodbuy\">food</a>\n      <a href=\"https://entitybrands.com.au/collections/ess\">ess</a>\n      <a href=\"https://entitybrands.com.au/collections/deltafm\">delta</a>\n      <a href=\"https://entitybrands.com.au/collections/omega-1\">omega</a>\n    </div>\n  </div>\n  <script>console.log('sanity check from compass landing section')</script>\n{% endif %}",
-        "color_scheme": "",
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
     "featured_collection_yfyGyU": {
       "type": "featured-collection",
       "custom_css": [
@@ -413,7 +403,6 @@
     "brands_section_yXKjQz",
     "image_with_text_CRAjQN",
     "8262dec3-5ba3-4b33-8c26-d9bc4390e1c4",
-    "custom_liquid_jAN944",
     "featured_collection_yfyGyU",
     "multicolumn_kbMUbW"
   ]
