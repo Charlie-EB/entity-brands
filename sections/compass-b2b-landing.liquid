@@ -1,10 +1,16 @@
 {% comment %}
-  Renders custom content for Compass company when B2B portal is enabled.
+  Renders custom content for Compass company when B2B portal is enabled, and when the company == compass group
 {% endcomment %}
 
-<script>
-  console.log('sanity check compass b2b landing is loading');
-</script>
+{% style  %} 
+
+.compass-b2b-content-inner {
+  display: flex
+}
+
+{% endstyle %}
+
+
 {% comment %} compass group company id is 42043244907 {% endcomment %}
 {% if customer.current_company.metafields.custom.enable_b2b_portal_menu
   and customer.current_company.id == 42043244907
