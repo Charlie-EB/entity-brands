@@ -350,7 +350,7 @@
     </style>
   {% endif %}
 
-  <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %} {% if template.name == "index" %} homepage {% endif %}  {% if customer.current_company.metafields.custom.enable_b2b_portal_menu %} b2b_portal {% endif %} {{ customer.current_company_name | default: "" | downcase | replace: " ", "-" }}">
+  <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %} {% if template.name == "index" %} homepage {% endif %}  {% if customer.current_company.metafields.custom.enable_b2b_portal_menu %} b2b_portal {% endif %} {{ customer.current_company_name | default: ''| downcase | replace: ' ', '-'}}">
     {% if request.path contains 'uniform-solutions' %}
       <script src="{{ 'splide.min.js' | asset_url }}"></script>
     {% endif %}
