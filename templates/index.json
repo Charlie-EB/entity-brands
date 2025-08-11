@@ -394,6 +394,11 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "compass_b2b_landing_Xx8ywr": {
+      "type": "compass-b2b-landing",
+      "name": "Compass B2B Content",
+      "settings": {}
     }
   },
   "order": [
@@ -403,6 +408,7 @@
     "brands_section_yXKjQz",
     "image_with_text_CRAjQN",
     "8262dec3-5ba3-4b33-8c26-d9bc4390e1c4",
+    "compass_b2b_landing_Xx8ywr",
     "featured_collection_yfyGyU",
     "multicolumn_kbMUbW"
   ]
