@@ -5750,6 +5750,6 @@ nav.header__inline-menu {
 
 /* compass portal  */
 
-body.b2b_portal.compass-group.homepage main#MainContent .product-grid {
+body.b2b_portal.compass-group.homepage main#MainContent > *:has(.product-grid) {
   display: none !important;
 }
