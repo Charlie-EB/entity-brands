@@ -1,22 +1,36 @@
 {% comment %}
-  Renders custom content for Compass company when B2B portal is enabled. 
+  Renders custom content for Compass company when B2B portal is enabled.
 {% endcomment %}
 
-  <script>console.log('sanity check compass b2b landing is loading')</script>
+<script>
+  console.log('sanity check compass b2b landing is loading');
+</script>
 {% comment %} compass group company id is 42043244907 {% endcomment %}
-{% if customer.current_company.metafields.custom.enable_b2b_portal_menu and customer.current_company.id == 42043244907 %}
+{% if customer.current_company.metafields.custom.enable_b2b_portal_menu
+  and customer.current_company.id == 42043244907
+%}
   <div class="compass-b2b-content page-width">
     <div class="compass-b2b-content__inner">
       <a href="https://entitybrands.com.au/collections/compass-group">
-      {{ images['Compass_Group_Logo.png'] | image_url: width: 300 | image_tag }}
+        {{ images['Compass_Group_Logo.png'] | image_url: width: 300 | image_tag }}
       </a>
-      <a href="https://entitybrands.com.au/collections/foodbuy">food</a>
-      <a href="https://entitybrands.com.au/collections/ess">ess</a>
-      <a href="https://entitybrands.com.au/collections/deltafm">delta</a>
-      <a href="https://entitybrands.com.au/collections/omega-1">omega</a>
+      <a href="https://entitybrands.com.au/collections/foodbuy">
+        {{ images['Compass_Foodbuy_Logo.png'] | image_url: width: 300 | image_tag }}
+      </a>
+      <a href="https://entitybrands.com.au/collections/ess">
+        {{ images['Compass_ESS_Support_Services_Logo.png'] | image_url: width: 300 | image_tag }}
+      </a>
+      <a href="https://entitybrands.com.au/collections/deltafm">
+        {{ images['Compass_DeltaFM_Logo.png'] | image_url: width: 300 | image_tag }}
+      </a>
+      <a href="https://entitybrands.com.au/collections/omega-1">
+        {{ images['Compass_Omega_Logo.png'] | image_url: width: 300 | image_tag }}
+      </a>
     </div>
   </div>
-  <script>console.log('sanity check from compass landing section')</script>
+  <script>
+    console.log('sanity check from compass landing section');
+  </script>
 {% endif %}
 
 {% schema %}
