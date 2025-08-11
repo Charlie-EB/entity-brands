@@ -1,0 +1,78 @@
+{% comment %}
+  Renders custom content for Compass company when B2B portal is enabled, and when the company == compass group
+{% endcomment %}
+
+{% style %}
+  .compass-b2b-content__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: center;
+    align-content: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+
+  .compass-b2b-content__inner a {
+    display: flex;
+    align-items:center;
+  }
+
+  .compass-b2b-content__inner img {
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+{% endstyle %}
+
+{% comment %} compass group company id is 42043244907 {% endcomment %}
+{% if customer.current_company.metafields.custom.enable_b2b_portal_menu
+  and customer.current_company.id == 42043244907
+%}
+  <div class="compass-b2b-content page-width">
+    <div class="compass-b2b-content__inner">
+      <a href="https://entitybrands.com.au/collections/compass-group">
+        {{ images['Compass_Group_Logo.png'] | image_url: width: 300 | image_tag: class: 'compass-b2b-logo' }}
+      </a>
+      <a href="https://entitybrands.com.au/collections/foodbuy">
+        {{ images['Compass_Foodbuy_Logo.png'] | image_url: width: 300 | image_tag: class: 'compass-b2b-logo' }}
+      </a>
+      <a href="https://entitybrands.com.au/collections/ess">
+        {{
+          images['Compass_ESS_Support_Services_Logo.png']
+          | image_url: width: 300
+          | image_tag: class: 'compass-b2b-logo'
+        }}
+      </a>
+      <a href="https://entitybrands.com.au/collections/deltafm">
+        {{ images['Compass_DeltaFM_Logo.png'] | image_url: width: 300 | image_tag: class: 'compass-b2b-logo' }}
+      </a>
+      <a href="https://entitybrands.com.au/collections/omega-1">
+        {{ images['Compass_Omega_Logo.png'] | image_url: width: 300 | image_tag: class: 'compass-b2b-logo' }}
+      </a>
+    </div>
+  </div>
+  <script>
+    console.log('sanity check from compass landing section');
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Compass B2B Content",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Compass B2B Portal Content"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Compass B2B Content"
+    }
+  ]
+}
+{% endschema %}

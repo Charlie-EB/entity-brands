@@ -15,7 +15,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Brands for <em>teams<\/em>",
+            "heading": "Brands for <em>teams</em>",
             "heading_size": "h0"
           }
         },
@@ -23,20 +23,23 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "",
-            "button_link_1": "https:\/\/entity-brands-b2b.myshopify.com\/account\/login",
+            "button_link_1": "https://entity-brands-b2b.myshopify.com/account/login",
             "button_style_secondary_1": true,
             "button_label_2": "Discover More",
-            "button_link_2": "shopify:\/\/pages\/uniform-solutions",
+            "button_link_2": "shopify://pages/uniform-solutions",
             "button_style_secondary_2": false
           }
         }
       },
-      "block_order": ["heading", "button"],
+      "block_order": [
+        "heading",
+        "button"
+      ],
       "custom_css": [],
       "settings": {
         "custom_class": "home-banner",
-        "image": "shopify:\/\/shop_images\/Group_2217.png",
-        "image_mobile": "shopify:\/\/shop_images\/Group_2217.png",
+        "image": "shopify://shop_images/Group_2217.png",
+        "image_mobile": "shopify://shop_images/Group_2217.png",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "bottom-center",
@@ -55,16 +58,16 @@
         "column_kgCmMg": {
           "type": "column",
           "settings": {
-            "title": "Uniforms done <em>Differently<\/em>.",
-            "text": "<p>Established in 2016, Entity Brands’ extensive selection of quality brands gives you unprecedented choice, with our expert guidance to simplify the process.<\/p>",
+            "title": "Uniforms done <em>Differently</em>.",
+            "text": "<p>Established in 2016, Entity Brands’ extensive selection of quality brands gives you unprecedented choice, with our expert guidance to simplify the process.</p>",
             "link_label": "Get Started",
-            "link": "shopify:\/\/pages\/uniform-solutions"
+            "link": "shopify://pages/uniform-solutions"
           }
         },
         "column_7bP7xy": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame_74.jpg",
+            "image": "shopify://shop_images/Frame_74.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -72,7 +75,10 @@
           }
         }
       },
-      "block_order": ["column_kgCmMg", "column_7bP7xy"],
+      "block_order": [
+        "column_kgCmMg",
+        "column_7bP7xy"
+      ],
       "settings": {
         "custom_class": "full-width hp-mc-2",
         "title": "",
@@ -97,48 +103,48 @@
         "30f58d45-35f0-440a-b4d9-c00f763afbcb": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Jess_pants_Menu_promo_pants_62ede093-d5cf-4846-be0f-f03915e4fe8b.png",
+            "image": "shopify://shop_images/Jess_pants_Menu_promo_pants_62ede093-d5cf-4846-be0f-f03915e4fe8b.png",
             "title": "HOSPITALITY",
             "text": "",
             "link_label": "link",
-            "link": "shopify:\/\/collections\/hospitality-uniforms"
+            "link": "shopify://collections/hospitality-uniforms"
           }
         },
         "1a341374-32f6-4694-b14b-c043f48e346a": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/shc08w_chr_s_v3_hr-01_83908b57-ff7e-4888-95cb-5990661d8981.png",
+            "image": "shopify://shop_images/shc08w_chr_s_v3_hr-01_83908b57-ff7e-4888-95cb-5990661d8981.png",
             "title": "HOTELS",
             "text": "",
             "link_label": "link",
-            "link": "shopify:\/\/collections\/hotel-uniforms"
+            "link": "shopify://collections/hotel-uniforms"
           }
         },
         "template--20209106649405__eec731ae-b960-45f1-a4d7-5a05c8136380-column-1": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/378453_black_model_side_0702dc2b-3fce-4107-82bb-24552ad46085.png",
+            "image": "shopify://shop_images/378453_black_model_side_0702dc2b-3fce-4107-82bb-24552ad46085.png",
             "title": "COUNTRY CLUBS",
             "text": "",
             "link_label": "link",
-            "link": "shopify:\/\/collections\/country-club-uniforms"
+            "link": "shopify://collections/country-club-uniforms"
           }
         },
         "f163f3d9-6165-47c7-b73d-49c775e740d2": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MM2011_IvoryChiff_Multi_Model_Lifestyle_BU23_LOOKBOOK_6_90d00004-30ff-4854-9da1-dcd7ef38d286.png",
+            "image": "shopify://shop_images/MM2011_IvoryChiff_Multi_Model_Lifestyle_BU23_LOOKBOOK_6_90d00004-30ff-4854-9da1-dcd7ef38d286.png",
             "title": "CORPORATE",
             "text": "",
             "link_label": "link",
-            "link": "shopify:\/\/collections\/corporate-uniforms"
+            "link": "shopify://collections/corporate-uniforms"
           }
         },
         "72d77a11-6ba3-4b38-a928-82eea36f6281": {
           "type": "column",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/Ladies_Collection_2x_e472b00b-3466-4b47-b945-60c5fcc3ba68.png",
+            "image": "shopify://shop_images/Ladies_Collection_2x_e472b00b-3466-4b47-b945-60c5fcc3ba68.png",
             "title": "Ladies Collection",
             "text": "",
             "link_label": "link",
@@ -149,7 +155,7 @@
           "type": "column",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/Activewear_Collection_2x_fb2813cd-5866-46c4-a8b1-9d8988d278f3.png",
+            "image": "shopify://shop_images/Activewear_Collection_2x_fb2813cd-5866-46c4-a8b1-9d8988d278f3.png",
             "title": "Activewear Collection",
             "text": "",
             "link_label": "link",
@@ -191,14 +197,19 @@
     },
     "brands_section_yXKjQz": {
       "type": "brands_section",
-      "settings": { "section_title": "Shop by <em>brand<\/em>" }
+      "settings": {
+        "section_title": "Shop by <em>brand</em>"
+      }
     },
     "image_with_text_CRAjQN": {
       "type": "image-with-text",
       "blocks": {
         "heading_r9KzqA": {
           "type": "heading",
-          "settings": { "heading": "Insert logo slider", "heading_size": "h1" }
+          "settings": {
+            "heading": "Insert logo slider",
+            "heading_size": "h1"
+          }
         },
         "button_QwD3Ca": {
           "type": "button",
@@ -209,7 +220,10 @@
           }
         }
       },
-      "block_order": ["heading_r9KzqA", "button_QwD3Ca"],
+      "block_order": [
+        "heading_r9KzqA",
+        "button_QwD3Ca"
+      ],
       "disabled": true,
       "settings": {
         "custom_class": "",
@@ -232,9 +246,9 @@
         "ca83b261-a528-4003-ad42-7a69dab3b004": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Embroidery___Alterations_Image_2x_7bb76a24-03f3-4b87-b491-e2b5d917e917.png",
-            "title": "Polos\/KnitEmbroidery & Alterationss Collection",
-            "text": "<p>Customizing clothing and textiles to suit ou customer’s preferences and needs.<\/p>",
+            "image": "shopify://shop_images/Embroidery___Alterations_Image_2x_7bb76a24-03f3-4b87-b491-e2b5d917e917.png",
+            "title": "Polos/KnitEmbroidery & Alterationss Collection",
+            "text": "<p>Customizing clothing and textiles to suit ou customer’s preferences and needs.</p>",
             "link_label": "link",
             "link": "#"
           }
@@ -242,9 +256,9 @@
         "ed985902-32dc-4fdd-a3cc-1669e3cdc24d": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Order_Portal_Image_2x_54fa80e0-4328-4f71-ac4b-c9fa45e4e365.png",
+            "image": "shopify://shop_images/Order_Portal_Image_2x_54fa80e0-4328-4f71-ac4b-c9fa45e4e365.png",
             "title": "Order Portal",
-            "text": "<p>Provides a convenient and accessible way for customers to make purchases online.<\/p>",
+            "text": "<p>Provides a convenient and accessible way for customers to make purchases online.</p>",
             "link_label": "link",
             "link": "#"
           }
@@ -252,9 +266,9 @@
         "405f41ff-c432-46c5-b5f2-b47fc6fe127d": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Dedicated_Account_Manager_Image_2x_b89436fd-12be-4079-8a6d-f7da4d0fbf18.png",
+            "image": "shopify://shop_images/Dedicated_Account_Manager_Image_2x_b89436fd-12be-4079-8a6d-f7da4d0fbf18.png",
             "title": "Dedicated Account Manager",
-            "text": "<p>Provide a high level of personalized service, and contribute to the overall success of the client's business.<\/p>",
+            "text": "<p>Provide a high level of personalized service, and contribute to the overall success of the client's business.</p>",
             "link_label": "link",
             "link": "#"
           }
@@ -329,9 +343,9 @@
         "column_NyXdCb": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_178_1.png",
+            "image": "shopify://shop_images/Rectangle_178_1.png",
             "title": "",
-            "text": "<p>‘The Entity Brands team have made our uniform supply process stress free. Their expert advice and access to quality brands is a definite stand out.’<\/p>",
+            "text": "<p>‘The Entity Brands team have made our uniform supply process stress free. Their expert advice and access to quality brands is a definite stand out.’</p>",
             "link_label": "",
             "link": ""
           }
@@ -339,9 +353,9 @@
         "column_bqYWaX": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_178_1.png",
+            "image": "shopify://shop_images/Rectangle_178_1.png",
             "title": "",
-            "text": "<p>‘The Entity Brands team have made our uniform supply process stress free. Their expert advice and access to quality brands is a definite stand out.’<\/p>",
+            "text": "<p>‘The Entity Brands team have made our uniform supply process stress free. Their expert advice and access to quality brands is a definite stand out.’</p>",
             "link_label": "",
             "link": ""
           }
@@ -349,19 +363,23 @@
         "column_tem6xw": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_178_1.png",
+            "image": "shopify://shop_images/Rectangle_178_1.png",
             "title": "",
-            "text": "<p>‘The Entity Brands team have made our uniform supply process stress free. Their expert advice and access to quality brands is a definite stand out.’<\/p>",
+            "text": "<p>‘The Entity Brands team have made our uniform supply process stress free. Their expert advice and access to quality brands is a definite stand out.’</p>",
             "link_label": "",
             "link": ""
           }
         }
       },
-      "block_order": ["column_NyXdCb", "column_bqYWaX", "column_tem6xw"],
+      "block_order": [
+        "column_NyXdCb",
+        "column_bqYWaX",
+        "column_tem6xw"
+      ],
       "disabled": true,
       "settings": {
         "custom_class": "trusted_by",
-        "title": "Trusted <em>by<\/em>...",
+        "title": "Trusted <em>by</em>...",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
@@ -376,6 +394,11 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "compass_b2b_landing_Xx8ywr": {
+      "type": "compass-b2b-landing",
+      "name": "Compass B2B Content",
+      "settings": {}
     }
   },
   "order": [
@@ -385,6 +408,7 @@
     "brands_section_yXKjQz",
     "image_with_text_CRAjQN",
     "8262dec3-5ba3-4b33-8c26-d9bc4390e1c4",
+    "compass_b2b_landing_Xx8ywr",
     "featured_collection_yfyGyU",
     "multicolumn_kbMUbW"
   ]
