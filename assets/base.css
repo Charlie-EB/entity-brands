@@ -5747,3 +5747,9 @@ body.b2b_portal footer.footer {
 nav.header__inline-menu {
   max-width: 998px;
 }
+
+/* compass portal  */
+
+body.b2b_portal.homepage main#MainContent.product-grid {
+  display: none !important;
+}
