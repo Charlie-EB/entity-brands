@@ -81,3 +81,36 @@ Displays selected blog articles in a grid layout.
   }
   .grid--2-col {
     grid-template-columns: repeat(
+{% schema %}
+{
+  "name": "Case Studies List",
+  "settings": [
+    {
+      "type": "blog",
+      "id": "case_blog",
+      "label": "Select Blog"
+    },
+    {
+      "type": "number",
+      "id": "limit",
+      "label": "Number of case studies to show",
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Number of columns",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    }
+  ],
+  "presets": [
+    {
+      "name": "Case Studies List",
+      "category": "Blog"
+    }
+  ]
+}
+{% endschema %}
