@@ -5734,7 +5734,9 @@ header form.search.search-modal__form {
 }
 
 /*B2B*/
-body.b2b_portal.homepage main#MainContent > *:not(:has(.product-grid)) {
+body.b2b_portal.homepage
+  main#MainContent
+  > *:not(:has(.product-grid, .compass-b2b-content)) {
   display: none !important;
 }
 
