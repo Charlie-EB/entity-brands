@@ -1,98 +1,99 @@
-{% comment %} Section: Image Slider {% endcomment %}
-<div class="custom-image-slider">
-  <div class="slider-wrapper">
-    {% for block in section.blocks %}
-      {% if block.settings.image %}
-        <div class="slide">
-          <img 
-            src="{{ block.settings.image | image_url: width: 800 }}" 
-            width="800" 
-            height="800" 
-            alt="{{ block.settings.image.alt | escape }}">
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-  <button class="slider-prev">&#10094;</button>
-  <button class="slider-next">&#10095;</button>
-</div>
-
-<style>
-  .custom-image-slider {
-    position: relative;
-    width: 800px;
-    overflow: hidden;
-    margin: auto;
-  }
-  .slider-wrapper {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-  .slide {
-    min-width: 800px;
-  }
-  .slider-prev,
-  .slider-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    border: none;
-    padding: 12px;
-    cursor: pointer;
-    z-index: 10;
-  }
-  .slider-prev { left: 0; }
-  .slider-next { right: 0; }
-</style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const slider = document.querySelector('.slider-wrapper');
-    const slides = document.querySelectorAll('.slide');
-    const prevBtn = document.querySelector('.slider-prev');
-    const nextBtn = document.querySelector('.slider-next');
-    let index = 0;
-
-    function updateSlider() {
-      slider.style.transform = 'translateX(' + (-800 * index) + 'px)';
-    }
-
-    prevBtn.addEventListener('click', function() {
-      index = (index === 0) ? slides.length - 1 : index - 1;
-      updateSlider();
-    });
-
-    nextBtn.addEventListener('click', function() {
-      index = (index === slides.length - 1) ? 0 : index + 1;
-      updateSlider();
-    });
-  });
-</script>
-
-{% schema %}
-{
-  "name": "Image Slider",
-  "max_blocks": 10,
-  "blocks": [
-    {
-      "type": "image_slide",
-      "name": "Slide",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Upload Image"
+"image_slider_nnxLfk": {
+      "type": "image-slider",
+      "blocks": {
+        "block_Pxhk8W": {
+          "type": "Block",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/crystal-logo.png",
+            "image_text": "",
+            "image_text_color": "",
+            "image_position": 50,
+            "custom_url": "https:\/\/GOOGLE.COM"
+          }
+        },
+        "block_dTrzyi": {
+          "type": "Block",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/CBRE_Group-Logo.wine.png",
+            "image_text": "",
+            "image_text_color": "",
+            "image_position": 50,
+            "custom_url": ""
+          }
+        },
+        "block_RK7DB7": {
+          "type": "Block",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/os-png.png",
+            "image_text": "",
+            "image_text_color": "",
+            "image_position": 50,
+            "custom_url": ""
+          }
+        },
+        "block_Uyp9ne": {
+          "type": "Block",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/LEVY_LEGENDARY_EXPERIENCES_LOGO_BLACK.png",
+            "image_text": "",
+            "image_text_color": "",
+            "image_position": 50,
+            "custom_url": ""
+          }
+        },
+        "block_UFDLyp": {
+          "type": "Block",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/southside-racing-logo.png",
+            "image_text": "",
+            "image_text_color": "",
+            "image_position": 50,
+            "custom_url": ""
+          }
+        },
+        "block_QaQwKf": {
+          "type": "Block",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/Choice_Hotels_logo.svg",
+            "image_text": "",
+            "image_text_color": "",
+            "image_position": 50,
+            "custom_url": ""
+          }
+        },
+        "block_yTHXFw": {
+          "type": "Block",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/Sodexo_logo.png",
+            "image_text": "",
+            "image_text_color": "",
+            "image_position": 50,
+            "custom_url": ""
+          }
+        },
+        "block_K4wpKK": {
+          "type": "Block",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/seagrass-logo.png",
+            "image_text": "",
+            "image_text_color": "",
+            "image_position": 50,
+            "custom_url": ""
+          }
         }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Image Slider",
-      "category": "Media"
-    }
-  ]
-}
-{% endschema %}
+      },
+      "block_order": [
+        "block_Pxhk8W",
+        "block_dTrzyi",
+        "block_RK7DB7",
+        "block_Uyp9ne",
+        "block_UFDLyp",
+        "block_QaQwKf",
+        "block_yTHXFw",
+        "block_K4wpKK"
+      ],
+      "settings": {
+        "custom_class": "logo_slider",
+        "heading": "Trusted By",
+        "usp_background_color": "#f3f3f3"
+      }
