@@ -12,7 +12,10 @@
     "main": {
       "type": "main-page",
       "disabled": true,
-      "settings": { "padding_top": 28, "padding_bottom": 28 }
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
     },
     "image_with_text_wMWjYg": {
       "type": "image-with-text",
@@ -20,22 +23,25 @@
         "heading_Xci3JX": {
           "type": "heading",
           "settings": {
-            "heading": "Uniform Solutions with <em>Impact<\/em>",
+            "heading": "Uniform Solutions with <em>Impact</em>",
             "heading_size": "h1"
           }
         },
         "text_g7ATh4": {
           "type": "text",
           "settings": {
-            "text": "<p>At Entity Brands, we ignite confidence in teams through personalised uniform solutions. With 20+ years of experience and exclusive access to top global brands like <strong>Nike<\/strong>, <strong>Chef Works<\/strong>, <strong>Ogio<\/strong>, and <strong>Port Authority<\/strong>, we offer a wide selection of quality uniforms to meet your business needs. <\/p><p>From <strong>hospitality <\/strong>and <strong>corporate <\/strong>to <strong>aged care <\/strong>and <strong>sports clubs,<\/strong> we'll make sure your team looks and feels their best.<\/p>",
+            "text": "<p>At Entity Brands, we ignite confidence in teams through personalised uniform solutions. With 20+ years of experience and exclusive access to top global brands like <strong>Nike</strong>, <strong>Chef Works</strong>, <strong>Ogio</strong>, and <strong>Port Authority</strong>, we offer a wide selection of quality uniforms to meet your business needs. </p><p>From <strong>hospitality </strong>and <strong>corporate </strong>to <strong>aged care </strong>and <strong>sports clubs,</strong> we'll make sure your team looks and feels their best.</p>",
             "text_style": "body"
           }
         }
       },
-      "block_order": ["heading_Xci3JX", "text_g7ATh4"],
+      "block_order": [
+        "heading_Xci3JX",
+        "text_g7ATh4"
+      ],
       "settings": {
         "custom_class": "int_main_banner",
-        "image": "shopify:\/\/shop_images\/UniformsWithImpact_02-01-01.png",
+        "image": "shopify://shop_images/UniformsWithImpact_02-01-01.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -52,102 +58,82 @@
     "image_slider_nnxLfk": {
       "type": "image-slider",
       "blocks": {
-        "block_Pxhk8W": {
+        "block_NcBRLY": {
           "type": "Block",
           "settings": {
-            "block_image": "shopify:\/\/shop_images\/crystal-logo.png",
+            "block_image": "shopify://shop_images/southside-racing-logo.png",
             "image_text": "",
-            "image_text_color": "",
-            "image_position": 50,
-            "custom_url": "https:\/\/GOOGLE.COM"
-          }
-        },
-        "block_dTrzyi": {
-          "type": "Block",
-          "settings": {
-            "block_image": "shopify:\/\/shop_images\/CBRE_Group-Logo.wine.png",
-            "image_text": "",
-            "image_text_color": "",
-            "image_position": 50,
             "custom_url": ""
           }
         },
-        "block_RK7DB7": {
+        "block_7CRbyX": {
           "type": "Block",
           "settings": {
-            "block_image": "shopify:\/\/shop_images\/os-png.png",
+            "block_image": "shopify://shop_images/crystal-logo.png",
             "image_text": "",
-            "image_text_color": "",
-            "image_position": 50,
             "custom_url": ""
           }
         },
-        "block_Uyp9ne": {
+        "block_yX9QcP": {
           "type": "Block",
           "settings": {
-            "block_image": "shopify:\/\/shop_images\/LEVY_LEGENDARY_EXPERIENCES_LOGO_BLACK.png",
+            "block_image": "shopify://shop_images/CBRE_Group-Logo.wine.png",
             "image_text": "",
-            "image_text_color": "",
-            "image_position": 50,
             "custom_url": ""
           }
         },
-        "block_UFDLyp": {
+        "block_QmhFCg": {
           "type": "Block",
           "settings": {
-            "block_image": "shopify:\/\/shop_images\/southside-racing-logo.png",
+            "block_image": "shopify://shop_images/os-png.png",
             "image_text": "",
-            "image_text_color": "",
-            "image_position": 50,
             "custom_url": ""
           }
         },
-        "block_QaQwKf": {
+        "block_FA9Vh7": {
           "type": "Block",
           "settings": {
-            "block_image": "shopify:\/\/shop_images\/Choice_Hotels_logo.svg",
+            "block_image": "shopify://shop_images/LEVY_LEGENDARY_EXPERIENCES_LOGO_BLACK.png",
             "image_text": "",
-            "image_text_color": "",
-            "image_position": 50,
             "custom_url": ""
           }
         },
-        "block_yTHXFw": {
+        "block_ecEeC8": {
           "type": "Block",
           "settings": {
-            "block_image": "shopify:\/\/shop_images\/Sodexo_logo.png",
+            "block_image": "shopify://shop_images/Choice_Hotels_logo.svg",
             "image_text": "",
-            "image_text_color": "",
-            "image_position": 50,
             "custom_url": ""
           }
         },
-        "block_K4wpKK": {
+        "block_JgCpfb": {
           "type": "Block",
           "settings": {
-            "block_image": "shopify:\/\/shop_images\/seagrass-logo.png",
+            "block_image": "shopify://shop_images/Sodexo_logo.png",
             "image_text": "",
-            "image_text_color": "",
-            "image_position": 50,
+            "custom_url": ""
+          }
+        },
+        "block_XEeRxy": {
+          "type": "Block",
+          "settings": {
+            "block_image": "shopify://shop_images/seagrass-logo.png",
+            "image_text": "",
             "custom_url": ""
           }
         }
       },
       "block_order": [
-        "block_Pxhk8W",
-        "block_dTrzyi",
-        "block_RK7DB7",
-        "block_Uyp9ne",
-        "block_UFDLyp",
-        "block_QaQwKf",
-        "block_yTHXFw",
-        "block_K4wpKK"
+        "block_NcBRLY",
+        "block_7CRbyX",
+        "block_yX9QcP",
+        "block_QmhFCg",
+        "block_FA9Vh7",
+        "block_ecEeC8",
+        "block_JgCpfb",
+        "block_XEeRxy"
       ],
-      "settings": {
-        "custom_class": "logo_slider",
-        "heading": "Trusted By",
-        "usp_background_color": "#f3f3f3"
-      }
+      "settings": {}
     },
     "image_with_text_GkLRE6": {
       "type": "image-with-text",
@@ -155,22 +141,25 @@
         "heading_HiiiM3": {
           "type": "heading",
           "settings": {
-            "heading": "The Entity Brands <em>Difference<\/em>",
+            "heading": "The Entity Brands <em>Difference</em>",
             "heading_size": "h1"
           }
         },
         "text_8bAt8c": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>01. Trusted Experts<\/strong><\/p><p>With 25+ years in the industry and thousands of teams outfitted, we know what it takes to elevate your brand and unify your team.<\/p><p><strong>02. Premium Brands<\/strong><\/p><p>We’re the exclusive supplier of world-leading brands, giving you access to the best in comfort, performance, and style.<\/p><p><strong>03. Personalised Service<\/strong><\/p><p>From custom lookbooks to your own ordering portal, we make the process easy and tailored to you.<\/p><p><strong>04. End-to-End Support<\/strong><\/p><p>From the first chat to final delivery, we handle the details so you can focus on what matters most, your business.<\/p>",
+            "text": "<p><strong>01. Trusted Experts</strong></p><p>With 25+ years in the industry and thousands of teams outfitted, we know what it takes to elevate your brand and unify your team.</p><p><strong>02. Premium Brands</strong></p><p>We’re the exclusive supplier of world-leading brands, giving you access to the best in comfort, performance, and style.</p><p><strong>03. Personalised Service</strong></p><p>From custom lookbooks to your own ordering portal, we make the process easy and tailored to you.</p><p><strong>04. End-to-End Support</strong></p><p>From the first chat to final delivery, we handle the details so you can focus on what matters most, your business.</p>",
             "text_style": "body"
           }
         }
       },
-      "block_order": ["heading_HiiiM3", "text_8bAt8c"],
+      "block_order": [
+        "heading_HiiiM3",
+        "text_8bAt8c"
+      ],
       "settings": {
         "custom_class": "int_imge_with_text_top",
-        "image": "shopify:\/\/shop_images\/Chino_PEC04-KHA_PEC04W-KHA_187.jpg",
+        "image": "shopify://shop_images/Chino_PEC04-KHA_PEC04W-KHA_187.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -206,10 +195,13 @@
           }
         }
       },
-      "block_order": ["heading_pmgDgr", "buttons_7LjyBT"],
+      "block_order": [
+        "heading_pmgDgr",
+        "buttons_7LjyBT"
+      ],
       "settings": {
         "custom_class": "int_middle_banner",
-        "image": "shopify:\/\/shop_images\/EB_Uniforms.png",
+        "image": "shopify://shop_images/EB_Uniforms.png",
         "image_overlay_opacity": 20,
         "image_height": "adapt",
         "desktop_content_position": "bottom-center",
@@ -228,9 +220,9 @@
         "column_Vp8cWM": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame_2259.png",
-            "title": "<a href=\"#\" title=\"#\">Consultation & Advice<\/a>",
-            "text": "<p>We believe in real conversations and practical advice. Tell us what you need, and we’ll guide you to the right solution.<\/p>",
+            "image": "shopify://shop_images/Frame_2259.png",
+            "title": "<a href=\"#\" title=\"#\">Consultation & Advice</a>",
+            "text": "<p>We believe in real conversations and practical advice. Tell us what you need, and we’ll guide you to the right solution.</p>",
             "link_label": "",
             "link": ""
           }
@@ -238,9 +230,9 @@
         "column_gQp93F": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/EB_embroidery.png",
-            "title": "<a href=\"#\" title=\"#\">Brand Integration<\/a>",
-            "text": "<p>Make your mark with custom embroidery, screen printing, and colours that reflect your brand’s identity.<br\/><\/p>",
+            "image": "shopify://shop_images/EB_embroidery.png",
+            "title": "<a href=\"#\" title=\"#\">Brand Integration</a>",
+            "text": "<p>Make your mark with custom embroidery, screen printing, and colours that reflect your brand’s identity.<br/></p>",
             "link_label": "",
             "link": ""
           }
@@ -248,18 +240,22 @@
         "column_QVKhEC": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/K398_LK398_Spring_Green_Model_0075_29eaec8c-38e8-43d5-b1b4-2e3dcd1ba7b1.png",
-            "title": "<a href=\"#\" title=\"#\">Comprehensive Range<\/a>",
-            "text": "<p>From durable workwear to stylish corporate pieces, we’ve got something for every role and industry. <br\/> <\/p><p><\/p><p><\/p>",
+            "image": "shopify://shop_images/K398_LK398_Spring_Green_Model_0075_29eaec8c-38e8-43d5-b1b4-2e3dcd1ba7b1.png",
+            "title": "<a href=\"#\" title=\"#\">Comprehensive Range</a>",
+            "text": "<p>From durable workwear to stylish corporate pieces, we’ve got something for every role and industry. <br/> </p><p></p><p></p>",
             "link_label": "",
             "link": ""
           }
         }
       },
-      "block_order": ["column_Vp8cWM", "column_gQp93F", "column_QVKhEC"],
+      "block_order": [
+        "column_Vp8cWM",
+        "column_gQp93F",
+        "column_QVKhEC"
+      ],
       "settings": {
         "custom_class": "int_how_we_help",
-        "title": "How we <em>help<\/em>",
+        "title": "How we <em>help</em>",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
@@ -289,7 +285,7 @@
         "text_qYwCkz": {
           "type": "text",
           "settings": {
-            "text": "<p>\"Working with the team at Entity Brands was an absolute pleasure. They provided samples, created a detailed lookbook, and once we finalised our choices, the uniforms were delivered within just 12 days. I highly recommend their service for anyone in need of high-quality uniforms.\"<\/p>"
+            "text": "<p>\"Working with the team at Entity Brands was an absolute pleasure. They provided samples, created a detailed lookbook, and once we finalised our choices, the uniforms were delivered within just 12 days. I highly recommend their service for anyone in need of high-quality uniforms.\"</p>"
           }
         },
         "caption_x44ULB": {
@@ -335,14 +331,14 @@
         "heading_m6MyBy": {
           "type": "heading",
           "settings": {
-            "heading": "What Our Customers <em>Say<\/em>",
+            "heading": "What Our Customers <em>Say</em>",
             "heading_size": "h2"
           }
         },
         "text_c8Aec4": {
           "type": "text",
           "settings": {
-            "text": "<p>\"Working with the team at Entity Brands was an absolute pleasure. They provided samples, created a detailed lookbook, and once we finalised our choices, the uniforms were delivered within just 12 days. I highly recommend their service for anyone in need of high-quality uniforms.\"<\/p>",
+            "text": "<p>\"Working with the team at Entity Brands was an absolute pleasure. They provided samples, created a detailed lookbook, and once we finalised our choices, the uniforms were delivered within just 12 days. I highly recommend their service for anyone in need of high-quality uniforms.\"</p>",
             "text_style": "body"
           }
         },
@@ -355,10 +351,14 @@
           }
         }
       },
-      "block_order": ["heading_m6MyBy", "text_c8Aec4", "caption_KLc37k"],
+      "block_order": [
+        "heading_m6MyBy",
+        "text_c8Aec4",
+        "caption_KLc37k"
+      ],
       "settings": {
         "custom_class": "int_imge_with_text",
-        "image": "shopify:\/\/shop_images\/K500_hanging_GA15.jpg",
+        "image": "shopify://shop_images/K500_hanging_GA15.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -378,18 +378,21 @@
         "heading_a9Dacg": {
           "type": "heading",
           "settings": {
-            "heading": "Ready to Elevate Your Team's <em>Look<\/em>?",
+            "heading": "Ready to Elevate Your Team's <em>Look</em>?",
             "heading_size": "h1"
           }
         },
         "text_JpJJCL": {
           "type": "text",
           "settings": {
-            "text": "<p>Fill out the form below to start your journey with us. Whether you're looking for a consultation, a quote, or simply more information, our team is here to support you.<\/p>"
+            "text": "<p>Fill out the form below to start your journey with us. Whether you're looking for a consultation, a quote, or simply more information, our team is here to support you.</p>"
           }
         }
       },
-      "block_order": ["heading_a9Dacg", "text_JpJJCL"],
+      "block_order": [
+        "heading_a9Dacg",
+        "text_JpJJCL"
+      ],
       "custom_css": [
         ".rich-text {background: #f2f2f2;}",
         "h2.rich-text__heading.rte {font-family: \"kepler-std-condensed-subhead\", serif !important; font-size: 68.23px; font-weight: 300; line-height: 58px; text-align: center; color: #000;}",
@@ -410,7 +413,7 @@
       "type": "apps",
       "blocks": {
         "forms_inline_yjUxce": {
-          "type": "shopify:\/\/apps\/forms\/blocks\/inline\/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
           "settings": {
             "form_id": "112461",
             "text_color": "#202020",
@@ -427,13 +430,17 @@
           }
         }
       },
-      "block_order": ["forms_inline_yjUxce"],
-      "settings": { "include_margins": true }
+      "block_order": [
+        "forms_inline_yjUxce"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     },
     "custom_liquid_yNQTVh": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<style>\n.shopify-section.section:has(form-embed#app-embed) {\n    background: #F2F2F2;\n}\n\n<\/style>\n\n<script>\n  \/\/ Create a function to inject styles once the element is found\n  function applyShadowStyles() {\n    let shadowHost = document.querySelector('#app-embed');\n    \n    \/\/ Ensure the element exists and has a shadow root\n    if (shadowHost && shadowHost.shadowRoot) {\n      let shadowRoot = shadowHost.shadowRoot;\n\n      let style = document.createElement('style');\n      style.textContent = `\n        section[data-sizing=\"form-wrapper\"] {\n          max-width: 1040px !important;\n    padding: 30px 100px 80px;\n        }\nform._formFieldset_1ll8d_67 {\n    flex-direction: row !important;\n    flex-wrap: wrap;\njustify-content: center !important;\n}\n\nform._formFieldset_1ll8d_67>div:nth-child(-n+6) {\n    width: calc(50% - 5px);\n    box-sizing: border-box; \n}\nform._formFieldset_1ll8d_67>fieldset {\n    width: 100%;\n}\nform._formFieldset_1ll8d_67>._selectContainer_1yit2_6 {\n    width: calc(50% - 5px);\n    box-sizing: border-box;\n    margin-bottom: 20px;\n}\nfieldset[name=\"custom#which_brands_are_you_interested_in_\"] ._verticalLayout_171zd_6 {\n    flex-direction: row;\n    flex-wrap: wrap;\n}\n\n._checkboxField_171zd_1 {\n   width: calc(25% - 7.5px);\n    border: 1px solid #00000033;\n    padding: 13px;\n    box-sizing: border-box;\n    font-family: ITC Avant Garde Gothic Pro;\n    font-size: 16px !important;\n    font-weight: 500;\n    line-height: 19.2px;\n    text-align: left;\n    border-radius: 6px;\ncursor: pointer;\n}\ndiv#app-embed input {\n    background: none !important;\n}\n\nbutton[aria-controls=\"country-selector-dropdown\"] {\n    background: none !important;\n}\n\nform._formFieldset_1ll8d_67>._selectContainer_1yit2_6 button {\n    background: none !important;\n}\n\nbutton[type=\"submit\"] {\n    background: #E96C24 !important;\n    border-radius: 20px !important;\n    width: 360px !important;\n    max-width: 80% !important;\nline-height: 28px !important;\n}\n._checkboxField_171zd_1:has(input:checked) {\n    background: #E96C24;\n        border-color: #E96C24;\n    color: #fff !important;\n}\n._checkboxField_171zd_1:has(input:checked) span {\n    color: #fff !important;\n}\n\n._checkboxField_171zd_1:has(input:checked) input {\n    accent-color: #ffffff;\n}\n._formDisclaimer_1ll8d_37 {\n    width: 360px;\n    max-width: 80%;\n}\ndiv#app-embed * {\n    font-family: 'ITC Avant Garde Pro Md', sans-serif !important;\n}\nsection._formHeader_1ll8d_19 {\n    display: none !important;\n}\n\ndiv#app-embed legend {\n    font-size: 20px !important;\npadding: 20px 0; \n}\nform._formFieldset_1ll8d_67>._selectContainer_1yit2_6 p {\n    font-size: 20px !important;\n    margin: 20px 0 !important;\n    display: block;\n    padding: 0;\n}\ndiv#app-embed button._formSubmitButton_1ll8d_81 {\n    font-size: 20px !important;\n    font-weight: 500;\n}\n@media (max-width: 768px) {\nform._formFieldset_1ll8d_67>div:nth-child(-n+6) {\n    width: 100%;\n}\n\n._checkboxField_171zd_1 {\n    width: calc(50% - 5px);\n}\n\nform._formFieldset_1ll8d_67>._selectContainer_1yit2_6 {\n    width: 100%;\n}\nform._formFieldset_1ll8d_67>._selectContainer_1yit2_6 p {\n    font-size: 16px !important;\n    margin: 10px 0 !important;\n}\ndiv#app-embed legend {\n    font-size: 16px !important;\n    padding: 10px 0;\n}\n} \n      `;\n\n      \/\/ Append the style inside the shadow DOM\n      shadowRoot.appendChild(style);\n    }\n  }\n\n  \/\/ Set up the MutationObserver to look for the #app-embed element\n  const observer = new MutationObserver((mutations) => {\n    mutations.forEach((mutation) => {\n      if (document.querySelector('#app-embed')) {\n        \/\/ If #app-embed is found, apply styles and stop observing\n        applyShadowStyles();\n        observer.disconnect();\n      }\n    });\n  });\n\n  \/\/ Start observing the document for changes in the child list (DOM modifications)\n  observer.observe(document.body, { childList: true, subtree: true });\n\n<\/script>\n\n<!--Jump on form-->\n<script>\n  $(document).ready(function() {\n    \/\/ Function to determine the scroll offset based on device type\n    function getScrollOffset() {\n      const isMobile = $(window).width() <= 768; \/\/ 768px as mobile width breakpoint\n      return isMobile ? 73 : 65; \/\/ 73px for mobile, 65px for desktop\n    }\n\n    \/\/ Smooth scroll function\n    function scrollToSection(sectionId) {\n      const offset = getScrollOffset(); \/\/ Get the appropriate offset\n      const $section = $(sectionId); \/\/ Select the section by ID\n\n      if ($section.length) {\n        \/\/ Get the position of the section and scroll with offset\n        $('html, body').animate({\n          scrollTop: $section.offset().top - offset\n        }, 800); \/\/ Duration of 800ms for smooth scrolling\n      }\n    }\n\n    \/\/ Listen for clicks on all links that have href=\"#form\"\n    $('a[href=\"#form\"]').on('click', function(event) {\n      event.preventDefault(); \/\/ Prevent default anchor link behavior\n\n      \/\/ Scroll to the target section\n      scrollToSection('#shopify-section-template--23541377302891__rich_text_Qbnt99');\n    });\n  });\n<\/script>",
+        "custom_liquid": "<style>\n.shopify-section.section:has(form-embed#app-embed) {\n    background: #F2F2F2;\n}\n\n</style>\n\n<script>\n  // Create a function to inject styles once the element is found\n  function applyShadowStyles() {\n    let shadowHost = document.querySelector('#app-embed');\n    \n    // Ensure the element exists and has a shadow root\n    if (shadowHost && shadowHost.shadowRoot) {\n      let shadowRoot = shadowHost.shadowRoot;\n\n      let style = document.createElement('style');\n      style.textContent = `\n        section[data-sizing=\"form-wrapper\"] {\n          max-width: 1040px !important;\n    padding: 30px 100px 80px;\n        }\nform._formFieldset_1ll8d_67 {\n    flex-direction: row !important;\n    flex-wrap: wrap;\njustify-content: center !important;\n}\n\nform._formFieldset_1ll8d_67>div:nth-child(-n+6) {\n    width: calc(50% - 5px);\n    box-sizing: border-box; \n}\nform._formFieldset_1ll8d_67>fieldset {\n    width: 100%;\n}\nform._formFieldset_1ll8d_67>._selectContainer_1yit2_6 {\n    width: calc(50% - 5px);\n    box-sizing: border-box;\n    margin-bottom: 20px;\n}\nfieldset[name=\"custom#which_brands_are_you_interested_in_\"] ._verticalLayout_171zd_6 {\n    flex-direction: row;\n    flex-wrap: wrap;\n}\n\n._checkboxField_171zd_1 {\n   width: calc(25% - 7.5px);\n    border: 1px solid #00000033;\n    padding: 13px;\n    box-sizing: border-box;\n    font-family: ITC Avant Garde Gothic Pro;\n    font-size: 16px !important;\n    font-weight: 500;\n    line-height: 19.2px;\n    text-align: left;\n    border-radius: 6px;\ncursor: pointer;\n}\ndiv#app-embed input {\n    background: none !important;\n}\n\nbutton[aria-controls=\"country-selector-dropdown\"] {\n    background: none !important;\n}\n\nform._formFieldset_1ll8d_67>._selectContainer_1yit2_6 button {\n    background: none !important;\n}\n\nbutton[type=\"submit\"] {\n    background: #E96C24 !important;\n    border-radius: 20px !important;\n    width: 360px !important;\n    max-width: 80% !important;\nline-height: 28px !important;\n}\n._checkboxField_171zd_1:has(input:checked) {\n    background: #E96C24;\n        border-color: #E96C24;\n    color: #fff !important;\n}\n._checkboxField_171zd_1:has(input:checked) span {\n    color: #fff !important;\n}\n\n._checkboxField_171zd_1:has(input:checked) input {\n    accent-color: #ffffff;\n}\n._formDisclaimer_1ll8d_37 {\n    width: 360px;\n    max-width: 80%;\n}\ndiv#app-embed * {\n    font-family: 'ITC Avant Garde Pro Md', sans-serif !important;\n}\nsection._formHeader_1ll8d_19 {\n    display: none !important;\n}\n\ndiv#app-embed legend {\n    font-size: 20px !important;\npadding: 20px 0; \n}\nform._formFieldset_1ll8d_67>._selectContainer_1yit2_6 p {\n    font-size: 20px !important;\n    margin: 20px 0 !important;\n    display: block;\n    padding: 0;\n}\ndiv#app-embed button._formSubmitButton_1ll8d_81 {\n    font-size: 20px !important;\n    font-weight: 500;\n}\n@media (max-width: 768px) {\nform._formFieldset_1ll8d_67>div:nth-child(-n+6) {\n    width: 100%;\n}\n\n._checkboxField_171zd_1 {\n    width: calc(50% - 5px);\n}\n\nform._formFieldset_1ll8d_67>._selectContainer_1yit2_6 {\n    width: 100%;\n}\nform._formFieldset_1ll8d_67>._selectContainer_1yit2_6 p {\n    font-size: 16px !important;\n    margin: 10px 0 !important;\n}\ndiv#app-embed legend {\n    font-size: 16px !important;\n    padding: 10px 0;\n}\n} \n      `;\n\n      // Append the style inside the shadow DOM\n      shadowRoot.appendChild(style);\n    }\n  }\n\n  // Set up the MutationObserver to look for the #app-embed element\n  const observer = new MutationObserver((mutations) => {\n    mutations.forEach((mutation) => {\n      if (document.querySelector('#app-embed')) {\n        // If #app-embed is found, apply styles and stop observing\n        applyShadowStyles();\n        observer.disconnect();\n      }\n    });\n  });\n\n  // Start observing the document for changes in the child list (DOM modifications)\n  observer.observe(document.body, { childList: true, subtree: true });\n\n</script>\n\n<!--Jump on form-->\n<script>\n  $(document).ready(function() {\n    // Function to determine the scroll offset based on device type\n    function getScrollOffset() {\n      const isMobile = $(window).width() <= 768; // 768px as mobile width breakpoint\n      return isMobile ? 73 : 65; // 73px for mobile, 65px for desktop\n    }\n\n    // Smooth scroll function\n    function scrollToSection(sectionId) {\n      const offset = getScrollOffset(); // Get the appropriate offset\n      const $section = $(sectionId); // Select the section by ID\n\n      if ($section.length) {\n        // Get the position of the section and scroll with offset\n        $('html, body').animate({\n          scrollTop: $section.offset().top - offset\n        }, 800); // Duration of 800ms for smooth scrolling\n      }\n    }\n\n    // Listen for clicks on all links that have href=\"#form\"\n    $('a[href=\"#form\"]').on('click', function(event) {\n      event.preventDefault(); // Prevent default anchor link behavior\n\n      // Scroll to the target section\n      scrollToSection('#shopify-section-template--23541377302891__rich_text_Qbnt99');\n    });\n  });\n</script>",
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 0
