@@ -1,99 +1,116 @@
-"image_slider_nnxLfk": {
-      "type": "image-slider",
-      "blocks": {
-        "block_Pxhk8W": {
-          "type": "Block",
-          "settings": {
-            "block_image": "shopify:\/\/shop_images\/crystal-logo.png",
-            "image_text": "",
-            "image_text_color": "",
-            "image_position": 50,
-            "custom_url": "https:\/\/GOOGLE.COM"
-          }
+{% comment %}
+  Auto-scrolling logo slider section
+{% endcomment %}
+
+<div class="logo_slider" style="background-color: {{ section.settings.usp_background_color }};">
+  {% if section.settings.heading != blank %}
+    <h2 style="text-align:center; margin-bottom: 20px;">{{ section.settings.heading }}</h2>
+  {% endif %}
+
+  <div class="logo-slider-track">
+    {% for block in section.blocks %}
+      <div class="logo-slide">
+        {% if block.settings.custom_url != blank %}
+          <a href="{{ block.settings.custom_url }}">
+            <img src="{{ block.settings.block_image | img_url: '200x' }}" alt="{{ block.settings.image_text | escape }}">
+          </a>
+        {% else %}
+          <img src="{{ block.settings.block_image | img_url: '200x' }}" alt="{{ block.settings.image_text | escape }}">
+        {% endif %}
+      </div>
+    {% endfor %}
+    {% comment %} Duplicate for infinite loop effect {% endcomment %}
+    {% for block in section.blocks %}
+      <div class="logo-slide">
+        {% if block.settings.custom_url != blank %}
+          <a href="{{ block.settings.custom_url }}">
+            <img src="{{ block.settings.block_image | img_url: '200x' }}" alt="{{ block.settings.image_text | escape }}">
+          </a>
+        {% else %}
+          <img src="{{ block.settings.block_image | img_url: '200x' }}" alt="{{ block.settings.image_text | escape }}">
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+.logo_slider {
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.logo-slider-track {
+  display: flex;
+  animation: scroll-logos 30s linear infinite;
+}
+
+.logo-slide {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30px;
+}
+
+.logo-slide img {
+  max-height: 80px;
+  max-width: 160px;
+  object-fit: contain;
+}
+
+@keyframes scroll-logos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Auto Logo Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Trusted By"
+    },
+    {
+      "type": "color",
+      "id": "usp_background_color",
+      "label": "Background color",
+      "default": "#f3f3f3"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "Block",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "block_image",
+          "label": "Logo Image"
         },
-        "block_dTrzyi": {
-          "type": "Block",
-          "settings": {
-            "block_image": "shopify:\/\/shop_images\/CBRE_Group-Logo.wine.png",
-            "image_text": "",
-            "image_text_color": "",
-            "image_position": 50,
-            "custom_url": ""
-          }
+        {
+          "type": "text",
+          "id": "image_text",
+          "label": "Alt Text"
         },
-        "block_RK7DB7": {
-          "type": "Block",
-          "settings": {
-            "block_image": "shopify:\/\/shop_images\/os-png.png",
-            "image_text": "",
-            "image_text_color": "",
-            "image_position": 50,
-            "custom_url": ""
-          }
-        },
-        "block_Uyp9ne": {
-          "type": "Block",
-          "settings": {
-            "block_image": "shopify:\/\/shop_images\/LEVY_LEGENDARY_EXPERIENCES_LOGO_BLACK.png",
-            "image_text": "",
-            "image_text_color": "",
-            "image_position": 50,
-            "custom_url": ""
-          }
-        },
-        "block_UFDLyp": {
-          "type": "Block",
-          "settings": {
-            "block_image": "shopify:\/\/shop_images\/southside-racing-logo.png",
-            "image_text": "",
-            "image_text_color": "",
-            "image_position": 50,
-            "custom_url": ""
-          }
-        },
-        "block_QaQwKf": {
-          "type": "Block",
-          "settings": {
-            "block_image": "shopify:\/\/shop_images\/Choice_Hotels_logo.svg",
-            "image_text": "",
-            "image_text_color": "",
-            "image_position": 50,
-            "custom_url": ""
-          }
-        },
-        "block_yTHXFw": {
-          "type": "Block",
-          "settings": {
-            "block_image": "shopify:\/\/shop_images\/Sodexo_logo.png",
-            "image_text": "",
-            "image_text_color": "",
-            "image_position": 50,
-            "custom_url": ""
-          }
-        },
-        "block_K4wpKK": {
-          "type": "Block",
-          "settings": {
-            "block_image": "shopify:\/\/shop_images\/seagrass-logo.png",
-            "image_text": "",
-            "image_text_color": "",
-            "image_position": 50,
-            "custom_url": ""
-          }
+        {
+          "type": "url",
+          "id": "custom_url",
+          "label": "Link URL"
         }
-      },
-      "block_order": [
-        "block_Pxhk8W",
-        "block_dTrzyi",
-        "block_RK7DB7",
-        "block_Uyp9ne",
-        "block_UFDLyp",
-        "block_QaQwKf",
-        "block_yTHXFw",
-        "block_K4wpKK"
-      ],
-      "settings": {
-        "custom_class": "logo_slider",
-        "heading": "Trusted By",
-        "usp_background_color": "#f3f3f3"
-      }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "Auto Logo Slider",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
