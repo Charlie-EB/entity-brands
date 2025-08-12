@@ -121,6 +121,14 @@
             "image_text": "",
             "custom_url": ""
           }
+        },
+        "block_A8XWtY": {
+          "type": "Block",
+          "settings": {
+            "block_image": "shopify://shop_images/Crown-Sydney_Black.png",
+            "image_text": "",
+            "custom_url": ""
+          }
         }
       },
       "block_order": [
@@ -131,7 +139,8 @@
         "block_FA9Vh7",
         "block_ecEeC8",
         "block_JgCpfb",
-        "block_XEeRxy"
+        "block_XEeRxy",
+        "block_A8XWtY"
       ],
       "settings": {}
     },
