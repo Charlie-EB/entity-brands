@@ -244,11 +244,6 @@
         "padding_bottom": 36
       }
     },
-    "image_slider_4TWCMz": {
-      "type": "image-slider",
-      "name": "Image Slider",
-      "settings": {}
-    },
     "rich_text_NjPaJx": {
       "type": "rich-text",
       "blocks": {
@@ -332,7 +327,6 @@
     "image_with_text_FmEgaa",
     "image_with_text_wygnUy",
     "image_with_text_YC6tgr",
-    "image_slider_4TWCMz",
     "rich_text_NjPaJx",
     "custom_image_slider_TWHTdy"
   ]
