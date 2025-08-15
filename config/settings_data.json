@@ -153,6 +153,14 @@
         "settings": {
           "color_scheme": "background-1"
         }
+      },
+      "case-studies-list": {
+        "type": "case-studies-list",
+        "settings": {
+          "case_blog": "case-studies",
+          "limit": 6,
+          "columns": 3
+        }
       }
     },
     "content_for_index": [],
